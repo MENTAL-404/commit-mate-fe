@@ -5,7 +5,6 @@ import Home from './pages/Home'
 import Commits from './pages/Commits'
 import Issues from './pages/Issues'
 import Settings from './pages/Settings'
-import SideBar from './components/SideBar'
 
 import styles from './App.module.css'
 
@@ -13,7 +12,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className={styles.App}>
-        <SideBar />
         <Routes>
           <Route path={URL.logIn} element={<Login />}></Route>
           <Route path={URL.home} element={<Home />}></Route>

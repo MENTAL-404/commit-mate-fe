@@ -1,0 +1,94 @@
+.main {
+  width: 100%;
+}
+
+.logo {
+  width: 30rem;
+  height: 15rem;
+  object-fit: cover;
+}
+
+.container {
+  margin: auto;
+  width: 100rem;
+  height: calc(100vh - 30rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20rem;
+}
+
+.logo2 {
+  width: 39rem;
+}
+
+.signIn {
+  width: 37rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+.inputContainer {
+  display: flex;
+  margin-top: 2.8rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3.8rem;
+  width: 100%;
+}
+
+#emailInput,
+#passwordInput {
+  box-sizing: border-box;
+  background-color: transparent;
+  width: 100%;
+  border: 0;
+  border-radius: 0.8rem;
+  background-color: rgb(77, 173, 93, 0.3);
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--git2);
+}
+
+.loginBtn {
+  margin-top: 8rem;
+  background-color: var(--git3);
+  width: 37rem;
+  height: 6rem;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 61px rgba(78, 171, 95, 0.41);
+}
+
+.other {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  color: #b5b5b5;
+  font-size: 1.6rem;
+  margin-top: 5.5rem;
+}
+
+.loginIcon {
+  display: flex;
+  gap: 2rem;
+}
+
+.icon {
+  width: 4rem;
+  height: 4rem;
+  margin-top: 4.5rem;
+}
