@@ -10,7 +10,7 @@
   "proseWrap": "always",
   "quoteProps": "as-needed",
   "requirePragma": false,
-  "semi": true,
+  "semi": false,
   "singleAttributePerLine": false,
   "singleQuote": true,
   "tabWidth": 2,
