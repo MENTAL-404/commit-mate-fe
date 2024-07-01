@@ -1,3 +1,5 @@
+import Layout from "../Layout";
+
 export default function Issues() {
-  return (<div>이슈</div>)
+  return (<Layout>이슈</Layout>)
 }

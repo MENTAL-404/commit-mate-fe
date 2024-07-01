@@ -1,3 +1,5 @@
+import Layout from "../Layout";
+
 export default function Settings() {
-  return (<div>설정</div>)
+  return (<Layout>설정</Layout>)
 }

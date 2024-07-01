@@ -1,3 +1,5 @@
+import Layout from "../Layout";
+
 export default function Home() {
-  return (<div>대시보드</div>)
+  return (<Layout>대시보드</Layout>)
 }
