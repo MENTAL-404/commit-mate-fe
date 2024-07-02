@@ -31,7 +31,7 @@ export default function RightSideBar() {
           <div className={styles.innerTodoContainer}>
             <div className={styles.innerTitle}>Todo</div>
             <div className={styles.todoList}>No todos yet</div>
-            <duv className={styles.addTodoBtn}>Add Todo</duv>
+            <div className={styles.addTodoBtn}>Add Todo</div>
           </div>
         </div>
         <div className={styles.linkContainer}>
@@ -40,9 +40,6 @@ export default function RightSideBar() {
             <div className={styles.link}>
               <img src={linkGithub} alt='github' className={styles.linkLogo} />
               Github Repository
-            </div>
-            <div className={`${styles.link} ${styles.noLink}`}>
-              추가된 바로가기가 없습니다
             </div>
             <div className={`${styles.link} ${styles.noLink}`}>
               추가된 바로가기가 없습니다
