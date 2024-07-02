@@ -1,0 +1,70 @@
+.main {
+  padding: 2rem;
+  box-sizing: border-box;
+  width: 22rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
+.logo {
+  margin-top: 3rem;
+  width: 16rem;
+}
+
+.tab {
+  width: 17rem;
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.whiteRound {
+  background-color: white;
+  border-radius: 50%;
+  width: 3.6rem;
+  height: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home,
+.commit,
+.issue,
+.setting,
+.logout {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 1rem;
+  border-radius: 3rem;
+  color: #abb5ba;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.homeIcon,
+.commitIcon,
+.issueIcon,
+.settingIcon,
+.logoutIcon {
+  width: 2rem;
+}
+
+.logoCat {
+  position: absolute;
+  bottom: 5rem;
+  width: 14rem;
+}
+
+.clicked {
+  background-color: #eb763c;
+  color: white;
+}

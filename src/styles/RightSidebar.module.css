@@ -1,0 +1,197 @@
+.main {
+  width: 37.8rem;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: var(--light-grey);
+}
+
+.sideBar {
+  overflow-y: auto;
+  width: 100%;
+  padding: 3rem;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 4rem;
+  background-color: var(--git0);
+}
+
+.topContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.notiContainer {
+  border-radius: 50%;
+  background-color: white;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileContainer {
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem;
+  box-sizing: border-box;
+  background-color: white;
+  font-size: 1.4rem;
+  width: 24.3rem;
+}
+
+.innerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.notiIcon {
+  width: 1.7rem;
+}
+
+.profileImage {
+  width: 3.8rem;
+}
+
+.dropImage {
+  height: 0.8rem;
+  width: 1.4rem;
+  padding: 1rem;
+}
+
+.todoContainer {
+  width: 100%;
+  margin-top: 3.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.title {
+  margin-left: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.innerTitle {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.innerTodoContainer {
+  width: 100%;
+  height: 20rem;
+  border-radius: 1.8rem;
+  padding: 2.4rem;
+  box-sizing: border-box;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todoList {
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  color: #cccccc;
+}
+
+.addTodoBtn {
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--light-grey);
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.2rem;
+}
+
+.linkContainer {
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.link {
+  width: 100%;
+  background-color: white;
+  border-radius: 1.8rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.noLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cccccc;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.linkLogo {
+  width: 3rem;
+}
+
+.statusContainer {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.innerStatusContainer {
+  padding: 2.4rem;
+  width: 100%;
+  height: 12rem;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.innerStatusTitle {
+  color: var(--git4);
+  font-weight: 700;
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.book {
+  width: 8rem;
+}
+
+.graph {
+  width: 7rem;
+}

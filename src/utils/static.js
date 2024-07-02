@@ -1,6 +1,6 @@
 export const URL = {
   logIn: '/',
-  home: '/dashboard',
+  home: '/home',
   commits: '/commits',
   issues: '/issues',
   settings: '/settings',
