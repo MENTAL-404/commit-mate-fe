@@ -1,0 +1,174 @@
+.topContainer {
+  flex: 1;
+  max-width: 67rem;
+  background-color: white;
+  border-radius: 0.2rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  box-shadow: 0 0.2rem 3rem rgba(128, 144, 155, 0.2);
+}
+
+.bottomOuterContainer {
+  overflow-x: none;
+  /* 익스플로러 스크롤바 옵션 */
+  -ms-overflow-style: none;
+  /* 파이어폭스 스크롤바 옵션 */
+  scrollbar-width: none;
+  margin-top: 2.5rem;
+  height: calc(100vh - 96px);
+  overflow-y: auto;
+}
+
+.wordCloudContainer {
+  width: 100%;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.innerContainer {
+  margin-top: 2rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2.4rem;
+  height: 20rem;
+  width: 100%;
+}
+
+.wordCloud {
+  width: 25rem;
+}
+
+.middleContainer {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  margin-top: 2rem;
+  gap: 5rem;
+}
+
+.activeContainer {
+  width: 45%;
+  height: fit-content;
+}
+
+.middleTitle {
+  max-width: 18.8rem;
+  margin-top: 2.3rem;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  font-size: 1.4rem;
+  font-weight: 600;
+  background-color: white;
+  align-items: center;
+}
+
+.tag {
+  height: 3.4rem;
+}
+
+.issueContainer {
+  width: 45%;
+  max-width: 45rem;
+}
+
+.middleBar {
+  width: 4rem;
+  height: 0.5rem;
+  border-radius: 3rem;
+  background-color: #4db24d;
+}
+
+.activeChart {
+  width: 100%;
+  max-width: 35rem;
+  margin-top: 1.2rem;
+  box-sizing: border-box;
+}
+
+.issueList {
+  box-sizing: border-box;
+  margin-top: 1.2rem;
+  height: 22rem;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.issue {
+  width: 100%;
+  padding: 1rem;
+  background-color: white;
+  height: 9rem;
+  box-sizing: border-box;
+  border-radius: 1rem;
+}
+
+.issueMessage {
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.actionIcon {
+  width: 1.5rem;
+}
+
+.comment,
+.clip,
+.check {
+  color: #9ea3a9;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.bottomInner {
+  gap: 2.5rem;
+  display: flex;
+  align-items: center;
+  width: 25rem;
+  background-color: white;
+  padding: 1rem;
+  box-sizing: border-box;
+  height: 7rem;
+  border-radius: 1.6rem;
+  box-shadow: 0 0.2rem 3rem rgba(128, 144, 155, 0.2);
+}
+
+.bottomContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2.8rem;
+  padding-bottom: 3rem;
+}
+
+.innerImage {
+  width: 5rem;
+  height: 5rem;
+}
+
+.textTitle {
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.textBottom {
+  font-size: 1.5rem;
+  color: #8a97a4;
+}
