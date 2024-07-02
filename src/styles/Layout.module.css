@@ -6,6 +6,8 @@
 
 .chilren {
   width: 100%;
+  box-sizing: border-box;
   height: 100vh;
-  background-color: #f1f1f1;
+  padding: 5rem;
+  background-color: var(--light-grey);
 }
