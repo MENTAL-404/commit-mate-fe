@@ -13,11 +13,11 @@ function App() {
     <BrowserRouter>
       <div className={styles.App}>
         <Routes>
-          <Route path={URL.logIn} element={<Login />}></Route>
-          <Route path={URL.home} element={<Home />}></Route>
-          <Route path={URL.commits} element={<Commits />}></Route>
-          <Route path={URL.issues} element={<Issues />}></Route>
-          <Route path={URL.settings} element={<Settings />}></Route>
+          <Route path={URL.logIn} element={<div className={styles.PageContainer}><Login /></div>}></Route>
+          <Route path={URL.home} element={<div className={styles.PageContainer}><Home /></div>}></Route>
+          <Route path={URL.commits} element={<div className={styles.PageContainer}><Commits /></div>}></Route>
+          <Route path={URL.issues} element={<div className={styles.PageContainer}><Issues /></div>}></Route>
+          <Route path={URL.settings} element={<div className={styles.PageContainer}><Settings /></div>}></Route>
         </Routes>
       </div>
     </BrowserRouter>

@@ -15,7 +15,7 @@
   padding: 3rem;
   height: 100%;
   box-sizing: border-box;
-  border-radius: 4rem;
+  /*border-radius: 4rem;*/
   background-color: var(--git0);
 }
 
@@ -74,6 +74,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
+
 }
 
 .title {
@@ -98,6 +99,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 }
 
 .todoList {
@@ -150,6 +152,7 @@
   font-size: 1.3rem;
   font-weight: 500;
   box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 }
 
 .noLink {
@@ -181,6 +184,7 @@
   border-radius: 1.8rem;
   display: flex;
   justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 }
 
 .innerStatusTitle {
