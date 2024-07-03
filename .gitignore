@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+.idea
+.idea/*
+
 # testing
 /coverage
 
@@ -21,3 +24,14 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
