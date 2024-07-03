@@ -234,6 +234,12 @@
   }
 }
 
+@media screen and (max-width: 850px) {
+  .action {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .topContainer {
     font-size: 1rem;

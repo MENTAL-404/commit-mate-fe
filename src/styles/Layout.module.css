@@ -4,10 +4,16 @@
   height: 100vh;
 }
 
-.chilren {
+.children {
   width: 100%;
   box-sizing: border-box;
   height: 100vh;
   padding: 2rem;
   background-color: var(--light-grey);
+}
+
+@media (max-width: 1000px) {
+  .rightSideBar {
+    display: block;
+  }
 }
