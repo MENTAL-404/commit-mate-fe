@@ -15,7 +15,7 @@
   padding: 3rem;
   height: 100%;
   box-sizing: border-box;
-  border-radius: 4rem;
+  /*border-radius: 4rem;*/
   background-color: var(--git0);
 }
 
