@@ -1,5 +1,8 @@
+@import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
+
+
 html {
-  background: var(--light-gray);
+  background: var(--light-grey);
   font-size: 62.5%;
 }
 
@@ -11,9 +14,10 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Wanted Sans Variable', sans-serif;
 }
 
+/*Colors and Styles (Default)*/
 :root {
   --git1: #4dad5d;
   --git2: #218d49;
@@ -21,4 +25,11 @@ body {
   --git4: #27a857;
   --git0: #e4fbe7;
   --light-grey: #f1f1f1;
+}
+
+*{
+  padding: 0;
+  box-sizing: border-box;;
+  margin: 0;
+  transtion: .3s ease;
 }
