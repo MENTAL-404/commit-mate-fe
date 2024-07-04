@@ -39,12 +39,12 @@ export default function SearchCommit() {
           onClick={() => setIsClick(!isClick)}
           className={styles.searchButton}
         >
-          <img src={searchIcon} className={styles.searchIcon} />
+          <img src={searchIcon} className={styles.searchIcon} alt="Search Icon"/>
         </div>
       </div>
       {isClick ? (
         <div className={styles.resultContainer} ref={resultContainerRef}>
-          <img src={polygon} className={styles.polygon} />
+          <img src={polygon} className={styles.polygon} alt=""/>
           <div className={styles.searchResults}>
             <div className={styles.innerContainer}>
               <SearchResult />
@@ -70,10 +70,10 @@ function SearchResult() {
         className={styles.result}
       >
         <div className={styles.profile}>
-          <img src={hong} className={styles.profileImage} />
+          <img src={hong} className={styles.profileImage} alt="Profile"/>
         </div>
         <div className={styles.commit}>
-          <div className={styles.message}>fix: typo in README.md</div>
+          <div className={styles.message}>fix: typo in README.md</div> 
           <div className={styles.commiter}>
             <div className={styles.name}>태양 홍</div>
             <div className={styles.date}>Yesterday</div>
@@ -82,6 +82,7 @@ function SearchResult() {
         <img
           src={isHover ? whiteArrowCircle : blackArrowCircle}
           className={styles.arrowIcon}
+          alt=""
         />
       </div>
       <div className={styles.line} />
