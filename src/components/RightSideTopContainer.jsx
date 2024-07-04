@@ -4,9 +4,10 @@ import noti from '../images/noti.png';
 import profileImage from '../images/hong.png';
 import drop from '../images/drop.png';
 
-export default function RightSideTopContainer() {
+export default function RightSideTopContainer( { customStyle }) {
+
   return (
-    <div className={styles.topContainer}>
+    <div className={`${styles.topContainer} ${customStyle ? styles[customStyle] : ''}`}>
       <div className={styles.notiContainer}>
         <img src={noti} alt='notification' className={styles.notiIcon} />
       </div>

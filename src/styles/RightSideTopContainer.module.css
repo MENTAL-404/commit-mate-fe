@@ -5,6 +5,27 @@
     background: var(--git0);
     padding: 1.3rem;
     border-radius: 6rem;
+    height: 7.5rem;
+    width: 30rem;
+    /*display: none;*/
+}
+
+.topContainerInHome {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: var(--git0);
+    padding: 1.6rem;
+    border-radius: 6rem;
+    height: 7.5rem;
+    width: 30rem;
+    position: fixed;
+    top: 4rem;
+    right: 5rem;
+    z-index: 100;
+    /*overflow: hidden;*/
 }
 
 .notiContainer {
@@ -15,6 +36,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 5.8rem;
+    right: 30rem;
 }
 
 .profileContainer {
@@ -26,7 +50,10 @@
     box-sizing: border-box;
     background-color: white;
     font-size: 1.4rem;
-    width: 24.3rem;
+    width: 23rem;
+    position: fixed;
+    top: 5rem;
+    right: 6.2rem;
 }
 
 .innerContainer {
@@ -48,4 +75,11 @@
     height: 0.8rem;
     width: 1.4rem;
     padding: 1rem;
+}
+
+
+@media screen and (max-width: 990px) {
+    .topContainerInHome {
+        display: block;
+    }
 }
