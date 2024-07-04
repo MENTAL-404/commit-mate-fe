@@ -254,7 +254,7 @@
   }
 
   .bottomInner {
-    max-width: 22rem;
+    max-width: 19rem;
     padding: 1rem;
     height: 6rem;
   }
@@ -270,6 +270,11 @@
 
   .textBottom {
     font-size: 1.5rem;
+  }
+
+  .bottomContainer {
+    gap: 3rem;
+    padding: 1rem;
   }
 }
 
@@ -326,6 +331,11 @@
   .textBottom {
     font-size: 1.2rem;
   }
+
+  .bottomContainer {
+    gap: 2rem;
+    padding: 1rem;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -372,6 +382,11 @@
   .textBottom {
     font-size: 1.2rem;
   }
+
+  .bottomContainer {
+    gap: 1rem;
+    padding: 0.7rem;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -416,5 +431,10 @@
 
   .textBottom {
     font-size: 1rem;
+  }
+
+  .bottomContainer {
+    gap: 1.2rem;
+    padding: 0.6rem;
   }
 }
