@@ -68,7 +68,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 4px 61px rgba(78, 171, 95, 0.41);
+  /*box-shadow: 0px 4px 61px rgba(78, 171, 95, 0.41);*/
+  box-shadow: rgba(78, 171, 95, 0.42) 0px 2px 6px 0px, rgba(78, 171, 95, 0.62) 0px 2px 20px 0px;
 }
 
 .other {
