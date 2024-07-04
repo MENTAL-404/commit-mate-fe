@@ -9,7 +9,8 @@
   box-sizing: border-box;
   height: 100vh;
   padding: 2rem;
-  background-color: var(--light-grey);
+  background-color: var(--bg-color);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 4px;
 }
 
 @media (max-width: 1000px) {

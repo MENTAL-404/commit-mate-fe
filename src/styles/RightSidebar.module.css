@@ -1,8 +1,9 @@
 .main {
-  width: 37.8rem;
+  width: 45rem;
   box-sizing: border-box;
   height: 100vh;
-  background-color: var(--light-grey);
+  background-color: var(--bg-color);
+  display: block;
 }
 
 .sideBar {
@@ -12,69 +13,73 @@
   scrollbar-width: none;
   overflow-y: auto;
   width: 100%;
-  padding: 3rem;
+  padding: 2rem;
   height: 100%;
   box-sizing: border-box;
   /*border-radius: 4rem;*/
   background-color: var(--git0);
 }
 
-.topContainer {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
+/*top container 컴포넌트화 시키면서 주석화했는데 나중에 필요할지도 몰라서 일단 남겨둔 =======>*/
 
-.notiContainer {
-  border-radius: 50%;
-  background-color: white;
-  width: 4rem;
-  height: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/*.topContainer {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  gap: 2rem;*/
+/*  background: var(--git0);*/
+/*  padding: 1.3rem;*/
+/*  border-radius: 6rem;*/
+/*}*/
 
-.profileContainer {
-  border-radius: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.8rem;
-  box-sizing: border-box;
-  background-color: white;
-  font-size: 1.4rem;
-  width: 24.3rem;
-}
+/*.notiContainer {*/
+/*  border-radius: 50%;*/
+/*  background-color: white;*/
+/*  width: 4rem;*/
+/*  height: 4rem;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*}*/
 
-.innerContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-}
+/*.profileContainer {*/
+/*  border-radius: 3rem;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: space-between;*/
+/*  padding: 0.8rem;*/
+/*  box-sizing: border-box;*/
+/*  background-color: white;*/
+/*  font-size: 1.4rem;*/
+/*  width: 24.3rem;*/
+/*}*/
 
-.notiIcon {
-  width: 1.7rem;
-}
+/*.innerContainer {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  gap: 1.5rem;*/
+/*}*/
 
-.profileImage {
-  width: 3.8rem;
-}
+/*.notiIcon {*/
+/*  width: 1.7rem;*/
+/*}*/
 
-.dropImage {
-  height: 0.8rem;
-  width: 1.4rem;
-  padding: 1rem;
-}
+/*.profileImage {*/
+/*  width: 3.8rem;*/
+/*}*/
+
+/*.dropImage {*/
+/*  height: 0.8rem;*/
+/*  width: 1.4rem;*/
+/*  padding: 1rem;*/
+/*}*/
 
 .todoContainer {
   width: 100%;
-  margin-top: 3.4rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
-
 }
 
 .title {
@@ -116,7 +121,7 @@
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;
-  background-color: var(--light-grey);
+  background-color: var(--bg-color);
   font-size: 1.5rem;
   font-weight: 600;
   display: flex;
@@ -202,4 +207,10 @@
 
 .graph {
   width: 7rem;
+}
+
+@media screen and (max-width: 990px) {
+  .main {
+    display: none;
+  }
 }
