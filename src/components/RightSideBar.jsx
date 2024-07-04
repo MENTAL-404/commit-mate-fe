@@ -1,31 +1,14 @@
 import styles from '../styles/RightSidebar.module.css'
-import noti from '../images/noti.png'
-import profileImage from '../images/hong.png'
-import drop from '../images/drop.png'
 import linkGithub from '../images/linkGithub.png'
 import book from '../images/book.png'
 import statusGraph from '../images/statisGraph.png'
+import RightSideTopContainer from './RightSideTopContainer'
 
 export default function RightSideBar() {
   return (
     <div className={styles.main}>
       <div className={styles.sideBar}>
-        <div className={styles.topContainer}>
-          <div className={styles.notiContainer}>
-            <img src={noti} alt='notification' className={styles.notiIcon} />
-          </div>
-          <div className={styles.profileContainer}>
-            <div className={styles.innerContainer}>
-              <img
-                src={profileImage}
-                alt='profile'
-                className={styles.profileImage}
-              />
-              404-Mental
-            </div>
-            <img src={drop} alt='drop' className={styles.dropImage} />
-          </div>
-        </div>
+        <RightSideTopContainer />
         <div className={styles.todoContainer}>
           <div className={styles.title}>할 일 목록</div>
           <div className={styles.innerTodoContainer}>

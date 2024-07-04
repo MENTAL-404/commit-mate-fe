@@ -9,7 +9,7 @@
   box-sizing: border-box;
   height: 100vh;
   padding: 2rem;
-  background-color: var(--light-grey);
+  background-color: var(--bg-color);
 }
 
 @media (max-width: 1000px) {

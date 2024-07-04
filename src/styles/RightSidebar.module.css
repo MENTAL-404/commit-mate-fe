@@ -2,7 +2,7 @@
   width: 37.8rem;
   box-sizing: border-box;
   height: 100vh;
-  background-color: var(--light-grey);
+  background-color: var(--bg-color);
 }
 
 .sideBar {
@@ -19,58 +19,61 @@
   background-color: var(--git0);
 }
 
-.topContainer {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
+/*.topContainer {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  gap: 2rem;*/
+/*  background: var(--git0);*/
+/*  padding: 1.3rem;*/
+/*  border-radius: 6rem;*/
+/*}*/
 
-.notiContainer {
-  border-radius: 50%;
-  background-color: white;
-  width: 4rem;
-  height: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/*.notiContainer {*/
+/*  border-radius: 50%;*/
+/*  background-color: white;*/
+/*  width: 4rem;*/
+/*  height: 4rem;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*}*/
 
-.profileContainer {
-  border-radius: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.8rem;
-  box-sizing: border-box;
-  background-color: white;
-  font-size: 1.4rem;
-  width: 24.3rem;
-}
+/*.profileContainer {*/
+/*  border-radius: 3rem;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: space-between;*/
+/*  padding: 0.8rem;*/
+/*  box-sizing: border-box;*/
+/*  background-color: white;*/
+/*  font-size: 1.4rem;*/
+/*  width: 24.3rem;*/
+/*}*/
 
-.innerContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-}
+/*.innerContainer {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  gap: 1.5rem;*/
+/*}*/
 
-.notiIcon {
-  width: 1.7rem;
-}
+/*.notiIcon {*/
+/*  width: 1.7rem;*/
+/*}*/
 
-.profileImage {
-  width: 3.8rem;
-}
+/*.profileImage {*/
+/*  width: 3.8rem;*/
+/*}*/
 
-.dropImage {
-  height: 0.8rem;
-  width: 1.4rem;
-  padding: 1rem;
-}
+/*.dropImage {*/
+/*  height: 0.8rem;*/
+/*  width: 1.4rem;*/
+/*  padding: 1rem;*/
+/*}*/
 
 .todoContainer {
   width: 100%;
-  margin-top: 3.4rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
@@ -116,7 +119,7 @@
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;
-  background-color: var(--light-grey);
+  background-color: var(--bg-color);
   font-size: 1.5rem;
   font-weight: 600;
   display: flex;
