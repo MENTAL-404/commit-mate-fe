@@ -57,6 +57,11 @@
   color: var(--git2);
 }
 
+#emailInput::placeholder,
+#passwordInput::placeholder {
+  color: var(--git2);
+}
+
 .loginBtn {
   margin-top: 8rem;
   background-color: var(--git3);
