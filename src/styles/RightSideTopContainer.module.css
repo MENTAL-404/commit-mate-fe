@@ -1,114 +1,111 @@
 .topContainer {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    background: var(--git0);
-    padding: 1.3rem;
-    border-radius: 6rem;
-    height: 7.5rem;
-    width: 30rem;
-    /*display: none;*/
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: var(--git0);
+  padding: 1.3rem;
+  border-radius: 6rem;
+  height: 7.5rem;
+  width: 30rem;
+  /*display: none;*/
 }
 
 .topContainerInHome {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    background: var(--git0);
-    padding: 1.6rem;
-    border-radius: 6rem;
-    height: 7.5rem;
-    width: 30rem;
-    position: fixed;
-    top: 4rem;
-    right: 5rem;
-    z-index: 100;
-    /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;*/
-    /*overflow: hidden;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: var(--git0);
+  padding: 1.6rem;
+  border-radius: 6rem;
+  height: 7.5rem;
+  width: 30rem;
+  position: fixed;
+  top: 4rem;
+  right: 5rem;
+  z-index: 100;
+  /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;*/
+  /*overflow: hidden;*/
 }
 
 .notiContainer {
-    border-radius: 50%;
-    background-color: white;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 5.8rem;
-    right: 30rem;
+  border-radius: 50%;
+  background-color: white;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 5.8rem;
+  right: 30rem;
 }
 
 .profileContainer {
-    border-radius: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.8rem;
-    box-sizing: border-box;
-    background-color: white;
-    font-size: 1.4rem;
-    width: 23rem;
-    position: fixed;
-    top: 5rem;
-    right: 6.2rem;
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem;
+  box-sizing: border-box;
+  background-color: white;
+  font-size: 1.4rem;
+  width: 23rem;
+  position: fixed;
+  top: 5rem;
+  right: 6.2rem;
 }
 
 .innerContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .notiIcon {
-    width: 1.7rem;
+  width: 1.7rem;
 }
 
 .profileImage {
-    width: 3.8rem;
+  width: 3.8rem;
 }
 
 .dropImage {
-    height: 0.8rem;
-    width: 1.4rem;
-    padding: 1rem;
+  height: 0.8rem;
+  width: 1.4rem;
+  padding: 1rem;
 }
 
-.resImgContainer{
-    display: none;
+.resImgContainer {
+  display: none;
 }
-
-
 
 @media screen and (max-width: 990px) {
-    .topContainerInHome {
-        display: block;
-        /*box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;*/
-    }
+  .topContainerInHome {
+    display: block;
+    /*box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;*/
+  }
 }
 
 @media screen and (max-width: 750px) {
-    .topContainerInHome {
-        display: none;
-    }
+  .topContainerInHome {
+    display: none;
+  }
 
-    .resImgContainer{
-        display: block;
-    }
+  .resImgContainer {
+    display: block;
+  }
 
-
-    .profileImage{
-        position: fixed;
-        top: 5.8rem;
-        right: 5rem;
-        object-fit: cover;
-        border: 3px solid white;
-        border-radius: 50%;
-        box-sizing: border-box;
-        box-shadow: 0 0 0 7px var(--git0);
-    }
+  .profileImage {
+    position: fixed;
+    top: 5.8rem;
+    right: 5rem;
+    object-fit: cover;
+    border: 3px solid white;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 7px var(--git0);
+  }
 }
