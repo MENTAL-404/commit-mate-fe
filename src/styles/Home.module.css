@@ -153,7 +153,7 @@
 
 .bottomInner {
   max-width: 20rem;
-  gap: 2.5rem;
+  gap: 2.6rem;
   display: flex;
   align-items: center;
   background-color: white;
@@ -169,10 +169,11 @@
 .bottomContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 2.8rem;
-  padding-bottom: 3rem;
+  justify-content: space-between;
+  gap: 6rem;
+  padding: 0 5rem 3rem 5rem;
   margin-top: 3rem;
+  width: 100%;
 }
 
 .innerImage {
