@@ -11,12 +11,11 @@ import mergePr from '../images/mergePr.png'
 import message from '../images/message.png'
 import clip from '../images/clip.png'
 import check from '../images/check.png'
-import RightSideTopContainer from '../components/RightSideTopContainer'
+
 
 export default function Home() {
   return (
     <Layout>
-      <RightSideTopContainer customStyle='topContainerInHome' />
       <div className={styles.topContainer}>
         📌 커밋메이트는 프로젝트 협업 관리 툴로, 깃허브 활동 상황을 실시간으로
         볼 수 있는 대시보드입니다.

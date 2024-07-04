@@ -78,10 +78,37 @@
     padding: 1rem;
 }
 
+.resImgContainer{
+    display: none;
+}
+
+
 
 @media screen and (max-width: 990px) {
     .topContainerInHome {
         display: block;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        /*box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;*/
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .topContainerInHome {
+        display: none;
+    }
+
+    .resImgContainer{
+        display: block;
+    }
+
+
+    .profileImage{
+        position: fixed;
+        top: 5.8rem;
+        right: 5rem;
+        object-fit: cover;
+        border: 3px solid white;
+        border-radius: 50%;
+        box-sizing: border-box;
+        box-shadow: 0 0 0 7px var(--git0);
     }
 }

@@ -273,8 +273,8 @@
   }
 
   .bottomContainer {
-    gap: 3rem;
-    padding: 1rem;
+    gap: 2rem;
+    padding: 1.5rem;
   }
 }
 
@@ -333,7 +333,7 @@
   }
 
   .bottomContainer {
-    gap: 2rem;
+    gap: 1.5rem;
     padding: 1rem;
   }
 }
@@ -384,7 +384,7 @@
   }
 
   .bottomContainer {
-    gap: 1rem;
+    gap: 0.8rem;
     padding: 0.7rem;
   }
 }
