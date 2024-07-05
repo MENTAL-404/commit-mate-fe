@@ -12,6 +12,7 @@
 html {
   background: white;
   font-size: 62.5%;
+  overflow: hidden;
 }
 
 body {
@@ -24,6 +25,7 @@ body {
   width: 100%;
   font-family: 'Wanted Sans Variable', sans-serif;
 }
+
 
 h2{
   font-size: 3.2rem;
