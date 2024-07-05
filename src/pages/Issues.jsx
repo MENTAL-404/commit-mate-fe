@@ -1,5 +1,6 @@
 import Layout from '../components/Layout';
 import styles from '../styles/Issues.module.css';
+import IssueList from '../components/issue/IssueList'
 
 export default function Issues() {
   return (
@@ -7,6 +8,10 @@ export default function Issues() {
       <div className={styles.container}>
         <div className={styles.issueListSection}>
           <h1>이슈 리스트</h1>
+          <div className={styles.issueListContainer}>
+            <IssueList />
+          </div>
+
         </div>
         <div className={styles.issueStatisticsSection}>
           <h2 className={styles.issueStatisticsTitle}>이슈 통계 및 분석</h2>

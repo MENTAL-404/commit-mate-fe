@@ -11,6 +11,10 @@
     gap: 1rem;
 }
 
+.issueListContainer {
+    min-height: 30rem;
+}
+
 .issueStatisticsSection {
     display: flex;
     flex-direction: column;
