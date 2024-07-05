@@ -24,7 +24,7 @@
 .statusBar {
     max-width: 4rem;
     height: 4px;
-    background-color: #4caf50;
+    /*background-color: #4caf50;*/
     margin-top: 0.5rem;
     border-radius: 1rem;
 }
@@ -40,4 +40,12 @@
     background-color: #9e9e9e;
     border-radius: 50%;
     margin-right: 0.5rem;
+}
+
+.open .header span, .open .statusBar {
+    background-color: #4caf50;
+}
+
+.closed .header span, .closed .statusBar {
+    background-color: #EB763C;
 }

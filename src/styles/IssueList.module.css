@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 30rem;
+    max-width: 40rem;
     max-height: 28rem;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
@@ -24,7 +24,7 @@
     width: 8px;
     height: 8px;
     margin-right: 0.5rem;
-    background-color: #4caf50; /* Green dot */
+    /*background-color: #4caf50; */
     border-radius: 50%;
 }
 

@@ -9,7 +9,8 @@ export default function Issues() {
         <div className={styles.issueListSection}>
           <h1>이슈 리스트</h1>
           <div className={styles.issueListContainer}>
-            <IssueList />
+            <IssueList type="open"/>
+            <IssueList type="close"/>
           </div>
 
         </div>
