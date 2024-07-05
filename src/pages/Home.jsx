@@ -40,7 +40,7 @@ export default function Home() {
           </div>
           <div className={styles.issueContainer}>
             <h1 className={styles.title}>깃헙 이슈</h1>
-            <IssueList type='open' />
+            <IssueList type='open'/>
             {/*<div className={styles.middleTitle}>*/}
             {/*  <img src={tag} alt='tag' className={styles.tag} />*/}
             {/*  미해결 이슈*/}

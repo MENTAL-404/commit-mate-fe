@@ -14,7 +14,7 @@ export default function IssueItem({ type, title, assignees }) {
       ></div>
       <div className={styles.assignees}>
         {assignees.map((assignee, index) => (
-          <div key={index} className={styles.assignee}></div>
+          <img key={index} src={assignee} alt={`Assignee ${index}`} className={styles.assignee}></img>
         ))}
       </div>
     </div>
