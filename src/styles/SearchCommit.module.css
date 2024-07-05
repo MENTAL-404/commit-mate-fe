@@ -1,4 +1,5 @@
 .main {
+  z-index: 100;
   max-width: 49.2rem;
   width: 100%;
   display: flex;
