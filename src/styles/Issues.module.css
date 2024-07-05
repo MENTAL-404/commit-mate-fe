@@ -12,7 +12,7 @@
 }
 
 .issueListContainer {
-  max-width: 80rem;
+  /*max-width: 80rem;*/
   display: flex;
   justify-content: space-between;
   gap: 2rem;
@@ -32,6 +32,8 @@
 
 .issueStatisticsSubTitle {
   font-size: 1.4rem;
+  align-self: flex-start;
+  margin-left: 2rem;
 }
 
 .issueStatisticsItems {
@@ -42,25 +44,27 @@
 
 .issueStatisticsItem {
   flex: 1 1 45%;
+  flex-direction: column;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .issueStatisticsItem img {
-  width: 2rem;
-  height: 2rem;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
 }
 
-@media (min-width: 768px) {
-  .issueStatisticsItems {
-    flex-direction: row;
-  }
+/*@media (min-width: 600px) {*/
+/*  .issueStatisticsItems {*/
+/*    flex-direction: row;*/
+/*  }*/
 
-  .issueStatisticsItem {
-    flex: 1 1 30%;
-  }
-}
+/*  .issueStatisticsItem {*/
+/*    flex: 1 1 30%;*/
+/*  }*/
+/*}*/
 
 @media (max-width: 980px) {
   .container {
@@ -70,5 +74,12 @@
 
   .issueListContainer {
     flex-direction: column;
+  }
+  .issueStatisticsItems {
+    flex-direction: column;
+  }
+
+  .issueStatisticsItem {
+    flex: 1 1 30%;
   }
 }
