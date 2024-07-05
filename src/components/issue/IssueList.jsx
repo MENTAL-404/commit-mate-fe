@@ -2,14 +2,13 @@ import styles from '../../styles/IssueList.module.css'
 import IssueItem from '../../components/issue/IssueItem'
 import issueData from '../../data/issueData.json'
 
-
 export default function IssueList({ type }) {
-  const issues = issueData.issues.data;
+  const issues = issueData.issues.data
 
-  const openIssues = issues.filter((issue) => issue.type === 'open');
-  const closedIssues = issues.filter((issue) => issue.type === 'closed');
+  const openIssues = issues.filter((issue) => issue.type === 'open')
+  const closedIssues = issues.filter((issue) => issue.type === 'closed')
 
-  const displayedIssues = type === 'open' ? openIssues : closedIssues;
+  const displayedIssues = type === 'open' ? openIssues : closedIssues
 
   return (
     <div className={styles.container}>
@@ -28,6 +27,7 @@ export default function IssueList({ type }) {
             title={issue.title}
             assignees={issue.assignees}
             type={issue.type}
+            url={issue.url}
           />
         ))}
       </div>

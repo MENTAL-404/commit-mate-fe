@@ -1,9 +1,13 @@
 import styles from '../../styles/IssueItem.module.css'
 
-export default function IssueItem({ type, title, assignees }) {
+export default function IssueItem({ type, title, assignees, url }) {
+  const handleClick = () => {
+    window.location.href = url; // URL로 리디렉션
+  };
+
   return (
     <div
-      className={`${styles.container} ${type === 'open' ? styles.open : styles.closed}`}
+      className={`${styles.container} ${type === 'open' ? styles.open : styles.closed}`} onClick={handleClick}
     >
       <div className={styles.header}>
         <div className={styles.title}>{title}</div>
