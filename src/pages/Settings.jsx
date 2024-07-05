@@ -14,7 +14,7 @@ export default function Settings() {
             </div>
             <div className={styles.subBottomSection}>
               <label className={styles.label}>
-                화면에 표시할 레포지토리를 선택해주세요.
+                화면에 표시될 레포지토리를 선택해주세요.
               </label>
               <div className={styles.inputGroup}>
                 <label className={styles.inputLabel}>레포지토리</label>

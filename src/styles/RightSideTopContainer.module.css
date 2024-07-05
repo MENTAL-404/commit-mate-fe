@@ -78,9 +78,9 @@
   padding: 1rem;
 }
 
-.resImgContainer {
-  display: none;
-}
+/*.resImgContainer {*/
+/*  display: none;*/
+/*}*/
 
 @media screen and (max-width: 990px) {
   .topContainerInHome {
@@ -90,22 +90,22 @@
 }
 
 @media screen and (max-width: 750px) {
-  .topContainerInHome {
-    display: none;
-  }
+  /*.topContainerInHome {*/
+  /*  display: none;*/
+  /*}*/
 
-  .resImgContainer {
-    display: block;
-  }
+  /*.resImgContainer {*/
+  /*  display: block;*/
+  /*}*/
 
-  .profileImage {
-    position: fixed;
-    top: 5.8rem;
-    right: 5rem;
-    object-fit: cover;
-    border: 3px solid white;
-    border-radius: 50%;
-    box-sizing: border-box;
-    box-shadow: 0 0 0 7px var(--git0);
-  }
+  /*.profileImage {*/
+  /*  position: fixed;*/
+  /*  top: 5.8rem;*/
+  /*  right: 5rem;*/
+  /*  object-fit: cover;*/
+  /*  border: 3px solid white;*/
+  /*  border-radius: 50%;*/
+  /*  box-sizing: border-box;*/
+  /*  box-shadow: 0 0 0 7px var(--git0);*/
+  /*}*/
 }
