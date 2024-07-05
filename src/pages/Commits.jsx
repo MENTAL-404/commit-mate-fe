@@ -12,7 +12,7 @@ export default function Commits() {
       <div className={styles.main}>
         <div className={styles.innerContainer}>
           <div className={styles.timelineContainer}>
-            <div className={styles.title}>커밋 타임라인</div>
+            <h1 className={styles.title}>커밋 타임라인</h1>
             <div className={styles.timeline}>
               <img
                 src={timeline}
@@ -23,7 +23,7 @@ export default function Commits() {
           </div>
           <div className={styles.bottomContainer}>
             <div className={styles.contribution}>
-              <div className={styles.title}>커밋 기여도</div>
+              <h1 className={styles.title}>커밋 기여도</h1>
               <div className={styles.graph}>
                 <img
                   src={contribution}
@@ -33,7 +33,7 @@ export default function Commits() {
               </div>
             </div>
             <div className={styles.ranking}>
-              <div className={styles.title}>커밋 기여도 순위</div>
+              <h1 className={styles.title}>커밋 기여도 순위</h1>
               <div className={styles.rankContainer}>
                 <CommitRank />
                 <CommitRank />

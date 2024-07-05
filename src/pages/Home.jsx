@@ -22,14 +22,14 @@ export default function Home() {
       </div>
       <div className={styles.bottomOuterContainer}>
         <div className={styles.wordCloudContainer}>
-          <div className={styles.title}>커밋메시지 워드클라우드</div>
+          <h1 className={styles.title}>커밋메시지 워드클라우드</h1>
           <div className={styles.innerContainer}>
             <img alt='cloud' src={wordCloud} className={styles.wordCloud} />
           </div>
         </div>
         <div className={styles.middleContainer}>
           <div className={styles.activeContainer}>
-            <div className={styles.title}>활동차트</div>
+            <h1 className={styles.title}>활동차트</h1>
             <img
               src={activeChart}
               alt='active chart'
@@ -37,7 +37,7 @@ export default function Home() {
             />
           </div>
           <div className={styles.issueContainer}>
-            <div className={styles.title}>깃헙 이슈</div>
+            <h1 className={styles.title}>깃헙 이슈</h1>
             <div className={styles.middleTitle}>
               <img src={tag} alt='tag' className={styles.tag} />
               미해결 이슈
