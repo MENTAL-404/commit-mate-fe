@@ -6,7 +6,7 @@ export default function Settings() {
     <Layout>
       <div className={styles.container}>
         <div className={styles.section}>
-          <div className={styles.title}>환경설정</div>
+          <h1 className={styles.title}>환경설정</h1>
           <div className={styles.subSection}>
             <div className={styles.subTopSection}>
               <span className={styles.subTitle}>레포지토리 설정</span>
@@ -14,7 +14,7 @@ export default function Settings() {
             </div>
             <div className={styles.subBottomSection}>
               <label className={styles.label}>
-                화면에 표시할 레포지토리를 선택해주세요.
+                화면에 표시될 레포지토리를 선택해주세요.
               </label>
               <div className={styles.inputGroup}>
                 <label className={styles.inputLabel}>레포지토리</label>

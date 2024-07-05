@@ -43,11 +43,6 @@
   margin-right: 5rem;
 }
 
-.title {
-  font-size: 2.2rem;
-  font-weight: 700;
-}
-
 .innerContainer {
   margin-top: 2rem;
   background-color: white;
@@ -210,6 +205,10 @@
 @media screen and (max-width: 992px) {
   .topContainer {
     display: none;
+  }
+
+  .wordCloudContainer{
+    margin-top: 6rem;
   }
 }
 

@@ -25,9 +25,9 @@ export default function RightSideTopContainer({ customStyle }) {
           <img src={drop} alt='drop' className={styles.dropImage} />
         </div>
       </div>
-      <div className={styles.resImgContainer}>
-        <img src={profileImage} alt='profile' className={styles.profileImage} />
-      </div>
+      {/*<div className={styles.resImgContainer}>*/}
+      {/*  <img src={profileImage} alt='profile' className={styles.profileImage} />*/}
+      {/*</div>*/}
     </>
   )
 }

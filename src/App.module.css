@@ -25,6 +25,11 @@ body {
   font-family: 'Wanted Sans Variable', sans-serif;
 }
 
+h2{
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
 /*Colors and Styles (Default)*/
 :root {
   --git1: #4dad5d;
