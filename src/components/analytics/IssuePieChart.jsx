@@ -51,10 +51,8 @@ const IssuePieChart = () => {
   };
 
   const data = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 },
-    { name: 'Group D', value: 200 },
+    { name: '오픈된 이슈', value: 6 },
+    { name: '해결된 이슈', value: 4 },
   ];
 
   const onPieEnter = (_, index) => {
@@ -62,16 +60,16 @@ const IssuePieChart = () => {
   };
 
   return (
-    <PieChart width={400} height={400}>
+    <PieChart width={500} height={500}>
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
         data={data}
-        cx={200}
-        cy={200}
+        cx={130}
+        cy={130}
         innerRadius={60}
         outerRadius={80}
-        fill="#8884d8"
+        fill="#4FAD60"
         dataKey="value"
         onMouseEnter={onPieEnter}
       />

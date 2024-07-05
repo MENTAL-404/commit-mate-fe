@@ -4,7 +4,9 @@
       {
         "title": "[버그] 스크롤 오류",
         "assignees": [
-          { "profile_image": "https://randomuser.me/api/portraits/women/1.jpg" },
+          {
+            "profile_image": "https://randomuser.me/api/portraits/women/1.jpg"
+          },
           { "profile_image": "https://randomuser.me/api/portraits/men/4.jpg" }
         ],
         "url": "https://www.google.co.kr/?hl=ko",
@@ -21,7 +23,9 @@
       {
         "title": "[버그] 데이터 동기화 문제",
         "assignees": [
-          { "profile_image": "https://randomuser.me/api/portraits/women/2.jpg" },
+          {
+            "profile_image": "https://randomuser.me/api/portraits/women/2.jpg"
+          },
           { "profile_image": "https://randomuser.me/api/portraits/women/1.jpg" }
         ],
         "url": "https://www.google.co.kr/?hl=ko",
@@ -49,7 +53,9 @@
         "title": "[버그] 이미지 업로드 실패",
         "assignees": [
           { "profile_image": "https://randomuser.me/api/portraits/men/1.jpg" },
-          { "profile_image": "https://randomuser.me/api/portraits/women/1.jpg" },
+          {
+            "profile_image": "https://randomuser.me/api/portraits/women/1.jpg"
+          },
           { "profile_image": "https://randomuser.me/api/portraits/women/2.jpg" }
         ],
         "url": "https://www.google.co.kr/?hl=ko",
@@ -58,7 +64,9 @@
       {
         "title": "[기능 추가] 알림 기능",
         "assignees": [
-          { "profile_image": "https://randomuser.me/api/portraits/women/2.jpg" },
+          {
+            "profile_image": "https://randomuser.me/api/portraits/women/2.jpg"
+          },
           { "profile_image": "https://randomuser.me/api/portraits/men/4.jpg" }
         ],
         "url": "https://www.google.co.kr/?hl=ko",
@@ -75,7 +83,9 @@
       {
         "title": "[버그] 로그인 세션 만료",
         "assignees": [
-          { "profile_image": "https://randomuser.me/api/portraits/women/1.jpg" },
+          {
+            "profile_image": "https://randomuser.me/api/portraits/women/1.jpg"
+          },
           { "profile_image": "https://randomuser.me/api/portraits/men/4.jpg" }
         ],
         "url": "https://www.google.co.kr/?hl=ko",
@@ -84,7 +94,9 @@
       {
         "title": "[기능 추가] 파일 다운로드 지원",
         "assignees": [
-          { "profile_image": "https://randomuser.me/api/portraits/women/2.jpg" },
+          {
+            "profile_image": "https://randomuser.me/api/portraits/women/2.jpg"
+          },
           { "profile_image": "https://randomuser.me/api/portraits/men/3.jpg" },
           { "profile_image": "https://randomuser.me/api/portraits/women/2.jpg" }
         ],
@@ -133,6 +145,18 @@
         "profile_image": "https://randomuser.me/api/portraits/men/4.jpg",
         "open": 10,
         "closed": 8
+      }
+    ]
+  },
+  "status": {
+    "data": [
+      {
+        "name": "오픈된 이슈",
+        "value": 6
+      },
+      {
+        "name": "해결된 이슈",
+        "value": 4
       }
     ]
   }
