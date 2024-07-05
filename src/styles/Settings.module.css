@@ -103,3 +103,10 @@
 .bookmarkGroup {
   margin-bottom: 2rem;
 }
+
+
+@media (max-width: 980px) {
+  .container {
+    margin-top: 6rem;
+  }
+}
