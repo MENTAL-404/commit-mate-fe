@@ -3,7 +3,7 @@ name: "\b버그리포트 구조"
 about: "CommitMate의 \b버그리포트 기본 구조입니다."
 title: "[OS-브라우저-가로사이즈-페이지명] 안건"
 labels: [bug]
-assignees: [erica0321, moolmin]
+assignees: [erica0321]
 
 ---
 
