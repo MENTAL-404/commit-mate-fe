@@ -1,19 +1,15 @@
 import Layout from '../components/Layout'
 import styles from '../styles/Home.module.css'
+import BottomTag from '../components/home/BottomTag'
 
-import wordCloud from '../images/wordCloud.png'
-// import tag from '../images/tag.png'
-import activeChart from '../images/activeChart.png'
-
-import totalCommit from '../images/totalCommit.png'
-import commitKing from '../images/commitKing.png'
-import mergePr from '../images/mergePr.png'
-// import message from '../images/message.png'
-// import clip from '../images/clip.png'
-// import check from '../images/check.png'
-
+import MyWordcloud from '../components/analytics/WordCloud'
 import IssueList from '../components/issue/IssueList'
+import ActiveBarChart from '../components/analytics/ActiveBarChart'
 
+import { totalCommit, commitKing, totalPR } from '.././data/homeData'
+import totalCommitImg from '../images/totalCommit.png'
+import commitKingImg from '../images/commitKing.png'
+import mergePrImg from '../images/mergePr.png'
 
 export default function Home() {
   return (
@@ -26,123 +22,39 @@ export default function Home() {
         <div className={styles.wordCloudContainer}>
           <h1 className={styles.title}>커밋메시지 워드클라우드</h1>
           <div className={styles.innerContainer}>
-            <img alt='cloud' src={wordCloud} className={styles.wordCloud} />
+            <MyWordcloud />
           </div>
         </div>
         <div className={styles.middleContainer}>
           <div className={styles.activeContainer}>
             <h1 className={styles.title}>활동차트</h1>
-            <img
-              src={activeChart}
-              alt='active chart'
-              className={styles.activeChart}
-            />
+            <div className={styles.activeChart}>
+              <ActiveBarChart />
+            </div>
           </div>
           <div className={styles.issueContainer}>
             <h1 className={styles.title}>깃헙 이슈</h1>
-            <IssueList type='open'/>
-            {/*<div className={styles.middleTitle}>*/}
-            {/*  <img src={tag} alt='tag' className={styles.tag} />*/}
-            {/*  미해결 이슈*/}
-            {/*</div>*/}
-            {/*<div className={styles.issueList}>*/}
-            {/*  <div className={styles.issue}>*/}
-            {/*    <div className={styles.issueMessage}>*/}
-            {/*      Implement sub and jti check*/}
-            {/*      <div className={styles.middleBar}></div>*/}
-            {/*      <div className={styles.action}>*/}
-            {/*        <div className={styles.comment}>*/}
-            {/*          0*/}
-            {/*          <img*/}
-            {/*            src={message}*/}
-            {/*            alt='message'*/}
-            {/*            className={styles.actionIcon}*/}
-            {/*          ></img>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.clip}>*/}
-            {/*          02*/}
-            {/*          <img*/}
-            {/*            src={clip}*/}
-            {/*            alt='clip'*/}
-            {/*            className={styles.actionIcon}*/}
-            {/*          ></img>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.check}>*/}
-            {/*          1 / 3*/}
-            {/*          <img*/}
-            {/*            src={check}*/}
-            {/*            alt='check'*/}
-            {/*            className={styles.actionIcon}*/}
-            {/*          ></img>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*  <div className={styles.issue}>*/}
-            {/*    <div className={styles.issueMessage}>*/}
-            {/*      Validate the options passed in to jwt.decode*/}
-            {/*      <div className={styles.middleBar}></div>*/}
-            {/*      <div className={styles.action}>*/}
-            {/*        <div className={styles.comment}>*/}
-            {/*          0*/}
-            {/*          <img*/}
-            {/*            src={message}*/}
-            {/*            alt='message'*/}
-            {/*            className={styles.actionIcon}*/}
-            {/*          ></img>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.clip}>*/}
-            {/*          02*/}
-            {/*          <img*/}
-            {/*            src={clip}*/}
-            {/*            alt='clip'*/}
-            {/*            className={styles.actionIcon}*/}
-            {/*          ></img>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.check}>*/}
-            {/*          1 / 3*/}
-            {/*          <img*/}
-            {/*            src={check}*/}
-            {/*            alt='check'*/}
-            {/*            className={styles.actionIcon}*/}
-            {/*          ></img>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*</div>*/}
+            <div className={styles.issue}>
+              <IssueList className={styles.issue} type='open' />
+            </div>
           </div>
         </div>
         <div className={styles.bottomContainer}>
-          <div className={styles.bottomInner}>
-            <img
-              src={totalCommit}
-              alt='total commit'
-              className={styles.innerImage}
-            />
-            <div className={styles.bottomText}>
-              <div className={styles.textTitle}>134</div>
-              <div className={styles.textBottom}>총 커밋수</div>
-            </div>
-          </div>
-          <div className={styles.bottomInner}>
-            <img
-              src={commitKing}
-              alt='commitKing'
-              className={styles.innerImage}
-            />
-            <div className={styles.bottomText}>
-              <div className={styles.textTitle}>Erica</div>
-              <div className={styles.textBottom}>저번주 커밋왕</div>
-            </div>
-          </div>
-          <div className={styles.bottomInner}>
-            <img src={mergePr} alt='mergePr' className={styles.innerImage} />
-            <div className={styles.bottomText}>
-              <div className={styles.textTitle}>03 / 10</div>
-              <div className={styles.textBottom}>Merge / PR</div>
-            </div>
-          </div>
+          <BottomTag
+            image={totalCommitImg}
+            bottom='총 커밋수'
+            title={totalCommit.data.commit_count}
+          />
+          <BottomTag
+            image={commitKingImg}
+            bottom='저번주 커밋왕'
+            title={commitKing.data.nickname}
+          />
+          <BottomTag
+            image={mergePrImg}
+            bottom='Merge / PR'
+            title={`${totalPR.data.merged} / ${totalPR.data.total_pr}`}
+          />
         </div>
       </div>
     </Layout>
