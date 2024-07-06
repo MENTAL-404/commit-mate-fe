@@ -4,6 +4,7 @@ import styles from '../styles/Commits.module.css'
 import timeline from '../images/timeline.png'
 import contribution from '../images/contribution.png'
 import CommitRank from '../components/CommitRank'
+import CommitLineChart from '../components/analytics/CommitLineChart'
 
 export default function Commits() {
   return (
@@ -25,11 +26,7 @@ export default function Commits() {
             <div className={styles.contribution}>
               <h1 className={styles.title}>커밋 기여도</h1>
               <div className={styles.graph}>
-                <img
-                  src={contribution}
-                  alt='graph'
-                  className={styles.graphImage}
-                />
+                <CommitLineChart />
               </div>
             </div>
             <div className={styles.ranking}>
