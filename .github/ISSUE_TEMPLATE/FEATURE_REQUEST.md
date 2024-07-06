@@ -2,8 +2,8 @@
 name: 기능요청리포트 구조
 about: CommitMate에 요청하는 기능에 대한 명확하고 간결한 설명을 작성해주세요.
 title: "[Feature Request] [기능 이름]: 기능 요청에 대한 간단한 설명"
-labels: ''
-assignees: erica0321
+labels: enhancement
+assignees: [erica0321, moolmin]
 
 ---
 
