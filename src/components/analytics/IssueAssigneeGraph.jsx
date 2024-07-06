@@ -17,18 +17,18 @@ const IssueAssigneeGraph = () => {
       <g transform={`translate(${x},${y})`}>
         <defs>
           <clipPath id={`clip-circle-${value}`}>
-            <circle cx="0" cy="10" r="10" />
+            <circle cx="0" cy="12" r="12" />
           </clipPath>
         </defs>
         <image
           href={assignee.profile_image}
-          x={-10}
+          x={-12}
           y={0}
-          height={20}
-          width={20}
+          height={24}
+          width={24}
           clipPath={`url(#clip-circle-${value})`}
         />
-        <text x={0} y={35} dy={0} textAnchor="middle" fill="#666" fontSize={16} fontWeight="500" >
+        <text x={0} y={35} dy={0} textAnchor="middle" fill="#666" fontSize={14} fontWeight="400">
           {value}
         </text>
       </g>
@@ -49,7 +49,7 @@ const IssueAssigneeGraph = () => {
         }}
         stackOffset="sign"
       >
-        <CartesianGrid strokeDasharray="3 3" vertical={false} horizontal={false}/>
+        <CartesianGrid strokeDasharray="3 3" vertical={false} horizontal={true}/>
         <XAxis
           dataKey="name"
           tick={<CustomTick />}
@@ -58,9 +58,8 @@ const IssueAssigneeGraph = () => {
         />
         <Tooltip contentStyle={{ fontSize: 12, fontWeight: '500' }} />
         <Legend verticalAlign="top" align="right" wrapperStyle={{ fontSize: 14, fontWeight: '600', marginBottom: '20px' }} />
-        <Bar dataKey="closed" stackId="a" fill="#EB763C" name="해결된 이슈" barSize={50} />
-        <Bar dataKey="open" stackId="a" fill="#82ca9d" radius={[20, 20, 0, 0]} name="오픈된 이슈" barSize={50} />
-
+        <Bar dataKey="closed" stackId="a" fill="#EB763C" radius={[0, 0, 0, 0]} name="해결된 이슈" barSize={50} />
+        <Bar dataKey="open" stackId="a" fill="#82ca9d" radius={[0, 0, 0, 0]} name="오픈된 이슈" barSize={50} />
       </BarChart>
     </ResponsiveContainer>
   );
