@@ -66,10 +66,10 @@ const IssuePieChart = () => {
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
         data={data}
-        cx={220}
-        cy={100}
+        cx={240}
+        cy={150}
         innerRadius={65}
-        outerRadius={90}
+        outerRadius={95}
         dataKey="value"
         onMouseEnter={onPieEnter}
       />
