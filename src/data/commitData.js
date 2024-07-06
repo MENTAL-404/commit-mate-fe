@@ -1,12 +1,32 @@
-const rank = [
-  { nickname: 'user1', profile_image: 'https://randomuser.me/api/portraits/women/1.jpg', commit_count: 20 },
-  { nickname: 'user2', profile_image: 'https://randomuser.me/api/portraits/men/1.jpg', commit_count: 12 },
-  { nickname: 'user3', profile_image: 'https://randomuser.me/api/portraits/women/2.jpg', commit_count: 5 },
-  { nickname: 'user4', profile_image: 'https://randomuser.me/api/portraits/men/3.jpg', commit_count: 29 },
-  { nickname: 'user5', profile_image: 'https://randomuser.me/api/portraits/men/4.jpg', commit_count: 42 },
-];
+export const rank = [
+  {
+    nickname: 'user1',
+    profile_image: 'https://randomuser.me/api/portraits/women/1.jpg',
+    commit_count: 20,
+  },
+  {
+    nickname: 'user2',
+    profile_image: 'https://randomuser.me/api/portraits/men/1.jpg',
+    commit_count: 12,
+  },
+  {
+    nickname: 'user3',
+    profile_image: 'https://randomuser.me/api/portraits/women/2.jpg',
+    commit_count: 5,
+  },
+  {
+    nickname: 'user4',
+    profile_image: 'https://randomuser.me/api/portraits/men/3.jpg',
+    commit_count: 29,
+  },
+  {
+    nickname: 'user5',
+    profile_image: 'https://randomuser.me/api/portraits/men/4.jpg',
+    commit_count: 42,
+  },
+]
 
-const search = {
+export const search = {
   data: [
     {
       nickname: 'user1',
@@ -79,82 +99,84 @@ const search = {
       date: '2024-07-02',
     },
   ],
-};
+}
 
-const contribution = [
-  {
-    date: '2024-07-01',
-    commits: [
-      { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
-    ],
-  },
-  {
-    date: '2024-07-02',
-    commits: [
-      { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
-    ],
-  },
-  {
-    date: '2024-07-03',
-    commits: [
-      { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
-    ],
-  },
-  {
-    date: '2024-07-04',
-    commits: [
-      { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
-    ],
-  },
-  {
-    date: '2024-07-05',
-    commits: [
-      { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
-    ],
-  },
-  {
-    date: '2024-07-06',
-    commits: [
-      { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
-    ],
-  },
-  {
-    date: '2024-07-07',
-    commits: [
-      { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
-      { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
-    ],
-  },
-];
+export const contribution = {
+  data: [
+    {
+      date: '2024-07-01',
+      commits: [
+        { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
+      ],
+    },
+    {
+      date: '2024-07-02',
+      commits: [
+        { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
+      ],
+    },
+    {
+      date: '2024-07-03',
+      commits: [
+        { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
+      ],
+    },
+    {
+      date: '2024-07-04',
+      commits: [
+        { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
+      ],
+    },
+    {
+      date: '2024-07-05',
+      commits: [
+        { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
+      ],
+    },
+    {
+      date: '2024-07-06',
+      commits: [
+        { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
+      ],
+    },
+    {
+      date: '2024-07-07',
+      commits: [
+        { nickname: 'user1', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user2', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user3', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user4', commit_count: Math.floor(Math.random() * 50) },
+        { nickname: 'user5', commit_count: Math.floor(Math.random() * 50) },
+      ],
+    },
+  ],
+}
 
-const timeLine = [
+export const timeLine = [
   {
     name: 'main',
     commits: [
@@ -203,19 +225,4 @@ const timeLine = [
       { date: '2024-07-07', commit_count: Math.floor(Math.random() * 50) },
     ],
   },
-];
-
-
-{
-  "data": [
-    {
-      "date": "2024-08-01",
-      "commits": {
-        "main": 4,
-        "Feature": null,
-        "Develop": 5,
-        "Hotfix": null
-      }
-    }
-  ]
-}
+]
