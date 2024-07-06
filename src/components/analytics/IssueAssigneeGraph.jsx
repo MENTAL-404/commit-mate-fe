@@ -58,8 +58,9 @@ const IssueAssigneeGraph = () => {
         />
         <Tooltip contentStyle={{ fontSize: 12, fontWeight: '500' }} />
         <Legend verticalAlign="top" align="right" wrapperStyle={{ fontSize: 14, fontWeight: '600', marginBottom: '20px' }} />
-        <Bar dataKey="open" stackId="a" fill="#82ca9d" name="오픈된 이슈" barSize={50} />
-        <Bar dataKey="closed" stackId="a" fill="#EB763C" radius={[20, 20, 0, 0]} name="해결된 이슈" barSize={50} />
+        <Bar dataKey="closed" stackId="a" fill="#EB763C" name="해결된 이슈" barSize={50} />
+        <Bar dataKey="open" stackId="a" fill="#82ca9d" radius={[20, 20, 0, 0]} name="오픈된 이슈" barSize={50} />
+
       </BarChart>
     </ResponsiveContainer>
   );
