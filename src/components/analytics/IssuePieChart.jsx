@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PieChart, Pie, Sector } from 'recharts';
+import issueData from '../../data/issueData.json';
 
 const IssuePieChart = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -19,7 +20,7 @@ const IssuePieChart = () => {
 
     return (
       <g>
-        <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+        <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill} style={{ fontSize: 15, fontWeight: 'bold' }}>
           {payload.name}
         </text>
         <Sector
@@ -42,34 +43,33 @@ const IssuePieChart = () => {
         />
         <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
         <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-        <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`Value: ${value}`}</text>
-        <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
+        <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333" style={{ fontSize: 14, fontWeight: '500' }}>{`Value: ${value}`}</text>
+        <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999" style={{ fontSize: 12, fontWeight: '400' }}>
           {`(Rate ${(percent * 100).toFixed(2)}%)`}
         </text>
       </g>
     );
   };
 
-  const data = [
-    { name: '오픈된 이슈', value: 6 },
-    { name: '해결된 이슈', value: 4 },
-  ];
+  const data = issueData.status.data.map(issue => ({
+    ...issue,
+    fill: issue.name === '오픈된 이슈' ?  '#8BC38B' : '#EB763C'
+  }));
 
   const onPieEnter = (_, index) => {
     setActiveIndex(index);
   };
 
   return (
-    <PieChart width={500} height={500}>
+    <PieChart width={500} height={300}>
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
         data={data}
-        cx={130}
-        cy={130}
-        innerRadius={60}
-        outerRadius={80}
-        fill="#4FAD60"
+        cx={240}
+        cy={150}
+        innerRadius={65}
+        outerRadius={95}
         dataKey="value"
         onMouseEnter={onPieEnter}
       />

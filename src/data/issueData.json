@@ -152,11 +152,11 @@
     "data": [
       {
         "name": "오픈된 이슈",
-        "value": 6
+        "value": 5
       },
       {
         "name": "해결된 이슈",
-        "value": 4
+        "value": 6
       }
     ]
   }
