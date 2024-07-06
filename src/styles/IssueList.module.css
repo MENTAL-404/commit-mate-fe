@@ -26,6 +26,7 @@
   margin-right: 0.5rem;
   /*background-color: #4caf50; */
   border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .title {

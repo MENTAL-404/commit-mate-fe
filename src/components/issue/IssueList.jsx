@@ -1,19 +1,9 @@
 import styles from '../../styles/IssueList.module.css'
 import IssueItem from '../../components/issue/IssueItem'
+import issueData from '../../data/issueData.json'
 
 export default function IssueList({ type }) {
-  const issues = [
-    {
-      title: '오픈된 이슈 1 오픈된 이슈 1 오픈된 이슈 1 오픈된 이슈 1',
-      assignees: [1],
-      type: 'open',
-    },
-    { title: '오픈된 이슈 2', assignees: [1, 2], type: 'open' },
-    { title: '해결된 이슈 1', assignees: [1, 2], type: 'closed' },
-    { title: '해결된 이슈 2', assignees: [1, 2], type: 'closed' },
-    { title: '해결된 이슈 3', assignees: [1, 2], type: 'closed' },
-    { title: '해결된 이슈 4', assignees: [1, 2], type: 'closed' },
-  ]
+  const issues = issueData.issues.data
 
   const openIssues = issues.filter((issue) => issue.type === 'open')
   const closedIssues = issues.filter((issue) => issue.type === 'closed')
@@ -37,6 +27,7 @@ export default function IssueList({ type }) {
             title={issue.title}
             assignees={issue.assignees}
             type={issue.type}
+            url={issue.url}
           />
         ))}
       </div>

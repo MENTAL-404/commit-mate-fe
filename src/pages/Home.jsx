@@ -2,15 +2,17 @@ import Layout from '../components/Layout'
 import styles from '../styles/Home.module.css'
 
 import wordCloud from '../images/wordCloud.png'
-import tag from '../images/tag.png'
+// import tag from '../images/tag.png'
 import activeChart from '../images/activeChart.png'
 
 import totalCommit from '../images/totalCommit.png'
 import commitKing from '../images/commitKing.png'
 import mergePr from '../images/mergePr.png'
-import message from '../images/message.png'
-import clip from '../images/clip.png'
-import check from '../images/check.png'
+// import message from '../images/message.png'
+// import clip from '../images/clip.png'
+// import check from '../images/check.png'
+
+import IssueList from '../components/issue/IssueList'
 
 
 export default function Home() {
@@ -38,76 +40,77 @@ export default function Home() {
           </div>
           <div className={styles.issueContainer}>
             <h1 className={styles.title}>깃헙 이슈</h1>
-            <div className={styles.middleTitle}>
-              <img src={tag} alt='tag' className={styles.tag} />
-              미해결 이슈
-            </div>
-            <div className={styles.issueList}>
-              <div className={styles.issue}>
-                <div className={styles.issueMessage}>
-                  Implement sub and jti check
-                  <div className={styles.middleBar}></div>
-                  <div className={styles.action}>
-                    <div className={styles.comment}>
-                      0
-                      <img
-                        src={message}
-                        alt='message'
-                        className={styles.actionIcon}
-                      ></img>
-                    </div>
-                    <div className={styles.clip}>
-                      02
-                      <img
-                        src={clip}
-                        alt='clip'
-                        className={styles.actionIcon}
-                      ></img>
-                    </div>
-                    <div className={styles.check}>
-                      1 / 3
-                      <img
-                        src={check}
-                        alt='check'
-                        className={styles.actionIcon}
-                      ></img>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.issue}>
-                <div className={styles.issueMessage}>
-                  Validate the options passed in to jwt.decode
-                  <div className={styles.middleBar}></div>
-                  <div className={styles.action}>
-                    <div className={styles.comment}>
-                      0
-                      <img
-                        src={message}
-                        alt='message'
-                        className={styles.actionIcon}
-                      ></img>
-                    </div>
-                    <div className={styles.clip}>
-                      02
-                      <img
-                        src={clip}
-                        alt='clip'
-                        className={styles.actionIcon}
-                      ></img>
-                    </div>
-                    <div className={styles.check}>
-                      1 / 3
-                      <img
-                        src={check}
-                        alt='check'
-                        className={styles.actionIcon}
-                      ></img>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <IssueList type='open'/>
+            {/*<div className={styles.middleTitle}>*/}
+            {/*  <img src={tag} alt='tag' className={styles.tag} />*/}
+            {/*  미해결 이슈*/}
+            {/*</div>*/}
+            {/*<div className={styles.issueList}>*/}
+            {/*  <div className={styles.issue}>*/}
+            {/*    <div className={styles.issueMessage}>*/}
+            {/*      Implement sub and jti check*/}
+            {/*      <div className={styles.middleBar}></div>*/}
+            {/*      <div className={styles.action}>*/}
+            {/*        <div className={styles.comment}>*/}
+            {/*          0*/}
+            {/*          <img*/}
+            {/*            src={message}*/}
+            {/*            alt='message'*/}
+            {/*            className={styles.actionIcon}*/}
+            {/*          ></img>*/}
+            {/*        </div>*/}
+            {/*        <div className={styles.clip}>*/}
+            {/*          02*/}
+            {/*          <img*/}
+            {/*            src={clip}*/}
+            {/*            alt='clip'*/}
+            {/*            className={styles.actionIcon}*/}
+            {/*          ></img>*/}
+            {/*        </div>*/}
+            {/*        <div className={styles.check}>*/}
+            {/*          1 / 3*/}
+            {/*          <img*/}
+            {/*            src={check}*/}
+            {/*            alt='check'*/}
+            {/*            className={styles.actionIcon}*/}
+            {/*          ></img>*/}
+            {/*        </div>*/}
+            {/*      </div>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
+            {/*  <div className={styles.issue}>*/}
+            {/*    <div className={styles.issueMessage}>*/}
+            {/*      Validate the options passed in to jwt.decode*/}
+            {/*      <div className={styles.middleBar}></div>*/}
+            {/*      <div className={styles.action}>*/}
+            {/*        <div className={styles.comment}>*/}
+            {/*          0*/}
+            {/*          <img*/}
+            {/*            src={message}*/}
+            {/*            alt='message'*/}
+            {/*            className={styles.actionIcon}*/}
+            {/*          ></img>*/}
+            {/*        </div>*/}
+            {/*        <div className={styles.clip}>*/}
+            {/*          02*/}
+            {/*          <img*/}
+            {/*            src={clip}*/}
+            {/*            alt='clip'*/}
+            {/*            className={styles.actionIcon}*/}
+            {/*          ></img>*/}
+            {/*        </div>*/}
+            {/*        <div className={styles.check}>*/}
+            {/*          1 / 3*/}
+            {/*          <img*/}
+            {/*            src={check}*/}
+            {/*            alt='check'*/}
+            {/*            className={styles.actionIcon}*/}
+            {/*          ></img>*/}
+            {/*        </div>*/}
+            {/*      </div>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </div>
         </div>
         <div className={styles.bottomContainer}>

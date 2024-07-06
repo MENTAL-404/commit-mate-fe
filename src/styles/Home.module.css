@@ -22,12 +22,12 @@
 }
 
 .bottomOuterContainer {
-  overflow-x: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  /*-ms-overflow-style: none;*/
+  /*scrollbar-width: none;*/
   margin-top: 2.5rem;
   height: calc(100vh - 96px);
   overflow-y: auto;
+  overflow-x: auto;
 }
 
 .wordCloudContainer,
@@ -203,6 +203,10 @@
 }
 
 @media screen and (max-width: 992px) {
+  .bottomOuterContainer {
+    height: calc(100vh - 16rem);
+  }
+
   .topContainer {
     display: none;
   }

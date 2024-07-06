@@ -1,8 +1,10 @@
 .container {
+  height: fit-content;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
+  overflow-y: auto;
 }
 
 .issueListSection {
@@ -70,6 +72,7 @@
   .container {
     margin-top: 6rem;
     flex-direction: column;
+    height: calc(100vh - 16rem);
   }
 
   .issueListContainer {
