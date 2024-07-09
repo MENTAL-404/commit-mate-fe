@@ -1,6 +1,5 @@
 import styles from '../../styles/IssueList.module.css'
 import IssueItem from '../../components/issue/IssueItem'
-import issueData from '../../data/issueData.json'
 import { useEffect, useState } from 'react'
 
 import {
