@@ -87,6 +87,13 @@ export default function Home() {
     fetchMergePR()
   }, [])
 
+  const truncateNickname = (nickname) => {
+    if (Array.isArray(nickname)) {
+      nickname = nickname[0];
+    }
+    return nickname.length > 10 ? `${nickname.substring(0, 10)}..` : nickname;
+  };
+
   return (
     <Layout>
       <div className={styles.topContainer}>
@@ -120,7 +127,7 @@ export default function Home() {
           <BottomTag
             image={commitKingImg}
             bottom='저번주 커밋왕'
-            title={commitKing}
+            title={truncateNickname(commitKing)}
           />
           <BottomTag
             image={mergePrImg}
@@ -128,7 +135,6 @@ export default function Home() {
             title={`${mergePr?.merge_count} / ${mergePr?.pr_count}`}
           />
         </div>
-
       </div>
     </Layout>
   )

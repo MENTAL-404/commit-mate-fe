@@ -41,19 +41,22 @@ export default function ComemonGo() {
     fetchData();
   }, []);
 
-
+  const truncateNickname = (nickname) => {
+    return nickname.length > 8 ? `${nickname.substring(0, 6)}..` : nickname;
+  };
 
 
   return (
     <div className={styles.container}>
       <div className={styles.logoContainer}>
+        <div className={styles.emptyBox}></div>
         <img src="/images/comemon/logo.png" alt="Logo" className={styles.logo} />
       </div>
       <div className={styles.comemonsContainer}>
         {data.map((item, index) => (
           <Comemons
             key={index}
-            name={item.nickname}
+            name={truncateNickname(item.nickname)}
             level={`Lv. ${item.commit_count}`}
             commitCount={item.commit_count}
           />
