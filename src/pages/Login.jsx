@@ -4,12 +4,17 @@ import styles from '../styles/Login.module.css'
 import logo from '../images/logo.png'
 import logo2 from '../images/logo2.png'
 import github from '../images/github.png'
-import { GITHUB_LOGIN, SERVER_URL } from '../utils/static'
+import { GITHUB_LOGIN, SERVER_URL, getAccessToken } from '../utils/static'
 
 export default function Login() {
   const navigate = useNavigate()
 
   useEffect(() => {
+    const accessToken = getAccessToken()
+    if (accessToken) {
+      navigate('/home')
+    }
+
     const fetchAccessToken = async (code) => {
       try {
         const response = await fetch(
