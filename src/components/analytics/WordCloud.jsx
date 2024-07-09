@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import styles from '../../styles/WordCloud.module.css'
 import ReactWordcloud from 'react-wordcloud'
 import {
   getSelectedRepo,
@@ -28,6 +29,17 @@ const options = {
 export default function MyWordcloud() {
   const [commitMessages, setCommitMessages] = useState([])
   const [loading, setLoading] = useState(false)
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  const containerRef = useRef(null)
+
+  const updateDimensions = () => {
+    if (containerRef.current) {
+      setDimensions({
+        width: containerRef.current.offsetWidth,
+        height: containerRef.current.offsetHeight,
+      })
+    }
+  }
 
   useEffect(() => {
     setLoading(true)
@@ -52,6 +64,13 @@ export default function MyWordcloud() {
     }
 
     fetchCommitMessages()
+
+    // Initialize dimensions on mount
+    updateDimensions()
+
+    window.addEventListener('resize', updateDimensions)
+
+    return () => window.removeEventListener('resize', updateDimensions)
   }, [])
 
   // 메시지의 빈도를 계산하여 words 배열 생성
@@ -73,6 +92,13 @@ export default function MyWordcloud() {
   return loading ? (
     <Lottie animationData={loadingIndicator} />
   ) : (
-    <ReactWordcloud callbacks={callbacks} words={words} options={options} />
+    <div ref={containerRef} className={styles.wordCloud}>
+      <ReactWordcloud
+        callbacks={callbacks}
+        words={words}
+        options={options}
+        size={[dimensions.width, dimensions.height]} // 크기를 동적으로 설정
+      />
+    </div>
   )
 }
