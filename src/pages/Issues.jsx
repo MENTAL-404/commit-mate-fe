@@ -3,6 +3,7 @@ import styles from '../styles/Issues.module.css'
 import IssueList from '../components/issue/IssueList'
 import IssuePieChart from '../components/analytics/IssuePieChart'
 import IssueAssigneeGraph from '../components/analytics/IssueAssigneeGraph'
+import ComemonGo from '../components/analytics/comemon/ComemonGo'
 
 // import issuePieChart from '../images/issuePieChart.png'
 // import issueStatus from '../images/issueStatus.png'
@@ -25,26 +26,17 @@ export default function Issues() {
               <span className={styles.issueStatisticsSubTitle}>
                 📌 이슈 상태 통계
               </span>
-              {/*<img*/}
-              {/*  src={issuePieChart}*/}
-              {/*  alt='issuePieChart'*/}
-              {/*  className={styles.issuePieChart}*/}
-              {/*/>*/}
               <IssuePieChart />
             </div>
             <div className={styles.issueStatisticsItem}>
               <span className={styles.issueStatisticsSubTitle}>
                 📌 담당자별 이슈 현황
               </span>
-              {/*<img*/}
-              {/*  src={issueStatus}*/}
-              {/*  alt='issueStatus'*/}
-              {/*  className={styles.issueStatus}*/}
-              {/*/>*/}
               <IssueAssigneeGraph />
             </div>
           </div>
         </div>
+        <ComemonGo />
       </div>
     </Layout>
   )

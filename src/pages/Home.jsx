@@ -56,6 +56,7 @@ export default function Home() {
             title={`${totalPR.data.merged} / ${totalPR.data.total_pr}`}
           />
         </div>
+
       </div>
     </Layout>
   )
