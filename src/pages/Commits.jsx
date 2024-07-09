@@ -2,7 +2,6 @@ import Layout from '../components/Layout'
 import SearchCommit from '../components/SearchCommit'
 import styles from '../styles/Commits.module.css'
 import timeline from '../images/timeline.png'
-import contribution from '../images/contribution.png'
 import CommitRank from '../components/CommitRank'
 import CommitLineChart from '../components/analytics/CommitLineChart'
 
