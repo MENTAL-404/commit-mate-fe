@@ -2,7 +2,7 @@ import Layout from '../components/Layout'
 import styles from '../styles/Home.module.css'
 import BottomTag from '../components/home/BottomTag'
 
-import MyWordcloud from '../components/analytics/WordCloud'
+import ComemonGo from '../components/analytics/comemon/ComemonGo'
 import IssueList from '../components/issue/IssueList'
 import ActiveBarChart from '../components/analytics/ActiveBarChart'
 
@@ -95,10 +95,7 @@ export default function Home() {
       </div>
       <div className={styles.bottomOuterContainer}>
         <div className={styles.wordCloudContainer}>
-          <h1 className={styles.title}>커밋메시지 워드클라우드</h1>
-          <div className={styles.innerContainer}>
-            <MyWordcloud />
-          </div>
+            <ComemonGo />
         </div>
         <div className={styles.middleContainer}>
           <div className={styles.activeContainer}>
