@@ -159,5 +159,11 @@
         "value": 6
       }
     ]
+  },
+  "status2": {
+    "data": {
+      "open_count": 10,
+      "close_count": 4
+    }
   }
 }
