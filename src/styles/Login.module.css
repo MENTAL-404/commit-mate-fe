@@ -28,9 +28,21 @@
   width: 37rem;
 }
 
+.titleContainer {
+  margin-bottom: 4rem;
+}
+
 .title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+.subTitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #B5B5B5;
+  position: absolute;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -68,7 +80,8 @@
   width: 37rem;
   height: 6rem;
   border-radius: 0.8rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  font-weight: 500;
   color: white;
   text-decoration: none;
   display: flex;

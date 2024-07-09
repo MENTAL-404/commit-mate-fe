@@ -57,7 +57,12 @@ export default function Login() {
       <div className={styles.container}>
         <img src={logo2} alt='logo2' className={styles.logo2} />
         <div className={styles.signIn}>
-          <div className={styles.title}>Sign in</div>
+          <div className={styles.titleContainer}>
+            <div className={styles.title}>Sign in</div>
+            <div className={styles.subTitle}>
+              깃허브 계정으로 로그인하려면 아래 버튼을 클릭하세요.
+            </div>
+          </div>
           <a className={styles.loginBtn} href={GITHUB_LOGIN}>
             <img src={github} className={styles.githubIcon} /> Github
           </a>

@@ -2,7 +2,7 @@ import Layout from '../components/Layout'
 import styles from '../styles/Home.module.css'
 import BottomTag from '../components/home/BottomTag'
 
-import MyWordcloud from '../components/analytics/WordCloud'
+import ComemonGo from '../components/analytics/comemon/ComemonGo'
 import IssueList from '../components/issue/IssueList'
 import ActiveBarChart from '../components/analytics/ActiveBarChart'
 
@@ -87,6 +87,13 @@ export default function Home() {
     fetchMergePR()
   }, [])
 
+  const truncateNickname = (nickname) => {
+    if (Array.isArray(nickname)) {
+      nickname = nickname[0];
+    }
+    return nickname.length > 10 ? `${nickname.substring(0, 10)}..` : nickname;
+  };
+
   return (
     <Layout>
       <div className={styles.topContainer}>
@@ -95,10 +102,7 @@ export default function Home() {
       </div>
       <div className={styles.bottomOuterContainer}>
         <div className={styles.wordCloudContainer}>
-          <h1 className={styles.title}>커밋메시지 워드클라우드</h1>
-          <div className={styles.innerContainer}>
-            <MyWordcloud />
-          </div>
+            <ComemonGo />
         </div>
         <div className={styles.middleContainer}>
           <div className={styles.activeContainer}>
@@ -123,7 +127,7 @@ export default function Home() {
           <BottomTag
             image={commitKingImg}
             bottom='저번주 커밋왕'
-            title={commitKing}
+            title={truncateNickname(commitKing)}
           />
           <BottomTag
             image={mergePrImg}

@@ -1,5 +1,5 @@
 import styles from '../styles/RightSidebar.module.css'
-import linkGithub from '../images/linkGithub.png'
+import bookmark from '../images/bookmak.png'
 import book from '../images/book.png'
 import statusGraph from '../images/statisGraph.png'
 import RightSideTopContainer from './RightSideTopContainer'
@@ -21,7 +21,7 @@ export default function RightSideBar() {
           <div className={styles.title}>바로가기</div>
           <div className={styles.linkList}>
             <div className={styles.link}>
-              <img src={linkGithub} alt='github' className={styles.linkLogo} />
+              <img src={bookmark} alt='bookmark' className={styles.linkLogo} />
               Github Repository
             </div>
             <div className={`${styles.link} ${styles.noLink}`}>
