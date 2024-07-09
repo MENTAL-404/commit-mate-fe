@@ -64,7 +64,7 @@ export default function Login() {
             </div>
           </div>
           <a className={styles.loginBtn} href={GITHUB_LOGIN}>
-            <img src={github} className={styles.githubIcon} /> Github
+            <img src={github} className={styles.githubIcon} alt="Github icon"/> Github
           </a>
         </div>
       </div>

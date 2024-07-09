@@ -4,6 +4,7 @@ import IssueList from '../components/issue/IssueList'
 import IssuePieChart from '../components/analytics/IssuePieChart'
 import IssueAssigneeGraph from '../components/analytics/IssueAssigneeGraph'
 
+
 export default function Issues() {
   return (
     <Layout>

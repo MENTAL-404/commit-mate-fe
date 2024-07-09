@@ -117,24 +117,6 @@
   "assignees": {
     "data": [
       {
-        "nickname": "user1",
-        "profile_image": "https://randomuser.me/api/portraits/women/1.jpg",
-        "open": 5,
-        "closed": 2
-      },
-      {
-        "nickname": "user2",
-        "profile_image": "https://randomuser.me/api/portraits/men/1.jpg",
-        "open": 2,
-        "closed": 20
-      },
-      {
-        "nickname": "user3",
-        "profile_image": "https://randomuser.me/api/portraits/women/2.jpg",
-        "open": 8,
-        "closed": 12
-      },
-      {
         "nickname": "user4",
         "profile_image": "https://randomuser.me/api/portraits/men/3.jpg",
         "open": 0,
@@ -159,5 +141,11 @@
         "value": 6
       }
     ]
+  },
+  "status2": {
+    "data": {
+      "open_count": 10,
+      "close_count": 4
+    }
   }
 }

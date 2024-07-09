@@ -89,10 +89,10 @@ export default function Home() {
 
   const truncateNickname = (nickname) => {
     if (Array.isArray(nickname)) {
-      nickname = nickname[0]
+      nickname = nickname[0];
     }
-    return nickname.length > 10 ? `${nickname.substring(0, 10)}..` : nickname
-  }
+    return nickname.length > 10 ? `${nickname.substring(0, 10)}..` : nickname;
+  };
 
   return (
     <Layout>
@@ -102,7 +102,7 @@ export default function Home() {
       </div>
       <div className={styles.bottomOuterContainer}>
         <div className={styles.wordCloudContainer}>
-          <ComemonGo />
+            <ComemonGo />
         </div>
         <div className={styles.middleContainer}>
           <div className={styles.activeContainer}>
@@ -118,25 +118,22 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className={styles.etcContainer}>
-          <h1 className={styles.title}>명예의 전당</h1>
-          <div className={styles.bottomContainer}>
-            <BottomTag
-              image={totalCommitImg}
-              bottom='총 커밋수'
-              title={totalCommit}
-            />
-            <BottomTag
-              image={commitKingImg}
-              bottom='저번주 커밋왕'
-              title={truncateNickname(commitKing)}
-            />
-            <BottomTag
-              image={mergePrImg}
-              bottom='Merge / PR'
-              title={`${mergePr?.merge_count} / ${mergePr?.pr_count}`}
-            />
-          </div>
+        <div className={styles.bottomContainer}>
+          <BottomTag
+            image={totalCommitImg}
+            bottom='총 커밋수'
+            title={totalCommit}
+          />
+          <BottomTag
+            image={commitKingImg}
+            bottom='저번주 커밋왕'
+            title={truncateNickname(commitKing)}
+          />
+          <BottomTag
+            image={mergePrImg}
+            bottom='Merge / PR'
+            title={`${mergePr?.merge_count} / ${mergePr?.pr_count}`}
+          />
         </div>
       </div>
     </Layout>

@@ -1,6 +1,9 @@
 import Layout from '../components/Layout'
 import styles from '../styles/Settings.module.css'
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
+import ToastMessage from '../components/ToastMessage'
+import 'react-toastify/dist/ReactToastify.css'
 import {
   SERVER_URL,
   ORGANIZATION,
@@ -29,7 +32,6 @@ export default function Settings() {
         }
 
         const data = await response.json()
-
         setRepositories(data.data.repos)
       } catch (error) {
         setRepositories([])
@@ -47,10 +49,12 @@ export default function Settings() {
 
   const handleClickSaveRepo = () => {
     localStorage.setItem('selected_repo', selectedRepo)
+    toast.success('선택한 레포지토리가 저장되었습니다,')
   }
 
   return (
     <Layout>
+      <ToastMessage />
       <div className={styles.container}>
         <div className={styles.section}>
           <h1 className={styles.title}>환경설정</h1>
