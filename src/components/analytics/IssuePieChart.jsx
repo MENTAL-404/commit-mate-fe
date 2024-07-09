@@ -1,9 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { PieChart, Pie, Sector } from 'recharts';
-import issueData from '../../data/issueData.json';
+// import issueData from '../../data/issueData.json';
+
+import {
+  getSelectedRepo,
+  SERVER_URL,
+  ORGANIZATION,
+  AUTH_HEADER,
+} from '../../utils/static'
 
 const IssuePieChart = () => {
+  const [data, setData] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/issues/stats`, {
+          headers: AUTH_HEADER,
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+
+        const result = await response.json();
+        const formattedData = [
+          { name: '오픈된 이슈', value: result.data.open_count, fill: '#8BC38B' },
+          { name: '해결된 이슈', value: result.data.close_count, fill: '#EB763C' }
+        ];
+        // const result = await response.json();
+
+        setData(formattedData);
+        console.log(formattedData)
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const renderActiveShape = (props) => {
     const RADIAN = Math.PI / 180;
@@ -51,10 +86,10 @@ const IssuePieChart = () => {
     );
   };
 
-  const data = issueData.status.data.map(issue => ({
-    ...issue,
-    fill: issue.name === '오픈된 이슈' ?  '#8BC38B' : '#EB763C'
-  }));
+  // const data = [
+  //   { name: '오픈된 이슈', value: issueData.status2.data.open_count, fill: '#8BC38B' },
+  //   { name: '해결된 이슈', value: issueData.status2.data.close_count, fill: '#EB763C' }
+  // ];
 
   const onPieEnter = (_, index) => {
     setActiveIndex(index);
