@@ -1,0 +1,60 @@
+@import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+html {
+  background: white;
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+body {
+  /* 익스플로러 스크롤바 옵션 */
+  -ms-overflow-style: none;
+  /* 파이어폭스 스크롤바 옵션 */
+  scrollbar-width: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-family: 'Wanted Sans Variable', sans-serif;
+}
+
+
+h2{
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+/*Colors and Styles (Default)*/
+:root {
+  --git1: #4dad5d;
+  --git2: #218d49;
+  --git3: #4eaf5d;
+  --git4: #27a857;
+  --git0: #e4fbe7;
+  --light-grey: #f1f1f1;
+  --bg-color: #F9F9F9;
+}
+
+*{
+  padding: 0;
+  box-sizing: border-box;;
+  margin: 0;
+  transtion: .3s ease;
+}
+
+.PageContainer {
+  width: 95vw;
+  height: 95vh;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
