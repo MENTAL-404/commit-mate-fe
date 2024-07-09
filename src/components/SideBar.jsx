@@ -11,6 +11,8 @@ import logout from '../images/logout.png'
 import logo2 from '../images/logo2.png'
 import homeOrange from '../images/homeOrange.png'
 import commitOrange from '../images/commitOrange.png'
+import settingOrange from '../images/settingOrange.png'
+import issueOrange from '../images/categoryOrange.png'
 
 export default function SideBar() {
   const location = useLocation()
@@ -52,7 +54,11 @@ export default function SideBar() {
           className={`${styles.issue} ${path.includes('issues') && styles.clicked}`}
         >
           <div className={`${styles.whiteRound}`}>
-            <img src={issue} alt='issue' className={styles.issueIcon} />
+            <img
+              src={path.includes('issues') ? issueOrange : issue}
+              alt='issue'
+              className={styles.issueIcon}
+            />
           </div>
           이슈
         </Link>
@@ -61,7 +67,11 @@ export default function SideBar() {
           className={`${styles.setting} ${path.includes('settings') && styles.clicked}`}
         >
           <div className={`${styles.whiteRound}`}>
-            <img src={setting} alt='setting' className={styles.settingIcon} />
+            <img
+              src={path.includes('settings') ? settingOrange : setting}
+              alt='setting'
+              className={styles.settingIcon}
+            />
           </div>
           환경설정
         </Link>
