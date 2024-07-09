@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import styles from '../../styles/WordCloud.module.css'
 import ReactWordcloud from 'react-wordcloud'
 import {
   getSelectedRepo,
@@ -21,7 +22,7 @@ const options = {
   // fontFamily: 'Wanted Sans Variable, sans-serif',
   fontFamily: 'WavvePADO-Regular, sans-serif',
   colors: ['#30A14E', '#40C463', '#216E39', '#eb763c'], // 원하는 색상 배열
-  fontSizes: [10, 50], // 글씨 크기 범위 설정 (최대 값을 줄임)
+  fontSizes: [10, 40], // 글씨 크기 범위 설정 (최대 값을 줄임)
   rotations: 1, // 회전할 각도 수 (줄임)
   rotationAngles: [0], // 회전 각도 범위 (0으로 제한)
 }
@@ -29,6 +30,17 @@ const options = {
 export default function MyWordcloud() {
   const [commitMessages, setCommitMessages] = useState([])
   const [loading, setLoading] = useState(false)
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  const containerRef = useRef(null)
+
+  const updateDimensions = () => {
+    if (containerRef.current) {
+      setDimensions({
+        width: containerRef.current.offsetWidth,
+        height: containerRef.current.offsetHeight,
+      })
+    }
+  }
 
   useEffect(() => {
     setLoading(true)
@@ -53,6 +65,13 @@ export default function MyWordcloud() {
     }
 
     fetchCommitMessages()
+
+    // Initialize dimensions on mount
+    updateDimensions()
+
+    window.addEventListener('resize', updateDimensions)
+
+    return () => window.removeEventListener('resize', updateDimensions)
   }, [])
 
   // 메시지의 빈도를 계산하여 words 배열 생성
@@ -66,14 +85,21 @@ export default function MyWordcloud() {
 
   const words = messageFrequency
     ? Object.keys(messageFrequency).map((word) => ({
-        text: word,
-        value: messageFrequency[word],
-      }))
+      text: word,
+      value: messageFrequency[word],
+    }))
     : []
 
   return loading ? (
     <Lottie animationData={loadingIndicator} />
   ) : (
-    <ReactWordcloud callbacks={callbacks} words={words} options={options} />
+    <div ref={containerRef} className={styles.wordCloud}>
+      <ReactWordcloud
+        callbacks={callbacks}
+        words={words}
+        options={options}
+        size={[dimensions.width, dimensions.height]} // 크기를 동적으로 설정
+      />
+    </div>
   )
 }

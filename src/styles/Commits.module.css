@@ -20,6 +20,7 @@
     border-radius: 2.4rem;
     height: 20rem;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 8px -10px;
+  /*overflow: hidden;*/
 }
 
 .timelineContainer {
