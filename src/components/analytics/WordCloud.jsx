@@ -19,7 +19,7 @@ const callbacks = {
 // 글씨체와 색깔 옵션 설정
 const options = {
   // fontFamily: 'Wanted Sans Variable, sans-serif',
-  fontFamily: 'TTLaundryGothicB, sans-serif',
+  fontFamily: 'WavvePADO-Regular, sans-serif',
   colors: ['#30A14E', '#40C463', '#216E39', '#eb763c'], // 원하는 색상 배열
   fontSizes: [10, 50], // 글씨 크기 범위 설정 (최대 값을 줄임)
   rotations: 1, // 회전할 각도 수 (줄임)
