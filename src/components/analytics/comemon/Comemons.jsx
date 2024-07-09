@@ -12,10 +12,8 @@ export default function Comemons({ name, level, commitCount }) {
     } else if (commitCount <= 80) {
       return "/images/comemon/4.png";
     } else if (commitCount <= 100) {
-      return "/images/comemon/4.png";
-    } else if (commitCount <= 120) {
       return "/images/comemon/5.png";
-    } else {
+    } else if (commitCount <= 120) {
       return "/images/comemon/6.png";
     }
   }
