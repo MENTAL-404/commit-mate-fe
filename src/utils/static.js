@@ -17,7 +17,7 @@ export const SERVER_URL = 'https://api.commitmate-dev.kro.kr/api'
 
 export const ORGANIZATION = 'MENTAL-404'
 
-const getAccessToken = () => {
+export const getAccessToken = () => {
   return localStorage.getItem('access_token')
 }
 
