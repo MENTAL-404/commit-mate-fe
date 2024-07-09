@@ -2,12 +2,13 @@ import styles from '../../styles/IssueItem.module.css'
 
 export default function IssueItem({ type, title, assignees, url }) {
   const handleClick = () => {
-    window.location.href = url; // URL로 리디렉션
-  };
+    window.location.href = url // URL로 리디렉션
+  }
 
   return (
     <div
-      className={`${styles.container} ${type === 'open' ? styles.open : styles.closed}`} onClick={handleClick}
+      className={`${styles.container} ${type === 'open' ? styles.open : styles.closed}`}
+      onClick={handleClick}
     >
       <div className={styles.header}>
         <div className={styles.title}>{title}</div>
@@ -18,7 +19,12 @@ export default function IssueItem({ type, title, assignees, url }) {
       ></div>
       <div className={styles.assignees}>
         {assignees.map((assignee, index) => (
-          <img key={index} src={assignee.profile_image} alt={`Assignee ${index + 1}`} className={styles.assignee}></img>
+          <img
+            key={index}
+            src={assignee.avatar_url}
+            alt={`Assignee ${index + 1}`}
+            className={styles.assignee}
+          ></img>
         ))}
       </div>
     </div>
