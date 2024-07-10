@@ -1,0 +1,131 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    margin-top: 20rem;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.title {
+    font-size: 4.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.section span {
+    margin-top: 3rem;
+    font-size: 2rem;
+}
+
+
+
+.label {
+    background: #f7f7f7;
+    padding: 1rem 2rem;
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: #6d7175;
+}
+
+.select {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-color: #cdcdcd;
+    border-radius: 0.3rem;
+    margin-right: 3rem;
+}
+
+.input {
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border: 1px solid #cdcdcd;
+    outline: none;
+    border-radius: 0.3rem;
+}
+
+.reposContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+    justify-content: center;
+    /*align-items: center;*/
+    align-items: flex-start;
+    /*height: 100%;*/
+    width: 45%;
+    /*margin-left: 1rem;*/
+    /*padding: 0 5rem;*/
+}
+
+.nameGroup {
+    width: 100%;
+    display: flex;
+    justify-content: row;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.name {
+    font-size: 1.3rem;
+    margin-left: 1rem;
+}
+
+
+.inputGroup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /*padding: 0 2rem;*/
+}
+
+
+.selectGroup {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.inputLabel {
+    padding: 1rem;
+    font-size: 1.3rem;
+    min-width: 10rem;
+    color: #6d7175;
+}
+
+.saveButton {
+    width: 16%;
+    height: 3.5rem;
+    padding: 0.4rem 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px -2px 0px inset;
+}
+
+.saveButton:hover {
+    background-color: #45a049;
+}
+
+
+/*@media (max-width: 980px) {*/
+/*    .container {*/
+/*        margin-top: 6rem;*/
+/*    }*/
+/*}*/

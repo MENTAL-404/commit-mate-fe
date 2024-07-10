@@ -12,7 +12,7 @@ export default function Login() {
   useEffect(() => {
     const accessToken = getAccessToken()
     if (accessToken) {
-      navigate('/home')
+      navigate('/repos')
     }
 
     const fetchAccessToken = async (code) => {

@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Commits from './pages/Commits'
 import Issues from './pages/Issues'
 import Settings from './pages/Settings'
+import Repos from './pages/Repos'
 
 import styles from './App.module.css'
 
@@ -18,6 +19,7 @@ function App() {
           <Route path={URL.commits} element={<div className={styles.PageContainer}><Commits /></div>}></Route>
           <Route path={URL.issues} element={<div className={styles.PageContainer}><Issues /></div>}></Route>
           <Route path={URL.settings} element={<div className={styles.PageContainer}><Settings /></div>}></Route>
+          <Route path={URL.repos} element={<div className={styles.PageContainer}><Repos /></div>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
