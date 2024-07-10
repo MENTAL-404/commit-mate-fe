@@ -13,7 +13,6 @@ export default function RightSideBar() {
         <div className={styles.linkContainer}>
           <div className={styles.title}>바로가기</div>
           <Shortcut />
-
         </div>
         <div className={styles.statusContainer}>
           {/*<div className={styles.title}>진행상황</div>*/}

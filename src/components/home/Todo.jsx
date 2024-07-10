@@ -10,7 +10,7 @@ export default function Todo() {
   const [editingTodo, setEditingTodo] = useState(null)
   const [editingText, setEditingText] = useState('')
 
-  // Fetch todos from the server
+  // TODO 리스트 조회
   const fetchTodos = async () => {
     try {
       const response = await fetch(
@@ -30,7 +30,7 @@ export default function Todo() {
     fetchTodos()
   }, [])
 
-  // Add a new todo
+  // TODO 생성
   const addTodo = async () => {
     try {
       const response = await fetch(
@@ -53,7 +53,7 @@ export default function Todo() {
     }
   }
 
-  // Update a todo's completion status
+  // TODO 해결 체크
   const updateTodo = async (id, complete) => {
     try {
       await fetch(
@@ -73,7 +73,7 @@ export default function Todo() {
     }
   }
 
-  // Update a todo's title
+  // TODO 수정
   const saveEditTodo = async (id, title) => {
     try {
       await fetch(
@@ -95,7 +95,7 @@ export default function Todo() {
     }
   }
 
-  // Delete a todo
+  // TODO 삭제
   const deleteTodo = async (id) => {
     try {
       await fetch(
