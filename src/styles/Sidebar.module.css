@@ -1,13 +1,17 @@
-
 .main {
   padding: 2rem;
   box-sizing: border-box;
   width: 22rem;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   background-color: white;
+}
+
+.topContainer {
+  height: fit-content;
 }
 
 .logo {
@@ -60,8 +64,6 @@
 }
 
 .logoCat {
-  position: absolute;
-  bottom: 5rem;
   width: 14rem;
 }
 
