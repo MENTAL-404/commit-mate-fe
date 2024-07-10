@@ -76,7 +76,7 @@ export default function Home() {
         }
         const data = await response.json()
         setMergePr(data?.data)
-        console.log(data.data)
+        // console.log(data.data)
       } catch (error) {
         console.error('Error fetching pull requests:', error)
       }

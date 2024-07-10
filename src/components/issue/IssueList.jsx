@@ -26,6 +26,7 @@ export default function IssueList({ type }) {
           throw new Error('Failed to fetch access token')
         }
         const data = await response.json()
+        // console.log(data)
         setIssues(data.data)
       } catch (error) {
         console.error('Error fetching repositories:', error)

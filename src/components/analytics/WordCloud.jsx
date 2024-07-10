@@ -22,7 +22,7 @@ const options = {
   // fontFamily: 'Wanted Sans Variable, sans-serif',
   fontFamily: 'WavvePADO-Regular, sans-serif',
   colors: ['#30A14E', '#40C463', '#216E39'], // 원하는 색상 배열
-  fontSizes: [10, 40], // 글씨 크기 범위 설정 (최대 값을 줄임)
+  fontSizes: [10, 43], // 글씨 크기 범위 설정 (최대 값을 줄임)
   rotations: 1, // 회전할 각도 수 (줄임)
   rotationAngles: [0], // 회전 각도 범위 (0으로 제한)
 }
