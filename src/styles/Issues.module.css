@@ -6,7 +6,6 @@
   padding: 2rem;
   overflow-y: auto;
   overflow-x: hidden;
-
 }
 
 .issueListSection {
@@ -71,14 +70,13 @@
 /*  }*/
 /*}*/
 
-@media(max-width: 1200px) {
-
+@media (max-width: 1200px) {
   .issueListContainer {
     flex-direction: column;
   }
 }
 
-@media(max-width: 990px) {
+@media (max-width: 990px) {
   .container {
     height: calc(100vh - 19rem);
   }

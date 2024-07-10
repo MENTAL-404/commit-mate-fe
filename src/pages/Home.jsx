@@ -98,8 +98,8 @@ export default function Home() {
     <Layout>
       <div className={styles.main}>
         <div className={styles.topContainer}>
-        📌 커밋메이트는 프로젝트 협업 관리 툴로, 깃허브 활동 상황을 실시간으로
-        볼 수 있는 대시보드입니다.
+          📌 커밋메이트는 프로젝트 협업 관리 툴로, 깃허브 활동 상황을 실시간으로
+          볼 수 있는 대시보드입니다.
         </div>
         <div className={styles.bottomOuterContainer}>
           <div className={styles.wordCloudContainer}>
