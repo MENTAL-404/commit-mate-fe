@@ -1,0 +1,42 @@
+.linkContainer {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.linkList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.link {
+    width: 100%;
+    background-color: white;
+    border-radius: 1.8rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.noLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cccccc;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.linkLogo {
+    width: 3rem;
+}
