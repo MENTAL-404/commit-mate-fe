@@ -1,4 +1,5 @@
 import styles from '../styles/Repos.module.css'
+import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import ToastMessage from '../components/ToastMessage'
@@ -11,6 +12,7 @@ import {
 } from '../utils/static'
 
 export default function Repos() {
+  const navigate = useNavigate()
   const [repositories, setRepositories] = useState([])
   const [selectedRepo, setSelectedRepo] = useState('')
 
@@ -52,7 +54,7 @@ export default function Repos() {
   const handleClickSaveRepo = () => {
     localStorage.setItem('selected_repo', selectedRepo)
     toast.success('선택한 레포지토리가 저장되었습니다,')
-    // navigate('/repos')
+    navigate('/home')
   }
 
   return (
