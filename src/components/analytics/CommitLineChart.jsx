@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   LineChart,
   Line,
@@ -8,33 +8,50 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts'
+import {
+  SERVER_URL,
+  ORGANIZATION,
+  getHeader,
+  getSelectedRepo,
+} from '../../utils/static'
 
-import { contribution } from '../../data/commitData'
+const CommitLineChart = () => {
+  const [contribution, setContribution] = useState([])
 
-// 데이터 변환 함수
-const transformData = (data) => {
-  return data.map((entry) => {
-    const transformedEntry = { date: entry.date.slice(5) }
-    entry.commits.forEach((commit) => {
-      transformedEntry[commit.nickname] = commit.commit_count
-    })
-    return transformedEntry
-  })
-}
+  useEffect(() => {
+    const fetchContribution = async () => {
+      try {
+        const response = await fetch(
+          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/graph`,
+          {
+            headers: getHeader(),
+            credentials: 'include',
+          }
+        )
+        if (!response.ok) {
+          throw new Error('Failed to fetch data')
+        }
+        const result = await response.json()
+        const transformedData = transformData(result.data)
+        setContribution(transformedData)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
 
-const data = transformData(contribution.data)
+    fetchContribution()
+  }, [])
 
-export default function CommitLineChart() {
   return (
     <ResponsiveContainer width='100%' height={400}>
       <LineChart
         width={500}
         height={300}
-        data={data}
+        data={contribution}
         margin={{
           top: 5,
           right: 30,
-          left: 30,
+          left: 20,
           bottom: 5,
         }}
       >
@@ -42,37 +59,36 @@ export default function CommitLineChart() {
         <XAxis dataKey='date' />
         <Tooltip />
         <Legend />
-        <Line
-          type='monotone'
-          dataKey='user1'
-          stroke='#8884d8'
-          strokeWidth={2}
-        />
-        <Line
-          type='monotone'
-          dataKey='user2'
-          stroke='#82ca9d'
-          strokeWidth={2}
-        />
-        <Line
-          type='monotone'
-          dataKey='user3'
-          stroke='#ffc658'
-          strokeWidth={2}
-        />
-        <Line
-          type='monotone'
-          dataKey='user4'
-          stroke='#ff7300'
-          strokeWidth={2}
-        />
-        <Line
-          type='monotone'
-          dataKey='user5'
-          stroke='#387908'
-          strokeWidth={2}
-        />
+        {contribution.length > 0 &&
+          Object.keys(contribution[0])
+            .filter((key) => key !== 'date')
+            .map((user, index) => (
+              <Line
+                key={user}
+                type='monotone'
+                dataKey={user}
+                stroke={`#${Math.floor(Math.random() * 16777215).toString(16)}`} // 각 사용자에 대해 랜덤 색상 지정
+                strokeWidth={2}
+              />
+            ))}
       </LineChart>
     </ResponsiveContainer>
   )
 }
+
+const transformData = (data) => {
+  const { users, commits } = data
+  const transformedData = []
+
+  for (const date in commits) {
+    const entry = { date: date.slice(5) } // 월-일 형식으로 변환
+    users.forEach((user) => {
+      entry[user] = commits[date].counts[user] || 0
+    })
+    transformedData.push(entry)
+  }
+
+  return transformedData
+}
+
+export default CommitLineChart
