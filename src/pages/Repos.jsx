@@ -7,8 +7,8 @@ import 'react-toastify/dist/ReactToastify.css'
 import {
   SERVER_URL,
   ORGANIZATION,
-  AUTH_HEADER,
   getSelectedRepo,
+  getHeader,
 } from '../utils/static'
 
 export default function Repos() {
@@ -19,14 +19,13 @@ export default function Repos() {
   useEffect(() => {
     setSelectedRepo(getSelectedRepo())
 
-
-
     const fetchRepositories = async () => {
       try {
         const response = await fetch(
           `${SERVER_URL}/organizations/${ORGANIZATION}/repositories`,
           {
-            headers: AUTH_HEADER,
+            credentials: 'include',
+            headers: getHeader(),
           }
         )
 
@@ -36,6 +35,7 @@ export default function Repos() {
 
         const data = await response.json()
         setRepositories(data.data.repos)
+        setSelectedRepo(data.data.repos[0])
       } catch (error) {
         setRepositories([])
         console.error('Error fetching repositories:', error)
@@ -44,21 +44,21 @@ export default function Repos() {
     fetchRepositories()
   }, [])
 
-
-
-  const handleChangeRepo = (event) => {
-    const newValue = event.target.value
-    setSelectedRepo(newValue)
+  const handleChangeRepo = (repo) => {
+    setSelectedRepo(repo)
   }
 
   const handleClickSaveRepo = () => {
     localStorage.setItem('selected_repo', selectedRepo)
     toast.success('선택한 레포지토리가 저장되었습니다,')
-    navigate('/home')
+    setTimeout(() => {
+      navigate('/home')
+    }, [2000])
   }
 
   return (
     <div className={styles.container}>
+      <ToastMessage />
       <div className={styles.section}>
         <h1 className={styles.title}>👋🏻 안녕하세요!</h1>
         <h1 className={styles.title}>커밋메이트에 오신 것을 환영합니다.</h1>
@@ -66,9 +66,7 @@ export default function Repos() {
         <div className={styles.reposContainer}>
           <div className={styles.nameGroup}>
             <label className={styles.inputLabel}>조직명</label>
-            <div className={styles.name}>
-              {ORGANIZATION}
-            </div>
+            <div className={styles.name}>{ORGANIZATION}</div>
           </div>
           <div className={styles.inputGroup}>
             <div className={styles.selectGroup}>
@@ -76,7 +74,8 @@ export default function Repos() {
               <select
                 className={styles.select}
                 value={selectedRepo}
-                onChange={handleChangeRepo}
+                defaultValue={repositories ? repositories[0] : ''}
+                onChange={(e) => handleChangeRepo(e.target.value)}
               >
                 {repositories.map((repo) => {
                   return (
@@ -108,7 +107,6 @@ export default function Repos() {
         {/*</div>*/}
         {/*</div>*/}
       </div>
-      <ToastMessage />
     </div>
   )
 }

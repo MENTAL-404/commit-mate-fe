@@ -5,7 +5,7 @@ import {
   getSelectedRepo,
   SERVER_URL,
   ORGANIZATION,
-  AUTH_HEADER,
+  getHeader,
 } from '../../utils/static'
 
 const IssuePieChart = () => {
@@ -18,7 +18,8 @@ const IssuePieChart = () => {
         const response = await fetch(
           `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/issues/stats`,
           {
-            headers: AUTH_HEADER,
+            headers: getHeader(),
+            credentials: 'include',
           }
         )
 

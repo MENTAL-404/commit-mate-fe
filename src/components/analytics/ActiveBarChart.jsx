@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import {
   SERVER_URL,
   ORGANIZATION,
-  AUTH_HEADER,
+  getHeader,
   getSelectedRepo,
 } from '../../utils/static'
 
@@ -35,7 +35,8 @@ export default function ActiveBarChart() {
         const response = await fetch(
           `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/chart`,
           {
-            headers: AUTH_HEADER,
+            headers: getHeader(),
+            credentials: 'include',
           }
         )
 

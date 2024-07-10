@@ -5,7 +5,7 @@ import {
   getSelectedRepo,
   SERVER_URL,
   ORGANIZATION,
-  AUTH_HEADER,
+  getHeader,
 } from '../../utils/static'
 import Lottie from 'lottie-react'
 import loadingIndicator from '../../images/loading.json'
@@ -49,7 +49,8 @@ export default function MyWordcloud() {
         const response = await fetch(
           `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/wordcloud`,
           {
-            headers: AUTH_HEADER,
+            headers: getHeader(),
+            credentials: 'include',
           }
         )
 

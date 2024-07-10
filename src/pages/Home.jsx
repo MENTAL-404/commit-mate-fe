@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react'
 import {
   SERVER_URL,
   ORGANIZATION,
-  AUTH_HEADER,
+  getHeader,
   getSelectedRepo,
 } from '../utils/static'
 import totalCommitImg from '../images/totalCommit.png'
@@ -29,7 +29,8 @@ export default function Home() {
         const response = await fetch(
           `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/all`,
           {
-            headers: AUTH_HEADER,
+            headers: getHeader(),
+            credentials: 'include',
           }
         )
 
@@ -48,7 +49,8 @@ export default function Home() {
         const response = await fetch(
           `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/weekly/top`,
           {
-            headers: AUTH_HEADER,
+            headers: getHeader(),
+            credentials: 'include',
           }
         )
 
@@ -67,7 +69,8 @@ export default function Home() {
         const response = await fetch(
           `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/pulls`,
           {
-            headers: AUTH_HEADER,
+            headers: getHeader(),
+            credentials: 'include',
           }
         )
 
@@ -76,7 +79,6 @@ export default function Home() {
         }
         const data = await response.json()
         setMergePr(data?.data)
-        // console.log(data.data)
       } catch (error) {
         console.error('Error fetching pull requests:', error)
       }
