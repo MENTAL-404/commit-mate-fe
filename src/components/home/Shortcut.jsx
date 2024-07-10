@@ -33,7 +33,7 @@ export default function Shortcut() {
   }, [])
 
   const handleLinkClick = (url) => {
-    window.location.href = url
+    window.open(url, '_blank'); // URL을 새 창에서 열기
   }
 
   return (
