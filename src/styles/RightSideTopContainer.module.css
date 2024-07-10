@@ -34,9 +34,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 5.8rem;
-  right: 30rem;
 }
 
 .profileContainer {
@@ -49,9 +46,6 @@
   background-color: white;
   font-size: 1.4rem;
   width: 23rem;
-  position: fixed;
-  top: 5rem;
-  right: 6.2rem;
 }
 
 .innerContainer {
@@ -91,7 +85,7 @@
 
 @media screen and (max-width: 990px) {
   .topContainerInHome {
-    display: block;
+    top: 4rem;
   }
 }
 
