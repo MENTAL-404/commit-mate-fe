@@ -1,11 +1,7 @@
 import styles from '../../styles/Shortcut.module.css'
 import bookmark from '../../images/bookmak.png'
 
-import {
-  SERVER_URL,
-  ORGANIZATION,
-  AUTH_HEADER,
-} from '../../utils/static'
+import { SERVER_URL, ORGANIZATION, getHeader } from '../../utils/static'
 import { useEffect, useState } from 'react'
 
 export default function Shortcut() {
@@ -17,7 +13,8 @@ export default function Shortcut() {
         const response = await fetch(
           `${SERVER_URL}/shortcuts/organization/${ORGANIZATION}`,
           {
-            headers: AUTH_HEADER,
+            headers: getHeader(),
+            credentials: 'include',
           }
         )
         if (!response.ok) {
