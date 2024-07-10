@@ -29,8 +29,8 @@
 .qrContainer {
   /*border-radius: 50%;*/
   background-color: white;
-  width: 5rem;
-  height: 5rem;
+  width: 5.5rem;
+  height: t.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
