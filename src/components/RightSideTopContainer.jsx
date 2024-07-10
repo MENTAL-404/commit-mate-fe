@@ -5,32 +5,39 @@ import drop from '../images/drop.png'
 import Lottie from 'lottie-react'
 import loadingIndicator from '../images/loading 5.json'
 
-import { getSelectedRepo, SERVER_URL, AUTH_HEADER } from '../utils/static'
+import { getSelectedRepo, SERVER_URL, getHeader } from '../utils/static'
 
 export default function RightSideTopContainer({ customStyle }) {
-  const [data, setData] = useState([])
+  const [avatar, setAvatar] = useState()
   const selectedRepo = getSelectedRepo()
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    setLoading(true)
+    const avatar_url = localStorage.getItem('avatar_url')
     const fetchData = async () => {
       try {
         const response = await fetch(`${SERVER_URL}/organizations`, {
-          headers: AUTH_HEADER,
+          credentials: 'include',
+          headers: getHeader(),
         })
         if (!response.ok) {
           throw new Error('Failed to fetch data')
         }
         const result = await response.json()
-        setData(result.data)
+        setAvatar(result.data?.avatar_url)
+        localStorage.setItem('avatar_url', result.data?.avatar_url)
       } catch (error) {
         console.error('Error fetching data:', error)
       }
       setLoading(false)
     }
-    fetchData()
-  }, [selectedRepo])
+    if (!avatar_url) {
+      setLoading(true)
+      fetchData()
+    } else {
+      setAvatar(avatar_url)
+    }
+  }, [])
 
   return (
     <>
@@ -49,7 +56,7 @@ export default function RightSideTopContainer({ customStyle }) {
             ) : (
               <>
                 <img
-                  src={data.avatar_url}
+                  src={avatar}
                   alt='profile'
                   className={styles.profileImage}
                 />
