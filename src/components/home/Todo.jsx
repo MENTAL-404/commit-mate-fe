@@ -1,8 +1,8 @@
 import styles from '../../styles/Todo.module.css'
-import { SERVER_URL, AUTH_HEADER } from '../../utils/static'
+import { SERVER_URL, getHeader } from '../../utils/static'
 import { useState, useEffect } from 'react'
 import { FaTrashAlt, FaEdit } from 'react-icons/fa'
-import { IoIosAdd } from "react-icons/io";
+import { IoIosAdd } from 'react-icons/io'
 
 export default function Todo() {
   const [todos, setTodos] = useState([])
@@ -13,12 +13,10 @@ export default function Todo() {
   // TODO 리스트 조회
   const fetchTodos = async () => {
     try {
-      const response = await fetch(
-        `${SERVER_URL}/todos?complete=`,
-        {
-          headers: AUTH_HEADER,
-        }
-      )
+      const response = await fetch(`${SERVER_URL}/todos?complete=`, {
+        headers: getHeader(),
+        credentials: 'include',
+      })
       const result = await response.json()
       setTodos(result.data || [])
     } catch (error) {
@@ -33,17 +31,12 @@ export default function Todo() {
   // TODO 생성
   const addTodo = async () => {
     try {
-      const response = await fetch(
-        `${SERVER_URL}/todos`,
-        {
-          method: 'POST',
-          headers: {
-            ...AUTH_HEADER,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ title: newTodo }),
-        }
-      )
+      const response = await fetch(`${SERVER_URL}/todos`, {
+        method: 'POST',
+        headers: getHeader(),
+        credentials: 'include',
+        body: JSON.stringify({ title: newTodo }),
+      })
       if (response.ok) {
         fetchTodos()
         setNewTodo('')
@@ -56,17 +49,12 @@ export default function Todo() {
   // TODO 해결 체크
   const updateTodo = async (id, complete) => {
     try {
-      await fetch(
-        `${SERVER_URL}/todos/${id}`,
-        {
-          method: 'PUT',
-          headers: {
-            ...AUTH_HEADER,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ complete: !complete }),
-        }
-      )
+      await fetch(`${SERVER_URL}/todos/${id}`, {
+        method: 'PUT',
+        headers: getHeader(),
+        credentials: 'include',
+        body: JSON.stringify({ complete: !complete }),
+      })
       fetchTodos()
     } catch (error) {
       console.error('Error updating todo:', error)
@@ -76,17 +64,12 @@ export default function Todo() {
   // TODO 수정
   const saveEditTodo = async (id, title) => {
     try {
-      await fetch(
-        `${SERVER_URL}/todos/${id}`,
-        {
-          method: 'PUT',
-          headers: {
-            ...AUTH_HEADER,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ title }),
-        }
-      )
+      await fetch(`${SERVER_URL}/todos/${id}`, {
+        method: 'PUT',
+        headers: getHeader(),
+        credentials: 'include',
+        body: JSON.stringify({ title }),
+      })
       fetchTodos()
       setEditingTodo(null)
       setEditingText('')
@@ -98,13 +81,11 @@ export default function Todo() {
   // TODO 삭제
   const deleteTodo = async (id) => {
     try {
-      await fetch(
-        `${SERVER_URL}/todos/${id}`,
-        {
-          method: 'DELETE',
-          headers: AUTH_HEADER,
-        }
-      )
+      await fetch(`${SERVER_URL}/todos/${id}`, {
+        method: 'DELETE',
+        headers: getHeader(),
+        credentials: 'include',
+      })
       fetchTodos()
     } catch (error) {
       console.error('Error deleting todo:', error)
@@ -115,60 +96,58 @@ export default function Todo() {
     <div className={styles.todoContainer}>
       <div className={styles.innerTitle}>Todo</div>
       <div className={styles.todoList}>
-        {todos.length === 0 ? (
-          'No todos yet'
-        ) : (
-          todos.map(todo => (
-            <div key={todo.id} className={styles.todoItem}>
-              {editingTodo === todo.id ? (
-                <input
-                  type="text"
-                  value={editingText}
-                  onChange={e => setEditingText(e.target.value)}
-                  onBlur={() => saveEditTodo(todo.id, editingText)}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter') {
-                      saveEditTodo(todo.id, editingText)
-                    }
-                  }}
-                  autoFocus
-                  className={styles.inputEdit}
-                />
-              ) : (
-                <span
-                  className={todo.complete ? styles.complete : ''}
-                  onClick={() => updateTodo(todo.id, todo.complete)}
-                >
-                  {todo.title}
-                </span>
-              )}
-              <div className={styles.actionButtons}>
-                <FaEdit
-                  className={styles.icon}
-                  onClick={() => {
-                    setEditingTodo(todo.id)
-                    setEditingText(todo.title)
-                  }}
-                />
-                <FaTrashAlt
-                  className={styles.icon}
-                  onClick={() => deleteTodo(todo.id)}
-                />
+        {todos.length === 0
+          ? 'No todos yet'
+          : todos.map((todo) => (
+              <div key={todo.id} className={styles.todoItem}>
+                {editingTodo === todo.id ? (
+                  <input
+                    type='text'
+                    value={editingText}
+                    onChange={(e) => setEditingText(e.target.value)}
+                    onBlur={() => saveEditTodo(todo.id, editingText)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        saveEditTodo(todo.id, editingText)
+                      }
+                    }}
+                    autoFocus
+                    className={styles.inputEdit}
+                  />
+                ) : (
+                  <span
+                    className={todo.complete ? styles.complete : ''}
+                    onClick={() => updateTodo(todo.id, todo.complete)}
+                  >
+                    {todo.title}
+                  </span>
+                )}
+                <div className={styles.actionButtons}>
+                  <FaEdit
+                    className={styles.icon}
+                    onClick={() => {
+                      setEditingTodo(todo.id)
+                      setEditingText(todo.title)
+                    }}
+                  />
+                  <FaTrashAlt
+                    className={styles.icon}
+                    onClick={() => deleteTodo(todo.id)}
+                  />
+                </div>
               </div>
-            </div>
-          ))
-        )}
+            ))}
       </div>
       <div className={styles.addTodoContainer}>
         <input
-          type="text"
+          type='text'
           value={newTodo}
-          onChange={e => setNewTodo(e.target.value)}
-          placeholder="새 할 일 입력"
+          onChange={(e) => setNewTodo(e.target.value)}
+          placeholder='새 할 일 입력'
           className={styles.inputNew}
         />
         <button onClick={addTodo} className={styles.addTodoBtn}>
-          <IoIosAdd className={styles.addIcon}/>
+          <IoIosAdd className={styles.addIcon} />
         </button>
       </div>
     </div>
