@@ -4,6 +4,7 @@ export const URL = {
   commits: '/commits',
   issues: '/issues',
   settings: '/settings',
+  repos: '/repos',
   logOut: '/',
 }
 

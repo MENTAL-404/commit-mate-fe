@@ -5,16 +5,11 @@ import drop from '../images/drop.png'
 import Lottie from 'lottie-react'
 import loadingIndicator from '../images/loading 5.json'
 
-import {
-  getSelectedRepo,
-  SERVER_URL,
-  AUTH_HEADER,
-} from '../utils/static'
-
+import { getSelectedRepo, SERVER_URL, AUTH_HEADER } from '../utils/static'
 
 export default function RightSideTopContainer({ customStyle }) {
-  const [data, setData] = useState([]);
-  const selectedRepo = getSelectedRepo();
+  const [data, setData] = useState([])
+  const selectedRepo = getSelectedRepo()
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -23,19 +18,19 @@ export default function RightSideTopContainer({ customStyle }) {
       try {
         const response = await fetch(`${SERVER_URL}/organizations`, {
           headers: AUTH_HEADER,
-        });
+        })
         if (!response.ok) {
-          throw new Error('Failed to fetch data');
+          throw new Error('Failed to fetch data')
         }
-        const result = await response.json();
-        setData(result.data);
+        const result = await response.json()
+        setData(result.data)
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching data:', error)
       }
       setLoading(false)
-    };
-    fetchData();
-  }, [selectedRepo]);
+    }
+    fetchData()
+  }, [selectedRepo])
 
   return (
     <>
@@ -49,9 +44,9 @@ export default function RightSideTopContainer({ customStyle }) {
           <div className={styles.innerContainer}>
             {loading ? (
               <div className={styles.loadingContainer}>
-              <Lottie animationData={loadingIndicator} />
+                <Lottie animationData={loadingIndicator} />
               </div>
-                ) : (
+            ) : (
               <>
                 <img
                   src={data.avatar_url}
@@ -60,8 +55,7 @@ export default function RightSideTopContainer({ customStyle }) {
                 />
               </>
             )}
-                <div className={styles.organizationName}>{selectedRepo}</div>
-
+            <div className={styles.organizationName}>{selectedRepo}</div>
           </div>
           <img src={drop} alt='drop' className={styles.dropImage} />
         </div>
