@@ -1,11 +1,11 @@
 .container {
-  height: calc(100vh - 12rem);
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
-  margin-top: 5rem;
   overflow-y: auto;
+  overflow-x: hidden;
 
 }
 
@@ -71,6 +71,19 @@
 /*  }*/
 /*}*/
 
+@media(max-width: 1200px) {
+
+  .issueListContainer {
+    flex-direction: column;
+  }
+}
+
+@media(max-width: 990px) {
+  .container {
+    height: calc(100vh - 19rem);
+  }
+}
+
 @media (max-width: 980px) {
   .container {
     margin-top: 6rem;
@@ -78,14 +91,17 @@
     height: calc(100vh - 16rem);
   }
 
-  .issueListContainer {
-    flex-direction: column;
-  }
   .issueStatisticsItems {
     flex-direction: column;
   }
 
   .issueStatisticsItem {
     flex: 1 1 30%;
+  }
+}
+
+@media (max-width: 990px) {
+  .container {
+    margin-top: 5rem;
   }
 }

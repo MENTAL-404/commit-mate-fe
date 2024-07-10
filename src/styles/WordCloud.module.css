@@ -7,48 +7,49 @@
 
 
 .wordCloud {
-  height: 25rem;
-  /*width: 100%;*/
+  overflow: hidden;
+  height: 30rem;
+  width: 100%;
 }
 
 @media (max-width: 1800px) {
   .wordCloud {
-    height: 30rem;
     width: 75rem;
   }
 }
 
 @media (max-width: 1440px) {
   .wordCloud {
-    height: 30rem;
     width: 53rem;
   }
 }
 
 @media (max-width: 1200px) {
   .wordCloud {
-    height: 30rem;
-    width: 43rem;
+    width: 38rem;
   }
 }
 
 @media (max-width: 1024px) {
   .wordCloud {
-    height: 30rem;
     width: 30rem;
   }
 }
 
 @media (max-width: 990px) {
   .wordCloud {
-    height: 30rem;
-    width: 50rem;
+    width: 45rem;
   }
 }
 
 @media (max-width: 768px) {
   .wordCloud {
-    height: 30rem;
-    width: 30rem;
+    width: 33rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .wordCloud {
+    width: 25rem;
   }
 }
