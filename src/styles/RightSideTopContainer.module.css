@@ -10,7 +10,7 @@
 }
 
 .topContainerInHome {
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -83,9 +83,19 @@
   padding: 1rem;
 }
 
+@media (max-width: 1920px) {
+  .topContainerInHome {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 990px) {
   .topContainerInHome {
     top: 4rem;
+  }
+
+  .topContainerInHome {
+    display: flex;
   }
 }
 
