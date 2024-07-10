@@ -30,7 +30,7 @@ export default function Shortcut() {
     }
 
     fetchShortcuts()
-  }, [data])
+  }, [])
 
   return (
     <div className={styles.container}>
