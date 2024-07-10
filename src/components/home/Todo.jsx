@@ -94,34 +94,36 @@ export default function Todo() {
 
   return (
     <div className={styles.todoContainer}>
-      <div className={styles.innerTitle}>Todo</div>
+      <div className={styles.innerTitle}>✅ Todo</div>
       <div className={styles.todoList}>
         {todos.length === 0
           ? 'No todos yet'
           : todos.map((todo) => (
               <div key={todo.id} className={styles.todoItem}>
-                {editingTodo === todo.id ? (
-                  <input
-                    type='text'
-                    value={editingText}
-                    onChange={(e) => setEditingText(e.target.value)}
-                    onBlur={() => saveEditTodo(todo.id, editingText)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') {
-                        saveEditTodo(todo.id, editingText)
-                      }
-                    }}
-                    autoFocus
-                    className={styles.inputEdit}
-                  />
-                ) : (
-                  <span
-                    className={todo.complete ? styles.complete : ''}
-                    onClick={() => updateTodo(todo.id, todo.complete)}
-                  >
+                <div className={styles.inputContainer}>
+                  {editingTodo === todo.id ? (
+                    <input
+                      type='text'
+                      value={editingText}
+                      onChange={(e) => setEditingText(e.target.value)}
+                      onBlur={() => saveEditTodo(todo.id, editingText)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          saveEditTodo(todo.id, editingText)
+                        }
+                      }}
+                      autoFocus
+                      className={styles.inputEdit}
+                    />
+                  ) : (
+                    <span
+                      className={todo.complete ? styles.complete : ''}
+                      onClick={() => updateTodo(todo.id, todo.complete)}
+                    >
                     {todo.title}
                   </span>
-                )}
+                  )}
+                </div>
                 <div className={styles.actionButtons}>
                   <FaEdit
                     className={styles.icon}

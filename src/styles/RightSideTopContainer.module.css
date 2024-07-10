@@ -26,15 +26,21 @@
   z-index: 100;
 }
 
-.notiContainer {
-  border-radius: 50%;
+.qrContainer {
+  /*border-radius: 50%;*/
   background-color: white;
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+
+.qr {
+  width: 100%;
+}
+
 
 .profileContainer {
   border-radius: 3rem;
@@ -57,10 +63,6 @@
 
 .loading {
   width: 2rem;
-}
-
-.notiIcon {
-  width: 1.7rem;
 }
 
 .profileImage {
@@ -87,6 +89,12 @@
   .topContainerInHome {
     display: none;
   }
+
+
+
+  .topContainerInHome {
+    width: 19rem;
+  }
 }
 
 @media screen and (max-width: 990px) {
@@ -96,6 +104,10 @@
 
   .topContainerInHome {
     display: flex;
+  }
+
+  .qrContainer {
+    display: none;
   }
 }
 

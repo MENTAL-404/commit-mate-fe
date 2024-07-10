@@ -15,20 +15,6 @@ export default function RightSideBar() {
           <Shortcut />
         </div>
         <div className={styles.statusContainer}>
-          {/*<div className={styles.title}>진행상황</div>*/}
-          {/*<div className={styles.innerStatusContainer}>*/}
-          {/*  <div className={styles.innerStatusTitle}>*/}
-          {/*    이번주 목표 달성*/}
-          {/*    <img src={book} alt='book' className={styles.book} />*/}
-          {/*  </div>*/}
-          {/*  <div className={styles.statusGraph}>*/}
-          {/*    <img*/}
-          {/*      src={statusGraph}*/}
-          {/*      alt='status'*/}
-          {/*      className={styles.graph}*/}
-          {/*    ></img>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
         </div>
       </div>
     </div>

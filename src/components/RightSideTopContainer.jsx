@@ -4,6 +4,8 @@ import noti from '../images/noti.png'
 import drop from '../images/drop.png'
 import Lottie from 'lottie-react'
 import loadingIndicator from '../images/loading 5.json'
+import qr from '../images/qr.png'
+
 
 import { getSelectedRepo, SERVER_URL, getHeader } from '../utils/static'
 
@@ -44,8 +46,8 @@ export default function RightSideTopContainer({ customStyle }) {
       <div
         className={`${styles.topContainer} ${customStyle ? styles[customStyle] : ''}`}
       >
-        <div className={styles.notiContainer}>
-          <img src={noti} alt='notification' className={styles.notiIcon} />
+        <div className={styles.qrContainer}>
+          <img src={qr} alt='qr' className={styles.qr} />
         </div>
         <div className={styles.profileContainer}>
           <div className={styles.innerContainer}>
