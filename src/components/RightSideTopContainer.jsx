@@ -1,10 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles/RightSideTopContainer.module.css'
 import noti from '../images/noti.png'
-import profileImage from '../images/hong.png'
 import drop from '../images/drop.png'
 
+import {
+  getSelectedRepo,
+  SERVER_URL,
+  AUTH_HEADER,
+} from '../utils/static'
+
+
 export default function RightSideTopContainer({ customStyle }) {
+  const [data, setData] = useState([]);
+  const selectedRepo = getSelectedRepo();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${SERVER_URL}/organizations`, {
+          headers: AUTH_HEADER,
+        });
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const result = await response.json();
+        setData(result.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, [selectedRepo]);
+
   return (
     <>
       <div
@@ -16,18 +43,15 @@ export default function RightSideTopContainer({ customStyle }) {
         <div className={styles.profileContainer}>
           <div className={styles.innerContainer}>
             <img
-              src={profileImage}
+              src={data.avatar_url}
               alt='profile'
               className={styles.profileImage}
             />
-            <div className={styles.organizationName}>404-Mental</div>
+            <div className={styles.organizationName}>{selectedRepo}</div>
           </div>
           <img src={drop} alt='drop' className={styles.dropImage} />
         </div>
       </div>
-      {/*<div className={styles.resImgContainer}>*/}
-      {/*  <img src={profileImage} alt='profile' className={styles.profileImage} />*/}
-      {/*</div>*/}
     </>
   )
 }

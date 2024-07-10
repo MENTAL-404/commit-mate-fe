@@ -70,6 +70,8 @@
 
 .profileImage {
   width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
 }
 
 .dropImage {
