@@ -132,7 +132,7 @@ export default function Todo() {
                     }
                   }}
                   autoFocus
-                  className={styles.editInput}
+                  className={styles.inputEdit}
                 />
               ) : (
                 <span
@@ -165,7 +165,7 @@ export default function Todo() {
           value={newTodo}
           onChange={e => setNewTodo(e.target.value)}
           placeholder="새 할 일 입력"
-          className={styles.input}
+          className={styles.inputNew}
         />
         <button onClick={addTodo} className={styles.addTodoBtn}>
           <IoIosAdd className={styles.addIcon}/>
