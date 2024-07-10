@@ -14,7 +14,10 @@ import {
 export default function Settings() {
   const [repositories, setRepositories] = useState([])
   const [selectedRepo, setSelectedRepo] = useState('')
-  const [bookmarks, setBookmarks] = useState([{ title: '', url: '' }, { title: '', url: '' }])
+  const [bookmarks, setBookmarks] = useState([
+    { title: '', url: '' },
+    { title: '', url: '' },
+  ])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -57,15 +60,18 @@ export default function Settings() {
         }
 
         const data = await response.json()
-        const fetchedBookmarks = data.data.map(bookmark => ({
+        const fetchedBookmarks = data.data.map((bookmark) => ({
           id: bookmark.id,
           title: bookmark.title,
-          url: bookmark.url
+          url: bookmark.url,
         }))
-        setBookmarks(prev => prev.map((b, i) => fetchedBookmarks[i] || b))
+        setBookmarks((prev) => prev.map((b, i) => fetchedBookmarks[i] || b))
         setLoading(false)
       } catch (error) {
-        setBookmarks([{ title: '', url: '' }, { title: '', url: '' }])
+        setBookmarks([
+          { title: '', url: '' },
+          { title: '', url: '' },
+        ])
         console.error('Error fetching bookmarks:', error)
         setLoading(false)
       }
@@ -86,7 +92,7 @@ export default function Settings() {
   }
 
   const handleBookmarkChange = (index, field, value) => {
-    setBookmarks(prev => {
+    setBookmarks((prev) => {
       const newBookmarks = [...prev]
       newBookmarks[index][field] = value
       return newBookmarks
@@ -102,10 +108,10 @@ export default function Settings() {
             method: 'PUT',
             headers: {
               ...getHeader(),
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
             },
             credentials: 'include',
-            body: JSON.stringify({ title: bookmark.title, url: bookmark.url })
+            body: JSON.stringify({ title: bookmark.title, url: bookmark.url }),
           })
         } else if (bookmark.title && bookmark.url) {
           // Create new bookmarks
@@ -113,10 +119,10 @@ export default function Settings() {
             method: 'POST',
             headers: {
               ...getHeader(),
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
             },
             credentials: 'include',
-            body: JSON.stringify({ title: bookmark.title, url: bookmark.url })
+            body: JSON.stringify({ title: bookmark.title, url: bookmark.url }),
           })
         }
       }
@@ -137,7 +143,9 @@ export default function Settings() {
           credentials: 'include',
         })
       }
-      setBookmarks(prev => prev.map((b, i) => (i === index ? { title: '', url: '' } : b)))
+      setBookmarks((prev) =>
+        prev.map((b, i) => (i === index ? { title: '', url: '' } : b))
+      )
       toast.success('북마크가 삭제되었습니다.')
     } catch (error) {
       toast.error('북마크 삭제 중 오류가 발생했습니다.')
@@ -162,7 +170,7 @@ export default function Settings() {
               </button>
             </div>
             <div className={styles.subBottomSection}>
-              <label className={styles.label}>
+              <label className={styles.repoLabel}>
                 화면에 표시될 레포지토리를 선택해주세요.
               </label>
               <div className={styles.inputGroup}>
@@ -200,14 +208,26 @@ export default function Settings() {
               <div className={styles.subBottomSection}>
                 {bookmarks.map((bookmark, index) => (
                   <div className={styles.bookmarkGroup} key={index}>
-                    <label className={styles.label}>바로가기 {index + 1}</label>
+                    <div className={styles.labelGroup}>
+                      <label className={styles.label}>
+                        바로가기 {index + 1}
+                      </label>
+                      <button
+                        className={styles.deleteButton}
+                        onClick={() => handleDeleteBookmark(index)}
+                      >
+                        삭제
+                      </button>
+                    </div>
                     <div className={styles.inputGroup}>
                       <label className={styles.inputLabel}>북마크 이름</label>
                       <input
                         className={styles.input}
                         placeholder='추가할 북마크 이름을 입력해주세요.'
                         value={bookmark.title}
-                        onChange={(e) => handleBookmarkChange(index, 'title', e.target.value)}
+                        onChange={(e) =>
+                          handleBookmarkChange(index, 'title', e.target.value)
+                        }
                       />
                     </div>
                     <div className={styles.inputGroup}>
@@ -216,15 +236,11 @@ export default function Settings() {
                         className={styles.input}
                         placeholder='추가할 북마크 URL을 입력해주세요.'
                         value={bookmark.url}
-                        onChange={(e) => handleBookmarkChange(index, 'url', e.target.value)}
+                        onChange={(e) =>
+                          handleBookmarkChange(index, 'url', e.target.value)
+                        }
                       />
                     </div>
-                    <button
-                      className={styles.deleteButton}
-                      onClick={() => handleDeleteBookmark(index)}
-                    >
-                      삭제
-                    </button>
                   </div>
                 ))}
               </div>

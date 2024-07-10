@@ -7,7 +7,7 @@
 }
 
 .section {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .subSection {
@@ -36,17 +36,10 @@
 }
 
 .subBottomSection {
-  padding: 3rem;
+  padding: 2.5rem;
 }
 
-.label {
-  background: #f7f7f7;
-  padding: 1rem 2rem;
-  display: block;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  color: #6d7175;
-}
+
 
 .select {
   width: 100%;
@@ -70,6 +63,7 @@
 .inputGroup {
   display: flex;
   padding: 0 4rem;
+  margin-top: 1rem;
 }
 
 .inputLabel {
@@ -103,6 +97,43 @@
 .bookmarkGroup {
   margin-bottom: 2rem;
 }
+
+.labelGroup {
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f7f7f7;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  color: #6d7175;
+}
+
+.repoLabel {
+  /*margin: 1rem 0;*/
+  display: block;
+  font-size: 1.3rem;
+  color: #6d7175;
+}
+
+.deleteButton {
+  padding: 0.4rem 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: #F09D74;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px -2px 0px inset;
+  margin-right: 0.6rem;
+}
+
+.deleteButton:hover {
+  background-color: #EB763C;
+}
+
 
 
 @media (max-width: 980px) {
