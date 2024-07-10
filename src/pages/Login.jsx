@@ -12,7 +12,7 @@ export default function Login() {
   useEffect(() => {
     const accessToken = getAccessToken()
     if (accessToken) {
-      navigate('/repos')
+      navigate('/home')
     }
 
     const fetchAccessToken = async (code) => {
@@ -20,6 +20,7 @@ export default function Login() {
         const response = await fetch(
           `${SERVER_URL}/auth/github/callback?code=${code}`,
           {
+            credentials: 'include',
             headers: {
               'Content-Type': 'application/json',
             },
@@ -34,9 +35,10 @@ export default function Login() {
         const accessToken = data.data.access_token
         // 액세스 토큰을 로컬 스토리지에 저장
         localStorage.setItem('access_token', accessToken)
+        console.log(localStorage.getItem('access_token'))
 
         // 홈 화면으로 리다이렉트
-        navigate('/home')
+        navigate('/repos')
       } catch (error) {
         console.error('Error fetching access token:', error)
       }
@@ -64,7 +66,8 @@ export default function Login() {
             </div>
           </div>
           <a className={styles.loginBtn} href={GITHUB_LOGIN}>
-            <img src={github} className={styles.githubIcon} alt="Github icon"/> Github
+            <img src={github} className={styles.githubIcon} alt='Github icon' />{' '}
+            Github
           </a>
         </div>
       </div>
