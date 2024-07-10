@@ -22,7 +22,7 @@
   height: 7.5rem;
   width: 30rem;
   position: fixed;
-  
+
   top: 7rem;
   right: 7.5rem;
   z-index: 100;
@@ -73,7 +73,7 @@
   border-radius: 50%;
 }
 
-.loadingContainer{
+.loadingContainer {
   width: 3.8rem;
   height: 3.8rem;
   border-radius: 50%;

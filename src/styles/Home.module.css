@@ -144,7 +144,7 @@
 /* Media Queries */
 @media screen and (max-width: 1280px) {
   .middleContainer {
-   flex-direction: column;
+    flex-direction: column;
   }
 
   .activeContainer,
@@ -190,7 +190,6 @@
     max-width: 47rem;
     height: auto;
   }
-
 
   .actionIcon {
     width: 1.2rem;
@@ -243,7 +242,6 @@
     max-width: 25rem;
     height: auto;
   }
-
 
   .actionIcon {
     width: 1.3rem;
@@ -331,13 +329,11 @@
     height: 12rem;
   }
 
-
   .activeChart {
     min-width: 20rem;
     height: auto;
   }
 
- 
   .actionIcon {
     width: 0.6rem;
   }
