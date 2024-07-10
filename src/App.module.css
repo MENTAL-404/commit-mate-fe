@@ -4,10 +4,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  max-width: 192rem;
+  margin: auto;
+  padding: 5rem;
 }
 
+@media (max-width: 990px) {
+  .App {
+    padding: 3rem;
+  }
+}
 
 html {
   background: white;
@@ -26,8 +34,7 @@ body {
   font-family: 'Wanted Sans Variable', sans-serif;
 }
 
-
-h2{
+h2 {
   font-size: 3.2rem;
   font-weight: 700;
 }
@@ -40,21 +47,23 @@ h2{
   --git4: #27a857;
   --git0: #e4fbe7;
   --light-grey: #f1f1f1;
-  --bg-color: #F9F9F9;
+  --bg-color: #f9f9f9;
 }
 
-*{
+* {
   padding: 0;
-  box-sizing: border-box;;
+  box-sizing: border-box;
   margin: 0;
-  transtion: .3s ease;
+  transtion: 0.3s ease;
 }
 
 .PageContainer {
-  width: 95vw;
-  height: 95vh;
+  max-width: 192rem;
+  width: 100%;
+  height: 100%;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
-

@@ -1,13 +1,14 @@
 .main {
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .children {
   width: 100%;
   box-sizing: border-box;
-  height: 100vh;
+  height: 100%;
+  overflow-y: auto;
   padding: 2rem;
   background-color: var(--bg-color);
   box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 4px;

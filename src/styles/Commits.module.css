@@ -1,7 +1,7 @@
 .main {
   width: 100%;
   margin-top: 2rem;
-  height: calc(100vh - 24rem);
+  height: calc(100vh - 25rem);
   overflow-y: auto;
 }
 
@@ -18,7 +18,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 2.4rem;
-    height: 20rem;
+    height: 30rem;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 8px -10px;
   /*overflow: hidden;*/
 }
@@ -44,7 +44,7 @@
 
 .bottomContainer {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 2rem;
   gap: 3%;
 }
 
@@ -91,10 +91,7 @@
 
 @media (min-width: 991px) {
   .main {
-    width: 100%;
-    margin-top: 2rem;
-    height: calc(100vh - 16rem);
-    overflow-y: auto;
+    height: calc(100vh - 21rem);
   }
 
   .ranking {
