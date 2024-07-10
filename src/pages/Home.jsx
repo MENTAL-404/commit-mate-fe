@@ -2,16 +2,98 @@ import Layout from '../components/Layout'
 import styles from '../styles/Home.module.css'
 import BottomTag from '../components/home/BottomTag'
 
-import MyWordcloud from '../components/analytics/WordCloud'
+import ComemonGo from '../components/analytics/comemon/ComemonGo'
 import IssueList from '../components/issue/IssueList'
 import ActiveBarChart from '../components/analytics/ActiveBarChart'
 
-import { totalCommit, commitKing, totalPR } from '.././data/homeData'
+import { useState, useEffect } from 'react'
+
+import {
+  SERVER_URL,
+  ORGANIZATION,
+  AUTH_HEADER,
+  getSelectedRepo,
+} from '../utils/static'
 import totalCommitImg from '../images/totalCommit.png'
 import commitKingImg from '../images/commitKing.png'
 import mergePrImg from '../images/mergePr.png'
 
 export default function Home() {
+  const [commitKing, setCommitKing] = useState('')
+  const [totalCommit, setTotalCommit] = useState()
+  const [mergePr, setMergePr] = useState()
+
+  useEffect(() => {
+    const fetchTotalcommit = async () => {
+      try {
+        const response = await fetch(
+          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/all`,
+          {
+            headers: AUTH_HEADER,
+          }
+        )
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch total commits')
+        }
+        const data = await response.json()
+        setTotalCommit(data.data.commit_count)
+      } catch (error) {
+        console.error('Error fetching total commits:', error)
+      }
+    }
+
+    const fetchCommitKing = async () => {
+      try {
+        const response = await fetch(
+          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/weekly/top`,
+          {
+            headers: AUTH_HEADER,
+          }
+        )
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch commit king')
+        }
+        const data = await response.json()
+        setCommitKing(data.data.nickname)
+      } catch (error) {
+        console.error('Error fetching commit king:', error)
+      }
+    }
+
+    const fetchMergePR = async () => {
+      try {
+        const response = await fetch(
+          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/pulls`,
+          {
+            headers: AUTH_HEADER,
+          }
+        )
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch pull requests')
+        }
+        const data = await response.json()
+        setMergePr(data?.data)
+        console.log(data.data)
+      } catch (error) {
+        console.error('Error fetching pull requests:', error)
+      }
+    }
+
+    fetchTotalcommit()
+    fetchCommitKing()
+    fetchMergePR()
+  }, [])
+
+  const truncateNickname = (nickname) => {
+    if (Array.isArray(nickname)) {
+      nickname = nickname[0];
+    }
+    return nickname.length > 10 ? `${nickname.substring(0, 10)}..` : nickname;
+  };
+
   return (
     <Layout>
       <div className={styles.topContainer}>
@@ -20,10 +102,7 @@ export default function Home() {
       </div>
       <div className={styles.bottomOuterContainer}>
         <div className={styles.wordCloudContainer}>
-          <h1 className={styles.title}>커밋메시지 워드클라우드</h1>
-          <div className={styles.innerContainer}>
-            <MyWordcloud />
-          </div>
+            <ComemonGo />
         </div>
         <div className={styles.middleContainer}>
           <div className={styles.activeContainer}>
@@ -43,17 +122,17 @@ export default function Home() {
           <BottomTag
             image={totalCommitImg}
             bottom='총 커밋수'
-            title={totalCommit.data.commit_count}
+            title={totalCommit}
           />
           <BottomTag
             image={commitKingImg}
             bottom='저번주 커밋왕'
-            title={commitKing.data.nickname}
+            title={truncateNickname(commitKing)}
           />
           <BottomTag
             image={mergePrImg}
             bottom='Merge / PR'
-            title={`${totalPR.data.merged} / ${totalPR.data.total_pr}`}
+            title={`${mergePr?.merge_count} / ${mergePr?.pr_count}`}
           />
         </div>
       </div>

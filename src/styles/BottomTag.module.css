@@ -1,7 +1,7 @@
 .bottomInner {
   width: 100%;
-  max-width: 20rem;
-  gap: 2.6rem;
+  max-width: 22rem;
+  gap: 2.2rem;
   display: flex;
   align-items: center;
   background-color: white;
@@ -25,7 +25,7 @@
 }
 
 .textBottom {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #8a97a4;
 }
 
@@ -42,11 +42,11 @@
   }
 
   .textTitle {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .textBottom {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 }
 
