@@ -64,6 +64,10 @@
   gap: 1.5rem;
 }
 
+.loading {
+  width: 2rem;
+}
+
 .notiIcon {
   width: 1.7rem;
 }
@@ -72,6 +76,14 @@
   width: 3.8rem;
   height: 3.8rem;
   border-radius: 50%;
+}
+
+.loadingContainer{
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .dropImage {

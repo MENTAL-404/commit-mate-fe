@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import styles from '../styles/RightSideTopContainer.module.css'
 import noti from '../images/noti.png'
 import drop from '../images/drop.png'
+import Lottie from 'lottie-react'
+import loadingIndicator from '../images/loading 5.json'
 
 import {
   getSelectedRepo,
@@ -13,8 +15,10 @@ import {
 export default function RightSideTopContainer({ customStyle }) {
   const [data, setData] = useState([]);
   const selectedRepo = getSelectedRepo();
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     const fetchData = async () => {
       try {
         const response = await fetch(`${SERVER_URL}/organizations`, {
@@ -28,6 +32,7 @@ export default function RightSideTopContainer({ customStyle }) {
       } catch (error) {
         console.error('Error fetching data:', error);
       }
+      setLoading(false)
     };
     fetchData();
   }, [selectedRepo]);
@@ -42,12 +47,21 @@ export default function RightSideTopContainer({ customStyle }) {
         </div>
         <div className={styles.profileContainer}>
           <div className={styles.innerContainer}>
-            <img
-              src={data.avatar_url}
-              alt='profile'
-              className={styles.profileImage}
-            />
-            <div className={styles.organizationName}>{selectedRepo}</div>
+            {loading ? (
+              <div className={styles.loadingContainer}>
+              <Lottie animationData={loadingIndicator} />
+              </div>
+                ) : (
+              <>
+                <img
+                  src={data.avatar_url}
+                  alt='profile'
+                  className={styles.profileImage}
+                />
+              </>
+            )}
+                <div className={styles.organizationName}>{selectedRepo}</div>
+
           </div>
           <img src={drop} alt='drop' className={styles.dropImage} />
         </div>
