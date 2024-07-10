@@ -127,7 +127,7 @@ const IssuePieChart = () => {
   }
 
   return (
-    <PieChart width={300} height={300}>
+    <PieChart width={480} height={300}>
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
