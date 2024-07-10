@@ -12,12 +12,36 @@ import logo2 from '../images/logo2.png'
 import homeOrange from '../images/homeOrange.png'
 import commitOrange from '../images/commitOrange.png'
 import settingOrange from '../images/settingOrange.png'
+import { toast } from 'react-toastify'
 import issueOrange from '../images/categoryOrange.png'
+import { SERVER_URL, getHeader } from '../utils/static'
+import { useNavigate } from 'react-router-dom'
 
 export default function SideBar() {
   const location = useLocation()
   const path = location.pathname
-  console.log(path)
+  const navigate = useNavigate()
+
+  const handleClickLogout = async () => {
+    try {
+      const response = await fetch(`${SERVER_URL}/auth/logout`, {
+        method: 'POST',
+        headers: getHeader(),
+        credentials: 'include',
+      })
+      if (!response.ok) {
+        throw new Error('Failed to logout')
+      }
+
+      localStorage.removeItem('access_token')
+      localStorage.removeItem('selected_repo')
+      localStorage.removeItem('avatar_url')
+      toast.success('로그아웃 완료')
+      navigate('/')
+    } catch (error) {
+      console.error('Error logout:', error)
+    }
+  }
 
   return (
     <div className={styles.main}>
@@ -84,7 +108,7 @@ export default function SideBar() {
             </div>
             환경설정
           </Link>
-          <div className={styles.logout}>
+          <div onClick={handleClickLogout} className={styles.logout}>
             <div className={`${styles.whiteRound}`}>
               <img src={logout} alt='logout' className={styles.logoutIcon} />
             </div>

@@ -6,7 +6,7 @@ import {
   getSelectedRepo,
   SERVER_URL,
   ORGANIZATION,
-  AUTH_HEADER,
+  getHeader,
 } from '../../utils/static'
 
 export default function IssueList({ type }) {
@@ -18,7 +18,8 @@ export default function IssueList({ type }) {
         const response = await fetch(
           `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/issues`,
           {
-            headers: AUTH_HEADER,
+            headers: getHeader(),
+            credentials: 'include',
           }
         )
 
@@ -26,7 +27,6 @@ export default function IssueList({ type }) {
           throw new Error('Failed to fetch access token')
         }
         const data = await response.json()
-        // console.log(data)
         setIssues(data.data)
       } catch (error) {
         console.error('Error fetching repositories:', error)
@@ -52,15 +52,18 @@ export default function IssueList({ type }) {
         </div>
       </div>
       <div className={styles.issueList}>
-        {displayedIssues?.map((issue, index) => (
-          <IssueItem
-            key={index}
-            title={issue.title}
-            assignees={issue.assignees}
-            type={issue.state}
-            url={issue.url}
-          />
-        ))}
+        {displayedIssues?.length > 0
+          ? displayedIssues?.map((issue, index) => (
+              <IssueItem
+                key={index}
+                title={issue.title}
+                assignees={issue.assignees}
+                type={issue.state}
+                url={issue.url}
+              />
+            ))
+          : '이슈가 없습니다'}
+        {}
       </div>
     </div>
   )

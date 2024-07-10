@@ -22,11 +22,13 @@ export const getAccessToken = () => {
   return localStorage.getItem('access_token')
 }
 
-export const AUTH_HEADER = {
-  Authorization: `Bearer ${getAccessToken()}`,
-  'Content-Type': 'application/json',
+export const getHeader = () => {
+  return {
+    Authorization: `Bearer ${getAccessToken()}`,
+    'Content-Type': 'application/json',
+  }
 }
 
 export const getSelectedRepo = () => {
-  return localStorage.getItem('selected_repo')
+  return localStorage.getItem('selected_repo') ?? null
 }

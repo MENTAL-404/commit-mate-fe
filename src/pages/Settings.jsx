@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import {
   SERVER_URL,
   ORGANIZATION,
-  AUTH_HEADER,
+  getHeader,
   getSelectedRepo,
 } from '../utils/static'
 
@@ -27,7 +27,8 @@ export default function Settings() {
         const response = await fetch(
           `${SERVER_URL}/organizations/${ORGANIZATION}/repositories`,
           {
-            headers: AUTH_HEADER,
+            credentials: 'include',
+            headers: getHeader(),
           }
         )
 
