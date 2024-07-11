@@ -1,36 +1,47 @@
-import { useState, useEffect } from 'react';
-import {
-  AUTH_HEADER,
-} from '../utils/static'
+import { useState, useEffect } from 'react'
+import { getHeader } from '../utils/static'
 
-
-const useFetchData = (url) => {
-  const [data, setData] = useState(null);
+const useFetchData = (url, options) => {
+  const [loading, setLoading] = useState(false)
+  const [response, setResponse] = useState(null)
+  const [error, setError] = useState()
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
+
       try {
         const response = await fetch(url, {
-          headers: AUTH_HEADER,
-        });
+          headers: getHeader(),
+          credentials: 'include',
+          ...options,
+        })
 
         if (!response.ok) {
-          throw new Error('Failed to fetch data');
+          throw new Error('Failed to fetch data')
         }
 
-        const result = await response.json();
-        setData(result.data.repos);
+        const result = await response.json()
+        setResponse(result)
       } catch (err) {
-        setData([]);
-        console.error('Error fetching data:', err);
+        setResponse(null)
+        setError(err)
+        console.error('Error fetching data:', err)
       } finally {
+        setLoading(false)
       }
-    };
+    }
 
-    fetchData();
-  }, [url]);
+    if (url === '' || !url) {
+      setLoading(false)
+      setResponse(null)
+      setError('')
+    } else {
+      fetchData()
+    }
+  }, [options, url])
 
-  return { data};
-};
+  return { loading, response, error }
+}
 
-export default useFetchData;
+export default useFetchData

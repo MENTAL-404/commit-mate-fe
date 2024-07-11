@@ -1,15 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
 import styles from '../../styles/WordCloud.module.css'
 import ReactWordcloud from 'react-wordcloud'
-import {
-  getSelectedRepo,
-  SERVER_URL,
-  ORGANIZATION,
-  getHeader,
-} from '../../utils/static'
+import { API_URL } from '../../utils/static'
 import Lottie from 'lottie-react'
 import loadingIndicator from '../../images/loading.json'
-
+import useFetchData from '../../hooks/useFetchData'
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/animations/scale.css'
 
@@ -19,7 +14,6 @@ const callbacks = {
 
 // 글씨체와 색깔 옵션 설정
 const options = {
-  // fontFamily: 'Wanted Sans Variable, sans-serif',
   fontFamily: 'WavvePADO-Regular, sans-serif',
   colors: ['#30A14E', '#40C463', '#216E39'], // 원하는 색상 배열
   fontSizes: [10, 43], // 글씨 크기 범위 설정 (최대 값을 줄임)
@@ -28,8 +22,7 @@ const options = {
 }
 
 export default function MyWordcloud() {
-  const [commitMessages, setCommitMessages] = useState([])
-  const [loading, setLoading] = useState(false)
+  const { loading, response, error } = useFetchData(API_URL().commit_message)
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
   const containerRef = useRef(null)
 
@@ -43,30 +36,6 @@ export default function MyWordcloud() {
   }
 
   useEffect(() => {
-    setLoading(true)
-    const fetchCommitMessages = async () => {
-      try {
-        const response = await fetch(
-          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/wordcloud`,
-          {
-            headers: getHeader(),
-            credentials: 'include',
-          }
-        )
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch access token')
-        }
-        const data = await response.json()
-        setCommitMessages(data)
-      } catch (error) {
-        console.error('Error fetching repositories:', error)
-      }
-      setLoading(false)
-    }
-
-    fetchCommitMessages()
-
     // Initialize dimensions on mount
     updateDimensions()
 
@@ -75,8 +44,18 @@ export default function MyWordcloud() {
     return () => window.removeEventListener('resize', updateDimensions)
   }, [])
 
+  if (loading) {
+    return <Lottie animationData={loadingIndicator} />
+  }
+
+  if (error) {
+    return <div>Error fetching data</div>
+  }
+
+  const commitMessages = response ? response.data : []
+
   // 메시지의 빈도를 계산하여 words 배열 생성
-  const messageFrequency = commitMessages?.data?.reduce((acc, item) => {
+  const messageFrequency = commitMessages?.reduce((acc, item) => {
     const words = item.message.split(' ')
     words.forEach((word) => {
       acc[word] = (acc[word] || 0) + 1
@@ -91,9 +70,7 @@ export default function MyWordcloud() {
       }))
     : []
 
-  return loading ? (
-    <Lottie animationData={loadingIndicator} />
-  ) : (
+  return (
     <div ref={containerRef} className={styles.wordCloud}>
       <ReactWordcloud
         callbacks={callbacks}

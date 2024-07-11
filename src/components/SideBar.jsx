@@ -1,8 +1,8 @@
+import React from 'react'
 import styles from '../styles/Sidebar.module.css'
 import logo3 from '../images/logo3.png'
-import { Link } from 'react-router-dom'
-import { URL } from '../utils/static'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { URL, SERVER_URL, getHeader, API_URL } from '../utils/static'
 import home from '../images/home.png'
 import commit from '../images/commit.png'
 import issue from '../images/category.png'
@@ -14,8 +14,6 @@ import commitOrange from '../images/commitOrange.png'
 import settingOrange from '../images/settingOrange.png'
 import { toast } from 'react-toastify'
 import issueOrange from '../images/categoryOrange.png'
-import { SERVER_URL, getHeader } from '../utils/static'
-import { useNavigate } from 'react-router-dom'
 
 export default function SideBar() {
   const location = useLocation()
@@ -24,7 +22,7 @@ export default function SideBar() {
 
   const handleClickLogout = async () => {
     try {
-      const response = await fetch(`${SERVER_URL}/auth/logout`, {
+      const response = await fetch(API_URL().logout, {
         method: 'POST',
         headers: getHeader(),
         credentials: 'include',

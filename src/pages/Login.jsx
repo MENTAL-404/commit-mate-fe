@@ -5,53 +5,36 @@ import logo from '../images/logo.png'
 import logo2 from '../images/logo2.png'
 import github from '../images/github.png'
 import { GITHUB_LOGIN, SERVER_URL, getAccessToken } from '../utils/static'
+import useFetchData from '../hooks/useFetchData'
 
 export default function Login() {
   const navigate = useNavigate()
+  const accessToken = getAccessToken()
 
   useEffect(() => {
-    const accessToken = getAccessToken()
     if (accessToken) {
       navigate('/home')
     }
+  }, [navigate, accessToken])
 
-    const fetchAccessToken = async (code) => {
-      try {
-        const response = await fetch(
-          `${SERVER_URL}/auth/github/callback?code=${code}`,
-          {
-            credentials: 'include',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+  // URL에서 인증 코드를 확인하는 로직
+  const urlParams = new URLSearchParams(window.location.search)
+  const code = urlParams.get('code')
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch access token')
-        }
+  const { response } = useFetchData(
+    code ? `${SERVER_URL}/auth/github/callback?code=${code}` : null
+  )
 
-        const data = await response.json()
-        const accessToken = data.data.access_token
-        // 액세스 토큰을 로컬 스토리지에 저장
-        localStorage.setItem('access_token', accessToken)
-        console.log(localStorage.getItem('access_token'))
+  useEffect(() => {
+    if (response) {
+      const accessToken = response.data.access_token
+      // 액세스 토큰을 로컬 스토리지에 저장
+      localStorage.setItem('access_token', accessToken)
 
-        // 홈 화면으로 리다이렉트
-        navigate('/repos')
-      } catch (error) {
-        console.error('Error fetching access token:', error)
-      }
+      // 홈 화면으로 리다이렉트
+      navigate('/repos')
     }
-
-    // URL에서 인증 코드를 확인하는 로직
-    const urlParams = new URLSearchParams(window.location.search)
-    const code = urlParams.get('code')
-
-    if (code) {
-      fetchAccessToken(code)
-    }
-  }, [navigate])
+  }, [navigate, response])
 
   return (
     <div className={styles.main}>
