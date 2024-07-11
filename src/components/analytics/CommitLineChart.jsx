@@ -18,6 +18,13 @@ import {
 const CommitLineChart = () => {
   const [contribution, setContribution] = useState([])
 
+  const getRandomGreenShade = () => {
+    const greenComponent = Math.floor(Math.random() * 256); // Random value for the green component
+    const redComponent = Math.floor(Math.random() * 128); // Optional: Add some variation in the red component
+    const blueComponent = Math.floor(Math.random() * 128); // Optional: Add some variation in the blue component
+    return `rgb(${redComponent}, ${greenComponent}, ${blueComponent})`;
+  };
+
   useEffect(() => {
     const fetchContribution = async () => {
       try {
@@ -56,9 +63,18 @@ const CommitLineChart = () => {
         }}
       >
         <CartesianGrid strokeDasharray='3 3' />
-        <XAxis dataKey='date' />
-        <Tooltip />
-        <Legend />
+        <XAxis
+          dataKey='date'
+          tick={{ fontSize: 10 }}
+        />
+
+        <Tooltip
+          contentStyle={{ fontSize: 12 }}
+          labelStyle={{ fontSize: 12 }}
+        />
+        <Legend
+          wrapperStyle={{ fontSize: 15 }}
+        />
         {contribution.length > 0 &&
           Object.keys(contribution[0])
             .filter((key) => key !== 'date')

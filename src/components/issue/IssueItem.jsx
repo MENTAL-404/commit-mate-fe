@@ -2,7 +2,7 @@ import styles from '../../styles/IssueItem.module.css'
 
 export default function IssueItem({ type, title, assignees, url }) {
   const handleClick = () => {
-    window.open(url, '_blank'); // URL을 새 탭/창에서 열기
+    window.open(url, '_blank'); // URL을 새 창에서 열기
   }
 
 

@@ -104,9 +104,7 @@ export default function Home() {
           볼 수 있는 대시보드입니다.
         </div>
         <div className={styles.bottomOuterContainer}>
-          <div className={styles.wordCloudContainer}>
             <ComemonGo />
-          </div>
           <div className={styles.middleContainer}>
             <div className={styles.activeContainer}>
               <h1 className={styles.title}>활동차트</h1>
