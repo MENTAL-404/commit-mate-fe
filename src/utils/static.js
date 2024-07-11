@@ -38,12 +38,12 @@ export const API_URL = () => {
     pr: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/pulls`,
     todo: `${SERVER_URL}/todos?complete=`,
     todos: `${SERVER_URL}/todos`,
-    repositories: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories`,
     logout: `${SERVER_URL}/auth/logout`,
-    organization: `${SERVER_URL}/organizations`,
-    shortcut: `${SERVER_URL}/shortcuts/organization/${ORGANIZATION}`,
     shortcurId: `${SERVER_URL}/shortcuts`,
+    organization: `${SERVER_URL}/organizations`,
     aceess_token: `${SERVER_URL}/auth/github/callback?code=`,
+    shortcut: `${SERVER_URL}/shortcuts/organization/${ORGANIZATION}`,
+    repositories: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories`,
     issue_assignee: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/issues/status`,
     issue_state: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/issues/stats`,
     issue: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/issues`,
@@ -53,6 +53,6 @@ export const API_URL = () => {
     commit_rank: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/rank`,
     commit_total: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/all`,
     commit_king: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/weekly/top`,
-    logout: `${SERVER_URL}/auth/logout`,
+    commit_search: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits?search`,
   }
 }
