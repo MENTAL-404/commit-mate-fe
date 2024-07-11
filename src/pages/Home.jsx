@@ -70,29 +70,24 @@ export default function Home() {
           <div className={styles.etcContainer}>
             <h1 className={styles.title}>명예의 전당</h1>
             <div className={styles.bottomContainer}>
-              {' '}
-              {loadingTotalCommit && loadingCommitKing && loadingMergePR ? (
-                'loading...'
-              ) : (
-                <>
-                  {' '}
-                  <BottomTag
-                    image={totalCommitImg}
-                    bottom='총 커밋수'
-                    title={totalCommit}
-                  />
-                  <BottomTag
-                    image={commitKingImg}
-                    bottom='저번주 커밋왕'
-                    title={truncateNickname(commitKing)}
-                  />
-                  <BottomTag
-                    image={mergePrImg}
-                    bottom='Merge / PR'
-                    title={`${mergePr?.merge_count} / ${mergePr?.pr_count}`}
-                  />
-                </>
-              )}
+              <BottomTag
+                image={totalCommitImg}
+                bottom='총 커밋수'
+                loading={loadingTotalCommit}
+                title={totalCommit}
+              />
+              <BottomTag
+                image={commitKingImg}
+                bottom='저번주 커밋왕'
+                loading={loadingCommitKing}
+                title={truncateNickname(commitKing)}
+              />
+              <BottomTag
+                image={mergePrImg}
+                bottom='Merge / PR'
+                loading={loadingMergePR}
+                title={`${mergePr?.merge_count} / ${mergePr?.pr_count}`}
+              />
             </div>
           </div>
         </div>

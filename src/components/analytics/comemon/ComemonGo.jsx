@@ -1,10 +1,9 @@
 import React from 'react'
 import styles from '../../../styles/ComemonGo.module.css'
 import Comemons from './Comemons'
-import Lottie from 'lottie-react'
-import loadingIndicator from '../../../images/loading.json'
 import { API_URL } from '../../../utils/static'
 import useFetchData from '../../../hooks/useFetchData'
+import LoadingLottie from '../../LoadingLottie'
 
 export default function ComemonGo() {
   const { loading, response, error } = useFetchData(API_URL().commit_rank)
@@ -12,14 +11,6 @@ export default function ComemonGo() {
 
   const truncateNickname = (nickname) => {
     return nickname.length > 8 ? `${nickname.substring(0, 6)}..` : nickname
-  }
-
-  if (loading) {
-    return (
-      <div className={styles.loadingContainer}>
-        <Lottie animationData={loadingIndicator} />
-      </div>
-    )
   }
 
   if (error) {
@@ -37,14 +28,18 @@ export default function ComemonGo() {
         />
       </div>
       <div className={styles.comemonsContainer}>
-        {data.map((item, index) => (
-          <Comemons
-            key={index}
-            name={truncateNickname(item.nickname)}
-            level={`Lv. ${item.commit_count}`}
-            commitCount={item.commit_count}
-          />
-        ))}
+        {loading ? (
+          <LoadingLottie width={'50px'} />
+        ) : (
+          data.map((item, index) => (
+            <Comemons
+              key={index}
+              name={truncateNickname(item.nickname)}
+              level={`Lv. ${item.commit_count}`}
+              commitCount={item.commit_count}
+            />
+          ))
+        )}
       </div>
     </div>
   )

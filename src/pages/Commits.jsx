@@ -4,7 +4,6 @@ import styles from '../styles/Commits.module.css'
 import CommitLineChart from '../components/analytics/CommitLineChart'
 import MyWordcloud from '../components/analytics/WordCloud'
 
-
 export default function Commits() {
   return (
     <Layout>
@@ -22,14 +21,6 @@ export default function Commits() {
                 <CommitLineChart />
               </div>
             </div>
-            {/*<div className={styles.ranking}>*/}
-            {/*  <h1 className={styles.title}>커밋 기여도 순위</h1>*/}
-            {/*  <div className={styles.rankContainer}>*/}
-            {/*    <CommitRank />*/}
-            {/*    <CommitRank />*/}
-            {/*    <CommitRank />*/}
-            {/*  </div>*/}
-            {/*</div>*/}
           </div>
         </div>
       </div>

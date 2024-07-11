@@ -12,6 +12,7 @@ import {
   API_URL,
 } from '../utils/static'
 import useFetchData from '../hooks/useFetchData'
+import LoadingLottie from '../components/LoadingLottie'
 
 export default function Settings() {
   const [selectedRepo, setSelectedRepo] = useState('')
@@ -129,94 +130,98 @@ export default function Settings() {
       <div className={styles.container}>
         <div className={styles.section}>
           <h1 className={styles.title}>환경설정</h1>
-          {loadingRepos || loadingBookmarks ? (
-            'loading...'
-          ) : (
-            <>
-              <div className={styles.subSection}>
-                <div className={styles.subTopSection}>
-                  <span className={styles.subTitle}>레포지토리 설정</span>
-                  <button
-                    className={styles.saveButton}
-                    onClick={handleClickSaveRepo}
+          <div className={styles.subSection}>
+            <div className={styles.subTopSection}>
+              <span className={styles.subTitle}>레포지토리 설정</span>
+              <button
+                className={styles.saveButton}
+                onClick={handleClickSaveRepo}
+              >
+                저장
+              </button>
+            </div>
+            <div className={styles.subBottomSection}>
+              <label className={styles.repoLabel}>
+                화면에 표시될 레포지토리를 선택해주세요.
+              </label>
+              <div className={styles.inputGroup}>
+                <label className={styles.inputLabel}>레포지토리</label>{' '}
+                {loadingRepos ? (
+                  <LoadingLottie width={'30px'} />
+                ) : (
+                  <select
+                    className={styles.select}
+                    value={selectedRepo}
+                    onChange={handleChangeRepo}
                   >
-                    저장
-                  </button>
-                </div>
-                <div className={styles.subBottomSection}>
-                  <label className={styles.repoLabel}>
-                    화면에 표시될 레포지토리를 선택해주세요.
-                  </label>
-                  <div className={styles.inputGroup}>
-                    <label className={styles.inputLabel}>레포지토리</label>
-                    <select
-                      className={styles.select}
-                      value={selectedRepo}
-                      onChange={handleChangeRepo}
+                    {repositories.map((repo) => {
+                      return (
+                        <option value={repo} key={repo}>
+                          {repo}
+                        </option>
+                      )
+                    })}
+                  </select>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className={styles.subSection}>
+            <div className={styles.subTopSection}>
+              <span className={styles.subTitle}>북마크 설정</span>
+              <button
+                className={styles.saveButton}
+                onClick={handleSaveBookmarks}
+              >
+                저장
+              </button>
+            </div>
+            <div className={styles.subBottomSection}>
+              {bookmarks.map((bookmark, index) => (
+                <div className={styles.bookmarkGroup} key={index}>
+                  <div className={styles.labelGroup}>
+                    <label className={styles.label}>바로가기 {index + 1}</label>
+                    <button
+                      className={styles.deleteButton}
+                      onClick={() => handleDeleteBookmark(index)}
                     >
-                      {repositories.map((repo) => {
-                        return (
-                          <option value={repo} key={repo}>
-                            {repo}
-                          </option>
-                        )
-                      })}
-                    </select>
+                      삭제
+                    </button>
+                  </div>
+                  <div className={styles.inputGroup}>
+                    <label className={styles.inputLabel}>북마크 이름</label>
+                    {loadingBookmarks ? (
+                      <LoadingLottie width={'30px'} />
+                    ) : (
+                      <input
+                        className={styles.input}
+                        placeholder='추가할 북마크 이름을 입력해주세요.'
+                        value={bookmark.title}
+                        onChange={(e) =>
+                          handleBookmarkChange(index, 'title', e.target.value)
+                        }
+                      />
+                    )}
+                  </div>
+                  <div className={styles.inputGroup}>
+                    <label className={styles.inputLabel}>북마크 URL</label>{' '}
+                    {loadingBookmarks ? (
+                      <LoadingLottie width={'30px'} />
+                    ) : (
+                      <input
+                        className={styles.input}
+                        placeholder='추가할 북마크 URL을 입력해주세요.'
+                        value={bookmark.url}
+                        onChange={(e) =>
+                          handleBookmarkChange(index, 'url', e.target.value)
+                        }
+                      />
+                    )}
                   </div>
                 </div>
-              </div>
-              <div className={styles.subSection}>
-                <div className={styles.subTopSection}>
-                  <span className={styles.subTitle}>북마크 설정</span>
-                  <button
-                    className={styles.saveButton}
-                    onClick={handleSaveBookmarks}
-                  >
-                    저장
-                  </button>
-                </div>
-                <div className={styles.subBottomSection}>
-                  {bookmarks.map((bookmark, index) => (
-                    <div className={styles.bookmarkGroup} key={index}>
-                      <div className={styles.labelGroup}>
-                        <label className={styles.label}>
-                          바로가기 {index + 1}
-                        </label>
-                        <button
-                          className={styles.deleteButton}
-                          onClick={() => handleDeleteBookmark(index)}
-                        >
-                          삭제
-                        </button>
-                      </div>
-                      <div className={styles.inputGroup}>
-                        <label className={styles.inputLabel}>북마크 이름</label>
-                        <input
-                          className={styles.input}
-                          placeholder='추가할 북마크 이름을 입력해주세요.'
-                          value={bookmark.title}
-                          onChange={(e) =>
-                            handleBookmarkChange(index, 'title', e.target.value)
-                          }
-                        />
-                      </div>
-                      <div className={styles.inputGroup}>
-                        <label className={styles.inputLabel}>북마크 URL</label>
-                        <input
-                          className={styles.input}
-                          placeholder='추가할 북마크 URL을 입력해주세요.'
-                          value={bookmark.url}
-                          onChange={(e) =>
-                            handleBookmarkChange(index, 'url', e.target.value)
-                          }
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </>
-          )}
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </Layout>

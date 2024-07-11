@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { PieChart, Pie, Sector } from 'recharts'
 import { API_URL } from '../../utils/static'
 import useFetchData from '../../hooks/useFetchData'
+import LoadingLottie from '../LoadingLottie'
+import styles from '../../../src/styles/IssuePieChart.module.css'
 
 const IssuePieChart = () => {
   const { loading, response, error } = useFetchData(API_URL().issue_state)
@@ -112,15 +114,15 @@ const IssuePieChart = () => {
     setActiveIndex(index)
   }
 
-  if (loading) {
-    return <div>Loading...</div>
-  }
-
   if (error) {
     return <div>Error fetching data</div>
   }
 
-  return (
+  return loading ? (
+    <div className={styles.lottie}>
+      <LoadingLottie width={'50px'} />
+    </div>
+  ) : (
     <PieChart width={480} height={300}>
       <Pie
         activeIndex={activeIndex}

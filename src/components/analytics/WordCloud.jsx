@@ -2,11 +2,10 @@ import React, { useEffect, useState, useRef } from 'react'
 import styles from '../../styles/WordCloud.module.css'
 import ReactWordcloud from 'react-wordcloud'
 import { API_URL } from '../../utils/static'
-import Lottie from 'lottie-react'
-import loadingIndicator from '../../images/loading.json'
 import useFetchData from '../../hooks/useFetchData'
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/animations/scale.css'
+import LoadingLottie from '../LoadingLottie'
 
 const callbacks = {
   getWordTooltip: (word) => `${word.text} (${word.value})`,
@@ -45,7 +44,7 @@ export default function MyWordcloud() {
   }, [])
 
   if (loading) {
-    return <Lottie animationData={loadingIndicator} />
+    return <LoadingLottie width={'50px'} />
   }
 
   if (error) {

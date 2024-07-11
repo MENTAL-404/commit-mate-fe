@@ -53,6 +53,8 @@
 .graph {
   margin-top: 2rem;
   width: 100%;
+  display: flex;
+  justify-content: center;
   padding: 2rem;
   box-sizing: border-box;
   background-color: white;
