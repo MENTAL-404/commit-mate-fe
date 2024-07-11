@@ -6,6 +6,7 @@ import ToastMessage from '../components/ToastMessage'
 import 'react-toastify/dist/ReactToastify.css'
 import { ORGANIZATION, getSelectedRepo, API_URL } from '../utils/static'
 import useFetchData from '../hooks/useFetchData'
+import LoadingLottie from '../components/LoadingLottie'
 
 export default function Repos() {
   const navigate = useNavigate()
@@ -19,7 +20,7 @@ export default function Repos() {
   )
 
   useEffect(() => {
-    setSelectedRepo(getSelectedRepo())
+    setSelectedRepo(getSelectedRepo() || '')
   }, [])
 
   useEffect(() => {
@@ -38,10 +39,6 @@ export default function Repos() {
     setTimeout(() => {
       navigate('/home')
     }, 2000)
-  }
-
-  if (loading) {
-    return <div>Loading...</div>
   }
 
   if (error) {
@@ -63,25 +60,31 @@ export default function Repos() {
           <div className={styles.inputGroup}>
             <div className={styles.selectGroup}>
               <label className={styles.inputLabel}>레포지토리</label>
-              <select
-                className={styles.select}
-                value={selectedRepo}
-                onChange={(e) => handleChangeRepo(e.target.value)}
-              >
-                {repositories.map((repo) => {
-                  return (
-                    <option value={repo} key={repo}>
-                      {repo}
-                    </option>
-                  )
-                })}
-              </select>
-              <button
-                className={styles.saveButton}
-                onClick={handleClickSaveRepo}
-              >
-                저장
-              </button>
+              {loading ? (
+                <LoadingLottie width={'30px'} />
+              ) : (
+                <>
+                  <select
+                    className={styles.select}
+                    value={selectedRepo || ''}
+                    onChange={(e) => handleChangeRepo(e.target.value)}
+                  >
+                    {repositories.map((repo) => {
+                      return (
+                        <option value={repo} key={repo}>
+                          {repo}
+                        </option>
+                      )
+                    })}
+                  </select>
+                  <button
+                    className={styles.saveButton}
+                    onClick={handleClickSaveRepo}
+                  >
+                    저장
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>

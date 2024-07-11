@@ -105,9 +105,9 @@ export default function Todo() {
       <div className={styles.innerTitle}>✅ Todo</div>
       <div className={styles.todoList}>
         {loading ? (
-          <dov className={styles.lottie}>
+          <div className={styles.lottie}>
             <LoadingLottie width={'30px'} />
-          </dov>
+          </div>
         ) : todos.length === 0 ? (
           'No todos yet'
         ) : (
