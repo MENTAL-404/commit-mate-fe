@@ -1,6 +1,7 @@
 import { BarChart, Bar, XAxis, ResponsiveContainer, Tooltip } from 'recharts'
 import { API_URL } from '../../utils/static'
 import useFetchData from '../../hooks/useFetchData'
+import LoadingLottie from '../LoadingLottie'
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
@@ -29,7 +30,7 @@ export default function ActiveBarChart() {
   } = useFetchData(API_URL().commit_chart)
 
   if (loading) {
-    return <div>Loading...</div>
+    return <LoadingLottie width={'50px'} />
   }
 
   if (error) {

@@ -10,6 +10,8 @@ import {
 } from 'recharts'
 import { API_URL } from '../../utils/static'
 import useFetchData from '../../hooks/useFetchData'
+import LoadingLottie from '../LoadingLottie'
+import styles from '../../../src/styles/CommitLineChart.module.css'
 
 const CommitLineChart = () => {
   const { loading, response, error } = useFetchData(
@@ -25,7 +27,11 @@ const CommitLineChart = () => {
   }, [response])
 
   if (loading) {
-    return <div>Loading...</div>
+    return (
+      <div className={styles.lottie}>
+        <LoadingLottie width={'50px'} />
+      </div>
+    )
   }
 
   if (error) {

@@ -10,6 +10,8 @@ import {
 } from 'recharts'
 import { API_URL } from '../../utils/static'
 import useFetchData from '../../hooks/useFetchData'
+import styles from '../../../src/styles/IssueAssigneeGraph.module.css'
+import LoadingLottie from '../LoadingLottie'
 
 const IssueAssigneeGraph = () => {
   const { loading, response, error } = useFetchData(API_URL().issue_assignee)
@@ -56,15 +58,15 @@ const IssueAssigneeGraph = () => {
     )
   }
 
-  if (loading) {
-    return <div>Loading...</div>
-  }
-
   if (error) {
     return <div>Error fetching data</div>
   }
 
-  return (
+  return loading ? (
+    <div className={styles.lottie}>
+      <LoadingLottie width={'50px'} />
+    </div>
+  ) : (
     <ResponsiveContainer width='100%' height={350}>
       <BarChart
         width={500}
