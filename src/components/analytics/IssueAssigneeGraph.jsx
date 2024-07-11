@@ -8,42 +8,13 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts'
-
-import { useEffect, useState } from 'react'
-
-import {
-  getSelectedRepo,
-  SERVER_URL,
-  ORGANIZATION,
-  getHeader,
-} from '../../utils/static'
+import { API_URL } from '../../utils/static'
+import useFetchData from '../../hooks/useFetchData'
 
 const IssueAssigneeGraph = () => {
-  const [issues, setIssues] = useState([])
+  const { loading, response, error } = useFetchData(API_URL().issue_assignee)
 
-  useEffect(() => {
-    const fetchAssignee = async () => {
-      try {
-        const response = await fetch(
-          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/issues/status`,
-          {
-            headers: getHeader(),
-            credentials: 'include',
-          }
-        )
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch issue assignee')
-        }
-        const data = await response.json()
-        setIssues(data.data)
-      } catch (error) {
-        console.error('Error fetching issue assignee:', error)
-      }
-    }
-
-    fetchAssignee()
-  }, [])
+  const issues = response ? response.data : []
 
   const data = issues.map((assignee) => ({
     name: assignee.nickname,
@@ -83,6 +54,14 @@ const IssueAssigneeGraph = () => {
         </text>
       </g>
     )
+  }
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error fetching data</div>
   }
 
   return (

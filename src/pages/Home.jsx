@@ -1,99 +1,47 @@
 import Layout from '../components/Layout'
 import styles from '../styles/Home.module.css'
 import BottomTag from '../components/home/BottomTag'
-
 import ComemonGo from '../components/analytics/comemon/ComemonGo'
 import IssueList from '../components/issue/IssueList'
 import ActiveBarChart from '../components/analytics/ActiveBarChart'
-
-import { useState, useEffect } from 'react'
-
-import {
-  SERVER_URL,
-  ORGANIZATION,
-  getHeader,
-  getSelectedRepo,
-} from '../utils/static'
+import useFetchData from '../hooks/useFetchData'
 import totalCommitImg from '../images/totalCommit.png'
 import commitKingImg from '../images/commitKing.png'
 import mergePrImg from '../images/mergePr.png'
+import { API_URL } from '../utils/static'
 
 export default function Home() {
-  const [commitKing, setCommitKing] = useState('')
-  const [totalCommit, setTotalCommit] = useState()
-  const [mergePr, setMergePr] = useState()
+  const {
+    loading: loadingTotalCommit,
+    response: totalCommitResponse,
+    error: errorTotalCommit,
+  } = useFetchData(API_URL().commit_total)
+  const {
+    loading: loadingCommitKing,
+    response: commitKingResponse,
+    error: errorCommitKing,
+  } = useFetchData(API_URL().commit_king)
+  const {
+    loading: loadingMergePR,
+    response: mergePRResponse,
+    error: errorMergePR,
+  } = useFetchData(API_URL().pr)
 
-  useEffect(() => {
-    const fetchTotalcommit = async () => {
-      try {
-        const response = await fetch(
-          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/all`,
-          {
-            headers: getHeader(),
-            credentials: 'include',
-          }
-        )
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch total commits')
-        }
-        const data = await response.json()
-        setTotalCommit(data.data.commit_count)
-      } catch (error) {
-        console.error('Error fetching total commits:', error)
-      }
-    }
-
-    const fetchCommitKing = async () => {
-      try {
-        const response = await fetch(
-          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/weekly/top`,
-          {
-            headers: getHeader(),
-            credentials: 'include',
-          }
-        )
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch commit king')
-        }
-        const data = await response.json()
-        setCommitKing(data.data.nickname)
-      } catch (error) {
-        console.error('Error fetching commit king:', error)
-      }
-    }
-
-    const fetchMergePR = async () => {
-      try {
-        const response = await fetch(
-          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/pulls`,
-          {
-            headers: getHeader(),
-            credentials: 'include',
-          }
-        )
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch pull requests')
-        }
-        const data = await response.json()
-        setMergePr(data?.data)
-      } catch (error) {
-        console.error('Error fetching pull requests:', error)
-      }
-    }
-
-    fetchTotalcommit()
-    fetchCommitKing()
-    fetchMergePR()
-  }, [])
+  const totalCommit = totalCommitResponse
+    ? totalCommitResponse.data.commit_count
+    : ''
+  const commitKing = commitKingResponse ? commitKingResponse.data.nickname : ''
+  const mergePr = mergePRResponse ? mergePRResponse.data : {}
 
   const truncateNickname = (nickname) => {
     if (Array.isArray(nickname)) {
       nickname = nickname[0]
     }
     return nickname.length > 10 ? `${nickname.substring(0, 10)}..` : nickname
+  }
+
+  if (errorTotalCommit && errorCommitKing && errorMergePR) {
+    return <div>Error fetching data</div>
   }
 
   return (
@@ -104,7 +52,7 @@ export default function Home() {
           볼 수 있는 대시보드입니다.
         </div>
         <div className={styles.bottomOuterContainer}>
-            <ComemonGo />
+          <ComemonGo />
           <div className={styles.middleContainer}>
             <div className={styles.activeContainer}>
               <h1 className={styles.title}>활동차트</h1>
@@ -122,21 +70,29 @@ export default function Home() {
           <div className={styles.etcContainer}>
             <h1 className={styles.title}>명예의 전당</h1>
             <div className={styles.bottomContainer}>
-              <BottomTag
-                image={totalCommitImg}
-                bottom='총 커밋수'
-                title={totalCommit}
-              />
-              <BottomTag
-                image={commitKingImg}
-                bottom='저번주 커밋왕'
-                title={truncateNickname(commitKing)}
-              />
-              <BottomTag
-                image={mergePrImg}
-                bottom='Merge / PR'
-                title={`${mergePr?.merge_count} / ${mergePr?.pr_count}`}
-              />
+              {' '}
+              {loadingTotalCommit && loadingCommitKing && loadingMergePR ? (
+                'loading...'
+              ) : (
+                <>
+                  {' '}
+                  <BottomTag
+                    image={totalCommitImg}
+                    bottom='총 커밋수'
+                    title={totalCommit}
+                  />
+                  <BottomTag
+                    image={commitKingImg}
+                    bottom='저번주 커밋왕'
+                    title={truncateNickname(commitKing)}
+                  />
+                  <BottomTag
+                    image={mergePrImg}
+                    bottom='Merge / PR'
+                    title={`${mergePr?.merge_count} / ${mergePr?.pr_count}`}
+                  />
+                </>
+              )}
             </div>
           </div>
         </div>

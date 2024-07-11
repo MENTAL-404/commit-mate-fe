@@ -1,49 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styles from '../../../styles/ComemonGo.module.css'
 import Comemons from './Comemons'
 import Lottie from 'lottie-react'
 import loadingIndicator from '../../../images/loading.json'
-
-import {
-  getSelectedRepo,
-  SERVER_URL,
-  ORGANIZATION,
-  getHeader,
-} from '../../../utils/static'
+import { API_URL } from '../../../utils/static'
+import useFetchData from '../../../hooks/useFetchData'
 
 export default function ComemonGo() {
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    setLoading(true)
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/rank`,
-          {
-            headers: getHeader(),
-            credentials: 'include',
-          }
-        )
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch data')
-        }
-
-        const result = await response.json()
-        setData(result.data) // 데이터 형식에 맞게 수정하세요
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-      setLoading(false)
-    }
-
-    fetchData()
-  }, [])
+  const { loading, response, error } = useFetchData(API_URL().commit_rank)
+  const data = response ? response.data : []
 
   const truncateNickname = (nickname) => {
     return nickname.length > 8 ? `${nickname.substring(0, 6)}..` : nickname
+  }
+
+  if (loading) {
+    return (
+      <div className={styles.loadingContainer}>
+        <Lottie animationData={loadingIndicator} />
+      </div>
+    )
+  }
+
+  if (error) {
+    return <div>Error fetching data</div>
   }
 
   return (
@@ -56,22 +36,16 @@ export default function ComemonGo() {
           className={styles.logo}
         />
       </div>
-      {loading ? (
-        <div className={styles.loadingContainer}>
-          <Lottie animationData={loadingIndicator} />
-        </div>
-      ) : (
-        <div className={styles.comemonsContainer}>
-          {data.map((item, index) => (
-            <Comemons
-              key={index}
-              name={truncateNickname(item.nickname)}
-              level={`Lv. ${item.commit_count}`}
-              commitCount={item.commit_count}
-            />
-          ))}
-        </div>
-      )}
+      <div className={styles.comemonsContainer}>
+        {data.map((item, index) => (
+          <Comemons
+            key={index}
+            name={truncateNickname(item.nickname)}
+            level={`Lv. ${item.commit_count}`}
+            commitCount={item.commit_count}
+          />
+        ))}
+      </div>
     </div>
   )
 }

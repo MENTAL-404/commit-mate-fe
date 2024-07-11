@@ -1,55 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { PieChart, Pie, Sector } from 'recharts'
-
-import {
-  getSelectedRepo,
-  SERVER_URL,
-  ORGANIZATION,
-  getHeader,
-} from '../../utils/static'
+import { API_URL } from '../../utils/static'
+import useFetchData from '../../hooks/useFetchData'
 
 const IssuePieChart = () => {
-  const [data, setData] = useState([])
+  const { loading, response, error } = useFetchData(API_URL().issue_state)
+  const [data, setData] = useState()
   const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/issues/stats`,
-          {
-            headers: getHeader(),
-            credentials: 'include',
-          }
-        )
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch data')
-        }
-
-        const result = await response.json()
-        const formattedData = [
-          {
-            name: '오픈된 이슈',
-            value: result.data.open_count,
-            fill: '#8BC38B',
-          },
-          {
-            name: '해결된 이슈',
-            value: result.data.close_count,
-            fill: '#EB763C',
-          },
-        ]
-        // const result = await response.json();
-
-        setData(formattedData)
-        // console.log(formattedData)
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
+    if (response) {
+      const formattedData = [
+        {
+          name: '오픈된 이슈',
+          value: response.data.open_count,
+          fill: '#8BC38B',
+        },
+        {
+          name: '해결된 이슈',
+          value: response.data.close_count,
+          fill: '#EB763C',
+        },
+      ]
+      setData(formattedData)
     }
-    fetchData()
-  }, [])
+  }, [response])
 
   const renderActiveShape = (props) => {
     const RADIAN = Math.PI / 180
@@ -135,6 +110,14 @@ const IssuePieChart = () => {
 
   const onPieEnter = (_, index) => {
     setActiveIndex(index)
+  }
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error fetching data</div>
   }
 
   return (

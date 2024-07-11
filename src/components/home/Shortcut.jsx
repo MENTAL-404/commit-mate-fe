@@ -1,39 +1,18 @@
 import styles from '../../styles/Shortcut.module.css'
 import bookmark from '../../images/bookmak.png'
-
-import { SERVER_URL, ORGANIZATION, getHeader } from '../../utils/static'
-import { useEffect, useState } from 'react'
+import { API_URL } from '../../utils/static'
+import useFetchData from '../../hooks/useFetchData'
 
 export default function Shortcut() {
-  const [data, setData] = useState([])
+  const { loading, response, error } = useFetchData(API_URL().shortcut)
+  const data = response ? response.data : []
 
-  useEffect(() => {
-    const fetchShortcuts = async () => {
-      try {
-        const response = await fetch(
-          `${SERVER_URL}/shortcuts/organization/${ORGANIZATION}`,
-          {
-            headers: getHeader(),
-            credentials: 'include',
-          }
-        )
-        if (!response.ok) {
-          throw new Error('Failed to fetch shortcuts')
-        }
+  if (loading) {
+    return <div>Loading...</div>
+  }
 
-        const result = await response.json()
-        setData(result.data)
-        // console.log('북마크', result.data)
-      } catch (error) {
-        console.error('Error fetching shortcuts:', error)
-      }
-    }
-
-    fetchShortcuts()
-  }, [])
-
-  const handleLinkClick = (url) => {
-    window.open(url, '_blank'); // URL을 새 창에서 열기
+  if (error) {
+    return <div>Error fetching shortcuts</div>
   }
 
   return (
@@ -41,15 +20,16 @@ export default function Shortcut() {
       <div className={styles.linkList}>
         {data.length > 0 ? (
           data.map((shortcut) => (
-            <div
+            <a
+              target='_blank'
               key={shortcut.id}
               className={styles.link}
-              onClick={() => handleLinkClick(shortcut.url)}
-              style={{cursor: 'pointer'}}
+              href={shortcut.url}
+              rel='noreferrer'
             >
               <img src={bookmark} alt='bookmark' className={styles.linkLogo} />
               {shortcut.title}
-            </div>
+            </a>
           ))
         ) : (
           <div className={`${styles.link} ${styles.noLink}`}>
@@ -58,11 +38,13 @@ export default function Shortcut() {
         )}
         {data.length < 2 &&
           Array.from({ length: 2 - data.length }).map((_, index) => (
-            <div key={`placeholder-${index}`} className={`${styles.link} ${styles.noShortcut}`}>
+            <div
+              key={`placeholder-${index}`}
+              className={`${styles.link} ${styles.noShortcut}`}
+            >
               추가된 바로가기가 없습니다
             </div>
-          ))
-        }
+          ))}
       </div>
     </div>
   )

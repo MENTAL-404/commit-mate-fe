@@ -1,11 +1,6 @@
 import { BarChart, Bar, XAxis, ResponsiveContainer, Tooltip } from 'recharts'
-import { useEffect, useState } from 'react'
-import {
-  SERVER_URL,
-  ORGANIZATION,
-  getHeader,
-  getSelectedRepo,
-} from '../../utils/static'
+import { API_URL } from '../../utils/static'
+import useFetchData from '../../hooks/useFetchData'
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
@@ -27,36 +22,23 @@ const CustomTooltip = ({ active, payload, label }) => {
 }
 
 export default function ActiveBarChart() {
-  const [active, setActive] = useState([])
+  const {
+    loading,
+    response: active,
+    error,
+  } = useFetchData(API_URL().commit_chart)
 
-  useEffect(() => {
-    const fetchRepositories = async () => {
-      try {
-        const response = await fetch(
-          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/chart`,
-          {
-            headers: getHeader(),
-            credentials: 'include',
-          }
-        )
+  if (loading) {
+    return <div>Loading...</div>
+  }
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch access token')
-        }
-
-        const data = await response.json()
-        setActive(data)
-      } catch (error) {
-        console.error('Error fetching active data:', error)
-      }
-    }
-
-    fetchRepositories()
-  }, [])
+  if (error) {
+    return <div>Error fetching data</div>
+  }
 
   return (
     <ResponsiveContainer width='100%' height='100%'>
-      <BarChart width={150} height={80} data={active.data}>
+      <BarChart width={150} height={80} data={active?.data}>
         <XAxis dataKey='date' axisLine={false} tickLine={false} />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey='commit_count' fill='#95d99e' radius={[15, 15, 15, 15]} />

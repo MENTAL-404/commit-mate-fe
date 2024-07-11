@@ -1,45 +1,24 @@
 import styles from '../../styles/IssueList.module.css'
 import IssueItem from '../../components/issue/IssueItem'
-import { useEffect, useState } from 'react'
-
-import {
-  getSelectedRepo,
-  SERVER_URL,
-  ORGANIZATION,
-  getHeader,
-} from '../../utils/static'
+import { API_URL } from '../../utils/static'
+import useFetchData from '../../hooks/useFetchData'
 
 export default function IssueList({ type }) {
-  const [issues, setIssues] = useState()
-
-  useEffect(() => {
-    const fetchIssues = async () => {
-      try {
-        const response = await fetch(
-          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/issues`,
-          {
-            headers: getHeader(),
-            credentials: 'include',
-          }
-        )
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch access token')
-        }
-        const data = await response.json()
-        setIssues(data.data)
-      } catch (error) {
-        console.error('Error fetching repositories:', error)
-      }
-    }
-
-    fetchIssues()
-  }, [])
+  const { loading, response, error } = useFetchData(API_URL().issue)
+  const issues = response ? response.data : []
 
   const openIssues = issues?.filter((issue) => issue.state === 'open')
   const closedIssues = issues?.filter((issue) => issue.state === 'closed')
 
   const displayedIssues = type === 'open' ? openIssues : closedIssues
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error fetching issues</div>
+  }
 
   return (
     <div className={styles.container}>
@@ -63,7 +42,6 @@ export default function IssueList({ type }) {
               />
             ))
           : '이슈가 없습니다'}
-        {}
       </div>
     </div>
   )

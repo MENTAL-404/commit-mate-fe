@@ -1,44 +1,35 @@
 import styles from '../../styles/Todo.module.css'
-import { SERVER_URL, getHeader } from '../../utils/static'
+import { SERVER_URL, getHeader, API_URL } from '../../utils/static'
 import { useState, useEffect } from 'react'
 import { FaTrashAlt, FaEdit } from 'react-icons/fa'
 import { IoIosAdd } from 'react-icons/io'
+import useFetchData from '../../hooks/useFetchData'
 
 export default function Todo() {
+  const { loading, response, error } = useFetchData(API_URL().todo)
   const [todos, setTodos] = useState([])
   const [newTodo, setNewTodo] = useState('')
   const [editingTodo, setEditingTodo] = useState(null)
   const [editingText, setEditingText] = useState('')
 
-  // TODO 리스트 조회
-  const fetchTodos = async () => {
-    try {
-      const response = await fetch(`${SERVER_URL}/todos?complete=`, {
-        headers: getHeader(),
-        credentials: 'include',
-      })
-      const result = await response.json()
-      setTodos(result.data || [])
-    } catch (error) {
-      console.error('Error fetching todos:', error)
-    }
-  }
-
   useEffect(() => {
-    fetchTodos()
-  }, [])
+    if (response) {
+      setTodos(response.data || [])
+    }
+  }, [response])
 
   // TODO 생성
   const addTodo = async () => {
     try {
-      const response = await fetch(`${SERVER_URL}/todos`, {
+      const response = await fetch(`${API_URL().todos}`, {
         method: 'POST',
         headers: getHeader(),
         credentials: 'include',
         body: JSON.stringify({ title: newTodo }),
       })
       if (response.ok) {
-        fetchTodos()
+        const result = await response.json()
+        setTodos((prevTodos) => [...prevTodos, result.data])
         setNewTodo('')
       }
     } catch (error) {
@@ -49,13 +40,19 @@ export default function Todo() {
   // TODO 해결 체크
   const updateTodo = async (id, complete) => {
     try {
-      await fetch(`${SERVER_URL}/todos/${id}`, {
+      const response = await fetch(`${API_URL().todos}/${id}`, {
         method: 'PUT',
         headers: getHeader(),
         credentials: 'include',
         body: JSON.stringify({ complete: !complete }),
       })
-      fetchTodos()
+      if (response.ok) {
+        setTodos((prevTodos) =>
+          prevTodos.map((todo) =>
+            todo.id === id ? { ...todo, complete: !complete } : todo
+          )
+        )
+      }
     } catch (error) {
       console.error('Error updating todo:', error)
     }
@@ -64,15 +61,19 @@ export default function Todo() {
   // TODO 수정
   const saveEditTodo = async (id, title) => {
     try {
-      await fetch(`${SERVER_URL}/todos/${id}`, {
+      const response = await fetch(`${API_URL().todos}/${id}`, {
         method: 'PUT',
         headers: getHeader(),
         credentials: 'include',
         body: JSON.stringify({ title }),
       })
-      fetchTodos()
-      setEditingTodo(null)
-      setEditingText('')
+      if (response.ok) {
+        setTodos((prevTodos) =>
+          prevTodos.map((todo) => (todo.id === id ? { ...todo, title } : todo))
+        )
+        setEditingTodo(null)
+        setEditingText('')
+      }
     } catch (error) {
       console.error('Error updating todo:', error)
     }
@@ -81,15 +82,25 @@ export default function Todo() {
   // TODO 삭제
   const deleteTodo = async (id) => {
     try {
-      await fetch(`${SERVER_URL}/todos/${id}`, {
+      const response = await fetch(`${API_URL().todos}/${id}`, {
         method: 'DELETE',
         headers: getHeader(),
         credentials: 'include',
       })
-      fetchTodos()
+      if (response.ok) {
+        setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id))
+      }
     } catch (error) {
       console.error('Error deleting todo:', error)
     }
+  }
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error fetching todos</div>
   }
 
   return (
@@ -120,8 +131,8 @@ export default function Todo() {
                       className={todo.complete ? styles.complete : ''}
                       onClick={() => updateTodo(todo.id, todo.complete)}
                     >
-                    {todo.title}
-                  </span>
+                      {todo.title}
+                    </span>
                   )}
                 </div>
                 <div className={styles.actionButtons}>

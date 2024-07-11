@@ -1,48 +1,32 @@
 import styles from '../styles/Repos.module.css'
 import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { toast } from 'react-toastify'
 import ToastMessage from '../components/ToastMessage'
 import 'react-toastify/dist/ReactToastify.css'
-import {
-  SERVER_URL,
-  ORGANIZATION,
-  getSelectedRepo,
-  getHeader,
-} from '../utils/static'
+import { ORGANIZATION, getSelectedRepo, API_URL } from '../utils/static'
+import useFetchData from '../hooks/useFetchData'
 
 export default function Repos() {
   const navigate = useNavigate()
-  const [repositories, setRepositories] = useState([])
   const [selectedRepo, setSelectedRepo] = useState('')
+
+  const { loading, response, error } = useFetchData(API_URL().repositories)
+
+  const repositories = useMemo(
+    () => (response ? response.data.repos : []),
+    [response]
+  )
 
   useEffect(() => {
     setSelectedRepo(getSelectedRepo())
-
-    const fetchRepositories = async () => {
-      try {
-        const response = await fetch(
-          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories`,
-          {
-            credentials: 'include',
-            headers: getHeader(),
-          }
-        )
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch access token')
-        }
-
-        const data = await response.json()
-        setRepositories(data.data.repos)
-        setSelectedRepo(data.data.repos[0])
-      } catch (error) {
-        setRepositories([])
-        console.error('Error fetching repositories:', error)
-      }
-    }
-    fetchRepositories()
   }, [])
+
+  useEffect(() => {
+    if (repositories.length > 0 && !selectedRepo) {
+      setSelectedRepo(repositories[0])
+    }
+  }, [repositories, selectedRepo])
 
   const handleChangeRepo = (repo) => {
     setSelectedRepo(repo)
@@ -53,7 +37,15 @@ export default function Repos() {
     toast.success('선택한 레포지토리가 저장되었습니다,')
     setTimeout(() => {
       navigate('/home')
-    }, [2000])
+    }, 2000)
+  }
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error fetching repositories</div>
   }
 
   return (
@@ -74,7 +66,6 @@ export default function Repos() {
               <select
                 className={styles.select}
                 value={selectedRepo}
-                defaultValue={repositories ? repositories[0] : ''}
                 onChange={(e) => handleChangeRepo(e.target.value)}
               >
                 {repositories.map((repo) => {
@@ -94,18 +85,6 @@ export default function Repos() {
             </div>
           </div>
         </div>
-        {/*<div className={styles.subSection}>*/}
-        {/*<div className={styles.subTopSection}>*/}
-        {/*  /!*<span className={styles.subTitle}>레포지토리 설정</span>*!/*/}
-
-        {/*</div>*/}
-        {/*<div className={styles.subBottomSection}>*/}
-        {/*  /!*<label className={styles.label}>*!/*/}
-        {/*  /!*  화면에 표시될 레포지토리를 선택해주세요.*!/*/}
-        {/*  /!*</label>*!/*/}
-
-        {/*</div>*/}
-        {/*</div>*/}
       </div>
     </div>
   )
