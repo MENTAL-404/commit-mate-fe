@@ -32,3 +32,27 @@ export const getHeader = () => {
 export const getSelectedRepo = () => {
   return localStorage.getItem('selected_repo') ?? null
 }
+
+export const API_URL = () => {
+  return {
+    pr: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/pulls`,
+    todo: `${SERVER_URL}/todos?complete=`,
+    todos: `${SERVER_URL}/todos`,
+    repositories: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories`,
+    logout: `${SERVER_URL}/auth/logout`,
+    organization: `${SERVER_URL}/organizations`,
+    shortcut: `${SERVER_URL}/shortcuts/organization/${ORGANIZATION}`,
+    shortcurId: `${SERVER_URL}/shortcuts`,
+    aceess_token: `${SERVER_URL}/auth/github/callback?code=`,
+    issue_assignee: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/issues/status`,
+    issue_state: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/issues/stats`,
+    issue: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/issues`,
+    commit_chart: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/chart`,
+    commit_contribution: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/graph`,
+    commit_message: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/wordcloud`,
+    commit_rank: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/rank`,
+    commit_total: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/all`,
+    commit_king: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories/${getSelectedRepo()}/commits/weekly/top`,
+    logout: `${SERVER_URL}/auth/logout`,
+  }
+}
