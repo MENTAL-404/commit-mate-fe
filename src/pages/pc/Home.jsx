@@ -1,49 +1,11 @@
 import Layout from '../../components/Layout'
 import styles from '../../styles/Home.module.css'
-import BottomTag from '../../components/home/BottomTag'
 import ComemonGo from '../../components/analytics/comemon/ComemonGo'
 import IssueList from '../../components/issue/IssueList'
 import ActiveBarChart from '../../components/analytics/ActiveBarChart'
-import useFetchData from '../../hooks/useFetchData'
-import totalCommitImg from '../../assets/images/totalCommit.png'
-import commitKingImg from '../../assets/images/commitKing.png'
-import mergePrImg from '../../assets/images/mergePr.png'
-import { API_URL } from '../../utils/static'
+import Honor from '../../components/Honor'
 
 export default function Home() {
-  const {
-    loading: loadingTotalCommit,
-    response: totalCommitResponse,
-    error: errorTotalCommit,
-  } = useFetchData(API_URL().commit_total)
-  const {
-    loading: loadingCommitKing,
-    response: commitKingResponse,
-    error: errorCommitKing,
-  } = useFetchData(API_URL().commit_king)
-  const {
-    loading: loadingMergePR,
-    response: mergePRResponse,
-    error: errorMergePR,
-  } = useFetchData(API_URL().pr)
-
-  const totalCommit = totalCommitResponse
-    ? totalCommitResponse.data.commit_count
-    : ''
-  const commitKing = commitKingResponse ? commitKingResponse.data.nickname : ''
-  const mergePr = mergePRResponse ? mergePRResponse.data : {}
-
-  const truncateNickname = (nickname) => {
-    if (Array.isArray(nickname)) {
-      nickname = nickname[0]
-    }
-    return nickname.length > 10 ? `${nickname.substring(0, 10)}..` : nickname
-  }
-
-  if (errorTotalCommit && errorCommitKing && errorMergePR) {
-    return <div>Error fetching data</div>
-  }
-
   return (
     <Layout>
       <div className={styles.main}>
@@ -69,26 +31,7 @@ export default function Home() {
           </div>
           <div className={styles.etcContainer}>
             <h1 className={styles.title}>명예의 전당</h1>
-            <div className={styles.bottomContainer}>
-              <BottomTag
-                image={totalCommitImg}
-                bottom='총 커밋수'
-                loading={loadingTotalCommit}
-                title={totalCommit}
-              />
-              <BottomTag
-                image={commitKingImg}
-                bottom='저번주 커밋왕'
-                loading={loadingCommitKing}
-                title={truncateNickname(commitKing)}
-              />
-              <BottomTag
-                image={mergePrImg}
-                bottom='Merge / PR'
-                loading={loadingMergePR}
-                title={`${mergePr?.merge_count} / ${mergePr?.pr_count}`}
-              />
-            </div>
+            <Honor />
           </div>
         </div>
       </div>
