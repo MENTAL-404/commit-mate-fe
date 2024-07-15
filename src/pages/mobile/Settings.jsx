@@ -30,7 +30,11 @@ export default function SettingsMobile() {
 
   const handleClickSaveRepo = () => {
     localStorage.setItem('selected_repo', selectedRepo)
-    toast.success('선택한 레포지토리가 저장되었습니다.')
+    toast(<div>✅ 선택한 레포지토리가 저장되었습니다.</div>, {
+      autoClose: 2000,
+      hideProgressBar: true,
+      progress: undefined,
+    })
   }
 
   if (reposError) {

@@ -3,7 +3,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  /*gap: 4rem;*/
   padding-bottom: 15rem;
   margin-top: 5rem;
 }
@@ -18,13 +18,15 @@
   gap: 1rem;
   font-weight: 600;
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .repoContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+
 }
 
 .subSection {
@@ -41,6 +43,7 @@
     rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px,
     rgba(42, 51, 70, 0.03) 0px 10px 10px -5px,
     rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+  width: 90%;
 }
 
 .repoLabel {
@@ -48,13 +51,13 @@
   display: block;
   font-size: 1.3rem;
   color: #6d7175;
-  margin: 0 0 1.5rem 2rem;
+  margin: 0 0 1.5rem 1rem;
 }
 
 .saveButton {
-  width: 8rem;
+  width: 60%;
   height: 3rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
   background-color: #4caf50;
   color: white;
@@ -62,23 +65,13 @@
   cursor: pointer;
   border-radius: 0.4rem;
   box-shadow: rgba(0, 0, 0, 0.2) 0px -2px 0px inset;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .saveButton:hover {
   background-color: #45a049;
 }
 
-.subTopSection {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2.8rem;
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #6e7175;
-  border-bottom: 1px solid #dfe0e0;
-}
 
 .subBottomSection {
   padding: 2.5rem;
@@ -86,14 +79,15 @@
 
 .inputGroup {
   display: flex;
-  padding: 0 4rem;
+  padding: 0 2rem;
   margin-top: 1rem;
+  /*width: 100%;*/
 }
 
 .select {
   width: 100%;
   padding: 0.8rem;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   margin-bottom: 1rem;
   border-color: #cdcdcd;
   border-radius: 0.3rem;
