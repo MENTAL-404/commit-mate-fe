@@ -1,16 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../../styles/MobileHeader.module.css';
 import logo from '../../../src/assets/images/mobileLogo.png';
 import { IoSearch } from "react-icons/io5";
 import { Fade as Hamburger } from 'hamburger-react';
-import { useNavigate } from 'react-router-dom';
+import MobileSidebar from './MobileSidebar'
+
 
 const MobileHeader = () => {
-  const navigate = useNavigate();
-
-  const handleMenuClick = () => {
-    navigate('/menu');
-  };
+  const [isOpen, setOpen] = useState(false);
 
   return (
     <header className={styles.header}>
@@ -22,9 +19,11 @@ const MobileHeader = () => {
           <IoSearch />
         </div>
         <div className={styles.hamburgerMenu}>
-          <Hamburger size={20} onToggle={handleMenuClick} />
+          <Hamburger onClick={() => setOpen((prev) => !prev)} toggled={isOpen} size={20} toggle={setOpen} />
         </div>
       </div>
+      <MobileSidebar isOpen={isOpen} onClose={() => setOpen(false)} />
+      {/*<Sidebar isOpen={isOpen} onClose={() => setOpen(false)} />*/}
     </header>
   );
 };
