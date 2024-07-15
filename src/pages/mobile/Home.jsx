@@ -5,9 +5,6 @@ export default function HomeMobile() {
   return (
     <MobileLayout>
       <div className={styles.mobileContainer}>
-        <div className={styles.test}>
-          dd
-        </div>
 
       </div>
     </MobileLayout>
