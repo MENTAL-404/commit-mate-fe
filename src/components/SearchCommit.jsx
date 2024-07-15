@@ -6,6 +6,7 @@ import blackArrowCircle from '../assets//images/blackArrowCircle.png'
 import whiteArrowCircle from '../assets//images/whiteArrowCircle.png'
 import { API_URL, getHeader } from '../utils/static'
 import Loading from '../components/LoadingLottie'
+import { Link } from 'react-router-dom'
 
 export default function SearchCommit() {
   const [isClick, setIsClick] = useState(false)
@@ -108,7 +109,8 @@ function SearchResult({ data }) {
 
   return (
     <>
-      <div
+      <Link
+        to={data.url}
         onMouseOver={() => setIsHover(true)}
         onMouseOut={() => setIsHover(false)}
         className={styles.result}
@@ -134,7 +136,7 @@ function SearchResult({ data }) {
           className={styles.arrowIcon}
           alt=''
         />
-      </div>
+      </Link>
       <hr className={styles.line} />
     </>
   )
