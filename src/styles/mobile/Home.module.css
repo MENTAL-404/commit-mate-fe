@@ -22,10 +22,6 @@
   width: 2.2rem;
 }
 
-.ActiveChartContainer {
-  margin-top: 3rem;
-}
-
 .title {
   display: flex;
   gap: 1rem;
