@@ -25,7 +25,7 @@ export default function RightSideTopContainer({ customStyle }) {
             </div>
           ) : (
             <img
-              src={response?.data?.avatar_url}
+              src={response?.data[0]?.avatar_url}
               alt='profile'
               className={styles.profileImage}
             />
