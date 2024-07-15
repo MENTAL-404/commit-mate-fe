@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../styles/MobileFooter.module.css'
+import styles from '../../styles/mobile/MobileFooter.module.css'
 import issue from '../../assets/images/sidebar/issue.png'
 import setting from '../../assets/images/sidebar/setting.png'
 import homeOrange from '../../assets/images/sidebar/homeOrange.png'
