@@ -7,6 +7,7 @@ import whiteArrowCircle from '../assets//images/whiteArrowCircle.png'
 import { API_URL, getHeader } from '../utils/static'
 import Loading from '../components/LoadingLottie'
 import { Link } from 'react-router-dom'
+import { convertApiUrlToWebUrl } from '../utils/changeCommitUrl'
 
 export default function SearchCommit() {
   const [isClick, setIsClick] = useState(false)
@@ -110,7 +111,7 @@ function SearchResult({ data }) {
   return (
     <>
       <Link
-        to={data.url}
+        to={convertApiUrlToWebUrl(data.url)}
         onMouseOver={() => setIsHover(true)}
         onMouseOut={() => setIsHover(false)}
         className={styles.result}

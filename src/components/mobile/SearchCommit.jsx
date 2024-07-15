@@ -7,6 +7,7 @@ import LoadingLottie from '../LoadingLottie'
 import blackArrowCircle from '../../assets/images/blackArrowCircle.png'
 import whiteArrowCircle from '../../assets/images/whiteArrowCircle.png'
 import { Link } from 'react-router-dom'
+import { convertApiUrlToWebUrl } from '../../utils/changeCommitUrl'
 
 export default function SearchCommit({ onClose }) {
   const [searchList, setSearchList] = useState([])
@@ -81,7 +82,7 @@ function SearchResult({ data }) {
   return (
     <>
       <Link
-        to={data.url}
+        to={convertApiUrlToWebUrl(data.url)}
         onMouseOver={() => setIsHover(true)}
         onMouseOut={() => setIsHover(false)}
         onTouchStart={() => setIsHover(true)}
