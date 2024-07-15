@@ -7,19 +7,22 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #ffffff;
-  border-radius: 3rem 3rem 0 0;
-  border: 1px solid #abb5ba;
-  box-shadow: 0 -2px 0px rgba(136, 136, 136, 0.1);
-
+  background-color: #FDFDFD;
+  /*background-color: #ffffff;*/
+  /*border-radius: 3rem 3rem 0 0;*/
+  /*border: 1px solid #abb5ba;*/
+  /*box-shadow: 0 -2px 0px rgba(136, 136, 136, 0.1);*/
   padding: 1rem;
   text-align: center;
-  z-index: 1000;
-  height: 8rem;
+  z-index: 100;
+  height: 6.5rem;
+  border-top: 0.1rem solid #E6E6E6;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 
 .tab {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  font-weight: 500;
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -32,8 +35,10 @@
 }
 
 .icon {
-  width: 2.5rem;
+  width: 2rem;
 }
+
+
 
 .clicked {
   color: #eb763c;

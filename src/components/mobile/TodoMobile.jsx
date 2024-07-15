@@ -1,4 +1,4 @@
-import styles from '../../styles/Todo.module.css'
+import styles from '../../styles/mobile/TodoMobile.module.css'
 import { getHeader, API_URL } from '../../utils/static'
 import { useState, useEffect } from 'react'
 import { FaTrashAlt, FaEdit } from 'react-icons/fa'
@@ -6,7 +6,7 @@ import { IoIosAdd } from 'react-icons/io'
 import LoadingLottie from '../LoadingLottie'
 import useFetchData from '../../hooks/useFetchData'
 
-export default function Todo() {
+export default function TodoMobile() {
   const { loading, response, error } = useFetchData(API_URL().todo)
   const [todos, setTodos] = useState([])
   const [newTodo, setNewTodo] = useState('')
@@ -111,50 +111,47 @@ export default function Todo() {
         ) : todos.length === 0 ? (
           'No todos yet'
         ) : (
-          todos
-            .slice()
-            .reverse()
-            .map((todo) => (
-              <div key={todo.id} className={styles.todoItem}>
-                <div className={styles.inputContainer}>
-                  {editingTodo === todo.id ? (
-                    <input
-                      type='text'
-                      value={editingText}
-                      onChange={(e) => setEditingText(e.target.value)}
-                      onBlur={() => saveEditTodo(todo.id, editingText)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                          saveEditTodo(todo.id, editingText)
-                        }
-                      }}
-                      autoFocus
-                      className={styles.inputEdit}
-                    />
-                  ) : (
-                    <span
-                      className={todo.complete ? styles.complete : ''}
-                      onClick={() => updateTodo(todo.id, todo.complete)}
-                    >
-                      {todo.title}
-                    </span>
-                  )}
-                </div>
-                <div className={styles.actionButtons}>
-                  <FaEdit
-                    className={styles.icon}
-                    onClick={() => {
-                      setEditingTodo(todo.id)
-                      setEditingText(todo.title)
+          todos.map((todo) => (
+            <div key={todo.id} className={styles.todoItem}>
+              <div className={styles.inputContainer}>
+                {editingTodo === todo.id ? (
+                  <input
+                    type='text'
+                    value={editingText}
+                    onChange={(e) => setEditingText(e.target.value)}
+                    onBlur={() => saveEditTodo(todo.id, editingText)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        saveEditTodo(todo.id, editingText)
+                      }
                     }}
+                    autoFocus
+                    className={styles.inputEdit}
                   />
-                  <FaTrashAlt
-                    className={styles.icon}
-                    onClick={() => deleteTodo(todo.id)}
-                  />
-                </div>
+                ) : (
+                  <span
+                    className={todo.complete ? styles.complete : ''}
+                    onClick={() => updateTodo(todo.id, todo.complete)}
+                  >
+                    {todo.title}
+                  </span>
+                )}
               </div>
-            ))
+              <div className={styles.actionButtons}>
+                <FaEdit
+                  className={styles.icon}
+                  onClick={() => {
+                    setEditingTodo(todo.id)
+                    setEditingText(todo.title)
+                  }}
+                />
+                <FaTrashAlt
+                  className={styles.icon}
+                  onClick={() => deleteTodo(todo.id)}
+                />
+              </div>
+            </div>
+          ))
         )}
       </div>
       <div className={styles.addTodoContainer}>

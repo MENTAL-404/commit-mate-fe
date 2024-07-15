@@ -8,7 +8,7 @@ import {
   IssuesMobile,
   SettingsMobile,
   ReposMobile,
-  MenuMobile,
+  TodoMobile,
 } from './pages/mobile'
 import { isMobile } from 'react-device-detect'
 
@@ -26,7 +26,7 @@ function App() {
             <Route path={URL.issues} element={<IssuesMobile />} />
             <Route path={URL.settings} element={<SettingsMobile />} />
             <Route path={URL.repos} element={<ReposMobile />} />
-            <Route path={URL.menu} element={<MenuMobile />} />
+            <Route path={URL.todo} element={<TodoMobile />} />
           </Routes>
         ) : (
           <Routes>

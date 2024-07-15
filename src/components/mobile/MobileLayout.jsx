@@ -1,4 +1,4 @@
-import styles from '../../styles/MobileLayout.module.css'
+import styles from '../../styles/mobile/MobileLayout.module.css'
 import React from 'react'
 import MobileHeader from './MobileHeader'
 import MobileFooter from './MobileFooter'
