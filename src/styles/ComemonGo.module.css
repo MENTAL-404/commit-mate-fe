@@ -52,7 +52,7 @@
   transform: translateX(-50%);
   width: 130%;
   height: 7rem;
-  background-image: url('../images/comemon/name.png');
+  background-image: url('../assets/images/comemon/name.png');
   background-size: cover;
   background-repeat: round;
   display: flex;

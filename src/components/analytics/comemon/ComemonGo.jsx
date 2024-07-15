@@ -4,6 +4,7 @@ import Comemons from './Comemons'
 import { API_URL } from '../../../utils/static'
 import useFetchData from '../../../hooks/useFetchData'
 import LoadingLottie from '../../LoadingLottie'
+import logo from '../../../assets/images/comemon/logo.png'
 
 export default function ComemonGo() {
   const { loading, response, error } = useFetchData(API_URL().commit_rank)
@@ -21,11 +22,7 @@ export default function ComemonGo() {
     <div className={styles.container}>
       <div className={styles.logoContainer}>
         <div className={styles.emptyBox}></div>
-        <img
-          src='/images/comemon/logo.png'
-          alt='Logo'
-          className={styles.logo}
-        />
+        <img src={logo} alt='Logo' className={styles.logo} />
       </div>
       <div className={styles.comemonsContainer}>
         {loading ? (

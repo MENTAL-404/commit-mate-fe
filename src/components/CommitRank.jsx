@@ -1,5 +1,5 @@
 import styles from '../styles/CommitRank.module.css'
-import hong from '../images/hong.png'
+import hong from '../assets/images/hong.png'
 
 export default function CommitRank() {
   return (
