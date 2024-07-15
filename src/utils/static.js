@@ -6,7 +6,7 @@ export const URL = {
   settings: '/settings',
   repos: '/repos',
   logOut: '/',
-  menu: '/menu',
+  todo: '/todo',
 }
 
 export const GITHUB_LOGIN =
