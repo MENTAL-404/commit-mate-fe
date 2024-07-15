@@ -10,7 +10,7 @@
   background-color: #ffffff;
   border-radius: 3rem 3rem 0 0;
   border: 1px solid #abb5ba;
-  box-shadow: 0 -3px 0px rgba(136, 136, 136, 0.1);
+  box-shadow: 0 -2px 0px rgba(136, 136, 136, 0.1);
 
   padding: 1rem;
   text-align: center;
@@ -19,6 +19,8 @@
 }
 
 .tab {
+  font-size: 1.3rem;
+  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,4 +33,8 @@
 
 .icon {
   width: 2.5rem;
+}
+
+.clicked {
+  color: #eb763c;
 }
