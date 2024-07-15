@@ -31,10 +31,13 @@ export default function Honor() {
   const mergePr = mergePRResponse ? mergePRResponse.data : {}
 
   const truncateNickname = (nickname) => {
-    if (Array.isArray(nickname)) {
+    const num = nickname.length
+    if (num > 1) {
       nickname = nickname[0]
+      return `${nickname.slice(0, 5)}.. 외 ${num - 1}명`
     }
-    return nickname.length > 10 ? `${nickname.substring(0, 10)}..` : nickname
+
+    return `${nickname.slice(0, 10)}..`
   }
 
   if (errorTotalCommit && errorCommitKing && errorMergePR) {
