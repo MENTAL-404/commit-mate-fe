@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  height: 30rem;
+  height: fit-content;
   position: relative;
   border-radius: 1.2rem;
   /*background-color: black;*/
