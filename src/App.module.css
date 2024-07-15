@@ -19,7 +19,6 @@
   flex-direction: column;
   overflow-y: auto;
   box-sizing: border-box;
-  padding: 2rem;
 }
 
 @media (max-width: 990px) {
