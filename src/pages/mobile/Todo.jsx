@@ -1,6 +1,5 @@
 import styles from '../../styles/mobile/Todo.module.css'
 import MobileLayout from '../../components/mobile/MobileLayout'
-import useFetchData from '../../hooks/useFetchData'
 import { API_URL, getHeader } from '../../utils/static'
 import { useEffect, useState } from 'react'
 import LoadingLottie from '../../components/LoadingLottie'
@@ -8,17 +7,32 @@ import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 import { IoIosAdd } from 'react-icons/io'
 
 export default function TodoMobile() {
-  const { loading, response, error } = useFetchData(API_URL().todo)
+  const [loading, setLoading] = useState(true)
   const [todos, setTodos] = useState([])
   const [newTodo, setNewTodo] = useState('')
   const [editingTodo, setEditingTodo] = useState(null)
   const [editingText, setEditingText] = useState('')
+  const [error, setError] = useState(null)
+
+  const fetchTodos = async () => {
+    try {
+      setLoading(true)
+      const response = await fetch(API_URL().todos, {
+        headers: getHeader(),
+        credentials: 'include',
+      })
+      const result = await response.json()
+      setTodos(result.data || [])
+    } catch (error) {
+      console.error('Error fetching todos:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    if (response) {
-      setTodos(response.data || [])
-    }
-  }, [response])
+    fetchTodos()
+  }, [])
 
   // TODO 생성
   const addTodo = async () => {
@@ -30,8 +44,7 @@ export default function TodoMobile() {
         body: JSON.stringify({ title: newTodo }),
       })
       if (response.ok) {
-        const result = await response.json()
-        setTodos((prevTodos) => [...prevTodos, result.data])
+        await fetchTodos() // 상태 업데이트 후 재페칭
         setNewTodo('')
       }
     } catch (error) {
@@ -49,11 +62,7 @@ export default function TodoMobile() {
         body: JSON.stringify({ complete: !complete }),
       })
       if (response.ok) {
-        setTodos((prevTodos) =>
-          prevTodos.map((todo) =>
-            todo.id === id ? { ...todo, complete: !complete } : todo
-          )
-        )
+        await fetchTodos() // 상태 업데이트 후 재페칭
       }
     } catch (error) {
       console.error('Error updating todo:', error)
@@ -70,9 +79,7 @@ export default function TodoMobile() {
         body: JSON.stringify({ title }),
       })
       if (response.ok) {
-        setTodos((prevTodos) =>
-          prevTodos.map((todo) => (todo.id === id ? { ...todo, title } : todo))
-        )
+        await fetchTodos() // 상태 업데이트 후 재페칭
         setEditingTodo(null)
         setEditingText('')
       }
@@ -90,11 +97,19 @@ export default function TodoMobile() {
         credentials: 'include',
       })
       if (response.ok) {
-        setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id))
+        await fetchTodos() // 상태 업데이트 후 재페칭
       }
     } catch (error) {
       console.error('Error deleting todo:', error)
     }
+  }
+
+  if (loading) {
+    return (
+      <div className={styles.lottie}>
+        <LoadingLottie width={'30px'} />
+      </div>
+    )
   }
 
   if (error) {
@@ -119,58 +134,52 @@ export default function TodoMobile() {
         </div>
 
         <div className={styles.todoList}>
-          {loading ? (
-            <div className={styles.lottie}>
-              <LoadingLottie width={'30px'} />
-            </div>
-          ) : todos.length === 0 ? (
-            'No todos yet'
-          ) : (
-            todos
-              .slice()
-              .reverse()
-              .map((todo) => (
-                <div key={todo.id} className={styles.todoItem}>
-                  <div className={styles.inputContainer}>
-                    {editingTodo === todo.id ? (
-                      <input
-                        type='text'
-                        value={editingText}
-                        onChange={(e) => setEditingText(e.target.value)}
-                        onBlur={() => saveEditTodo(todo.id, editingText)}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter') {
-                            saveEditTodo(todo.id, editingText)
-                          }
+          {todos.length === 0
+            ? 'No todos yet'
+            : todos
+                .slice()
+                .reverse()
+                .map((todo) => (
+                  <div key={todo.id} className={styles.todoItem}>
+                    <div className={styles.inputContainer}>
+                      {editingTodo === todo.id ? (
+                        <input
+                          type='text'
+                          value={editingText}
+                          onChange={(e) => setEditingText(e.target.value)}
+                          onBlur={() => saveEditTodo(todo.id, editingText)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                              saveEditTodo(todo.id, editingText)
+                            }
+                          }}
+                          autoFocus
+                          className={styles.inputEdit}
+                        />
+                      ) : (
+                        <span
+                          className={todo.complete ? styles.complete : ''}
+                          onClick={() => updateTodo(todo.id, todo.complete)}
+                        >
+                          {todo.title}
+                        </span>
+                      )}
+                    </div>
+                    <div className={styles.actionButtons}>
+                      <FaEdit
+                        className={styles.icon}
+                        onClick={() => {
+                          setEditingTodo(todo.id)
+                          setEditingText(todo.title)
                         }}
-                        autoFocus
-                        className={styles.inputEdit}
                       />
-                    ) : (
-                      <span
-                        className={todo.complete ? styles.complete : ''}
-                        onClick={() => updateTodo(todo.id, todo.complete)}
-                      >
-                        {todo.title}
-                      </span>
-                    )}
+                      <FaTrashAlt
+                        className={styles.icon}
+                        onClick={() => deleteTodo(todo.id)}
+                      />
+                    </div>
                   </div>
-                  <div className={styles.actionButtons}>
-                    <FaEdit
-                      className={styles.icon}
-                      onClick={() => {
-                        setEditingTodo(todo.id)
-                        setEditingText(todo.title)
-                      }}
-                    />
-                    <FaTrashAlt
-                      className={styles.icon}
-                      onClick={() => deleteTodo(todo.id)}
-                    />
-                  </div>
-                </div>
-              ))
-          )}
+                ))}
         </div>
       </div>
     </MobileLayout>

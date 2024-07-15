@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: 85%;
+  width: 75%;
   /*background-color: white;*/
   background-color: #e4fbe7;
   /*box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);*/
@@ -19,6 +19,8 @@
 .sidebar.open {
   transform: translateX(0);
 }
+
+
 
 .sidebarContent {
   padding: 20px;
