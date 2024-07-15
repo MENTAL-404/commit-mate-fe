@@ -355,14 +355,11 @@
   }
 }
 
-
-
 /*mobile style =============>*/
 .mobileContainer {
   width: 100%;
-  padding: 20px;
+  padding: 0 20px;
   box-sizing: border-box;
-  background-color: red;
+  /* background-color: red; */
   height: 1500px;
 }
-
