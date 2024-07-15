@@ -5,9 +5,9 @@ import ComemonGo from '../components/analytics/comemon/ComemonGo'
 import IssueList from '../components/issue/IssueList'
 import ActiveBarChart from '../components/analytics/ActiveBarChart'
 import useFetchData from '../hooks/useFetchData'
-import totalCommitImg from '../images/totalCommit.png'
-import commitKingImg from '../images/commitKing.png'
-import mergePrImg from '../images/mergePr.png'
+import totalCommitImg from '../assets/images/totalCommit.png'
+import commitKingImg from '../assets/images/commitKing.png'
+import mergePrImg from '../assets/images/mergePr.png'
 import { API_URL } from '../utils/static'
 
 export default function Home() {

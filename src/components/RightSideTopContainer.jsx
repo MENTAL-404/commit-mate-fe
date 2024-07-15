@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from '../styles/RightSideTopContainer.module.css'
-import drop from '../images/drop.png'
+import drop from '../assets//images/drop.png'
 import Loading from '../components/LoadingLottie'
-import qr from '../images/qr.png'
+import qr from '../assets//images/qr.png'
 import useFetchData from '../hooks/useFetchData'
 import { getSelectedRepo, API_URL } from '../utils/static'
 

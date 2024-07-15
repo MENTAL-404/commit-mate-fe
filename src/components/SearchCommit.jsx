@@ -1,9 +1,9 @@
 import styles from '../styles/SearchCommit.module.css'
-import searchIcon from '../images/search.png'
+import searchIcon from '../assets//images/search.png'
 import { useState, useRef, useEffect } from 'react'
-import polygon from '../images/polygon.png'
-import blackArrowCircle from '../images/blackArrowCircle.png'
-import whiteArrowCircle from '../images/whiteArrowCircle.png'
+import polygon from '../assets//images/polygon.png'
+import blackArrowCircle from '../assets//images/blackArrowCircle.png'
+import whiteArrowCircle from '../assets//images/whiteArrowCircle.png'
 import { API_URL, getHeader } from '../utils/static'
 import Loading from '../components/LoadingLottie'
 

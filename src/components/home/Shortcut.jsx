@@ -1,5 +1,5 @@
 import styles from '../../styles/Shortcut.module.css'
-import bookmark from '../../images/bookmak.png'
+import bookmark from '../../assets/images/bookmak.png'
 import { API_URL } from '../../utils/static'
 import useFetchData from '../../hooks/useFetchData'
 import LoadingLottie from '../LoadingLottie'

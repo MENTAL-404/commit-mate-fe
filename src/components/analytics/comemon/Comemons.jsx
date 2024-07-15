@@ -1,13 +1,13 @@
 import React from 'react'
 import styles from '../../../styles/ComemonGo.module.css'
-import commemon1 from '../../../images/comemon/1.png'
-import commemon2 from '../../../images/comemon/2.png'
-import commemon3 from '../../../images/comemon/3.png'
-import commemon4 from '../../../images/comemon/4.png'
-import commemon5 from '../../../images/comemon/5.png'
-import commemon6 from '../../../images/comemon/6.png'
-import commemon7 from '../../../images/comemon/7.png'
-import commemon8 from '../../../images/comemon/8.png'
+import commemon1 from '../../../assets/images/comemon/1.png'
+import commemon2 from '../../../assets/images/comemon/2.png'
+import commemon3 from '../../../assets/images/comemon/3.png'
+import commemon4 from '../../../assets/images/comemon/4.png'
+import commemon5 from '../../../assets/images/comemon/5.png'
+import commemon6 from '../../../assets/images/comemon/6.png'
+import commemon7 from '../../../assets/images/comemon/7.png'
+import commemon8 from '../../../assets/images/comemon/8.png'
 
 export default function Comemons({ name, level, commitCount }) {
   const getComemonImage = (commitCount) => {

@@ -1,5 +1,5 @@
 import Lottie from 'lottie-react'
-import loadingIndicator from '../images/loading 5.json'
+import loadingIndicator from '../assets/lotties/loading 5.json'
 import styles from '../../src/styles/Loading.module.css'
 import React from 'react'
 

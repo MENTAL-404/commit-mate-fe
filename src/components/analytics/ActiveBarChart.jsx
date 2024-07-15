@@ -37,12 +37,6 @@ export default function ActiveBarChart() {
     return <div>Error fetching data</div>
   }
 
-  //recahrt warning console에 출력되지 않도록
-  console.error = (...args) => {
-    if (/defaultProps/.test(args[0])) return
-    error(...args)
-  }
-
   return (
     <ResponsiveContainer width='100%' height='100%'>
       <BarChart width={150} height={80} data={active?.data}>
