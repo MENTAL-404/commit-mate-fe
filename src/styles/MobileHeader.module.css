@@ -20,6 +20,49 @@
     margin-left: 2rem;
 }
 
+.logoContainer img {
+  width: 13rem;
+}
+
+.searchMenuContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchIcon {
+    font-size: 2rem;
+    color: #2d2d2d;
+    margin: 0.5rem 0.6rem 0 0;
+
+}
+
+.hamburgerMenu {
+  font-size: 1rem;
+  color: #2d2d2d;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    color: black;
+    text-align: center;
+    z-index: 1000;
+    height: 6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem ;
+    justify-content: space-between;
+}
+
+.logoContainer img {
+    width: 13rem;
+    margin-left: 2rem;
+}
+
 .searchMenuContainer {
     display: flex;
     flex-direction: row;
