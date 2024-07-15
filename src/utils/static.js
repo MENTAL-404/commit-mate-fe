@@ -18,6 +18,12 @@ export const SERVER_URL = 'https://api.commitmate-dev.kro.kr/api'
 
 export const ORGANIZATION = 'MENTAL-404'
 
+// export const ORGANIZATION = 'MENTAL-404'
+
+export const getSelectedOrg = () => {
+  return localStorage.getItem('selected_org') ?? null
+}
+
 export const getAccessToken = () => {
   return localStorage.getItem('access_token')
 }
@@ -41,6 +47,7 @@ export const API_URL = () => {
     logout: `${SERVER_URL}/auth/logout`,
     shortcurId: `${SERVER_URL}/shortcuts`,
     organization: `${SERVER_URL}/organizations`,
+    organization_select: `${SERVER_URL}/v2/organizations`,
     aceess_token: `${SERVER_URL}/auth/github/callback?code=`,
     shortcut: `${SERVER_URL}/shortcuts/organization/${ORGANIZATION}`,
     repositories: `${SERVER_URL}/organizations/${ORGANIZATION}/repositories`,
