@@ -4,16 +4,17 @@ import logo3 from '../assets/images/logos/logo3.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { URL, getHeader, API_URL } from '../utils/static'
 import home from '../assets/images/sidebar/home.png'
-import commit from '../assets/images/sidebar/commit.png'
-import issue from '../assets/images/sidebar/category.png'
+// import commit from '../assets/images/sidebar/commit.png'
+import issue from '../assets/images/sidebar/issue.png'
 import setting from '../assets/images/sidebar/setting.png'
 import logout from '../assets/images/sidebar/logout.png'
 import logo2 from '../assets/images/logos/logo2.png'
 import homeOrange from '../assets/images/sidebar/homeOrange.png'
-import commitOrange from '../assets/images/sidebar/commitOrange.png'
+// import commitOrange from '../assets/images/sidebar/commitOrange.png'
 import settingOrange from '../assets/images/sidebar/settingOrange.png'
 import { toast } from 'react-toastify'
-import issueOrange from '../assets/images/sidebar/categoryOrange.png'
+import issueOrange from '../assets/images/sidebar/issueOrange.png'
+import { FaCodeCommit } from "react-icons/fa6";
 
 export default function SideBar() {
   const location = useLocation()
@@ -68,11 +69,11 @@ export default function SideBar() {
             }`}
           >
             <div className={`${styles.whiteRound}`}>
-              <img
-                src={path.includes('commits') ? commitOrange : commit}
-                alt='commit'
-                className={styles.commitIcon}
-              />
+              {path.includes('commits') ? (
+                <FaCodeCommit className={styles.commitIconOrange} />
+              ) : (
+                <FaCodeCommit className={styles.commitIcon} />
+              )}
             </div>
             커밋
           </Link>
