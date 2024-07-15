@@ -8,13 +8,18 @@ import commit from '../../assets/images/sidebar/commit.png'
 import commitOrange from '../../assets/images/sidebar/commitOrange.png'
 import settingOrange from '../../assets/images/sidebar/settingOrange.png'
 import issueOrange from '../../assets/images/sidebar/issueOrange.png'
-import { Link, useLocation } from 'react-router-dom'
-import { URL } from '../../utils/static'
+import { Link, Navigate, useLocation } from 'react-router-dom'
+import { getAccessToken, URL } from '../../utils/static'
 
 const MobileFooter = () => {
   const location = useLocation()
   const path = location.pathname
 
+  const auth = getAccessToken()
+
+  if (!auth) {
+    return <Navigate to={URL.logIn} />
+  }
   return (
     <footer className={styles.footer}>
       <Link

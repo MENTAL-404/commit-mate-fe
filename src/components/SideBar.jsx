@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from '../styles/Sidebar.module.css'
 import logo3 from '../assets/images/logos/logo3.png'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { URL, getHeader, API_URL } from '../utils/static'
+import { Link, useLocation, useNavigate, Navigate } from 'react-router-dom'
+import { URL, getHeader, API_URL, getAccessToken } from '../utils/static'
 import home from '../assets/images/sidebar/home.png'
 // import commit from '../assets/images/sidebar/commit.png'
 import issue from '../assets/images/sidebar/issue.png'
@@ -14,12 +14,18 @@ import homeOrange from '../assets/images/sidebar/homeOrange.png'
 import settingOrange from '../assets/images/sidebar/settingOrange.png'
 import { toast } from 'react-toastify'
 import issueOrange from '../assets/images/sidebar/issueOrange.png'
-import { FaCodeCommit } from "react-icons/fa6";
+import { FaCodeCommit } from 'react-icons/fa6'
 
 export default function SideBar() {
   const location = useLocation()
   const path = location.pathname
   const navigate = useNavigate()
+
+  const auth = getAccessToken()
+
+  if (!auth) {
+    return <Navigate to={URL.logIn} />
+  }
 
   const handleClickLogout = async () => {
     try {

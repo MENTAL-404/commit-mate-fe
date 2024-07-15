@@ -5,10 +5,24 @@ import { IoSearch } from 'react-icons/io5'
 import { Fade as Hamburger } from 'hamburger-react'
 import MobileSidebar from './MobileSidebar'
 import SearchCommit from './SearchCommit'
+import { useLocation } from 'react-router-dom'
 
 const MobileHeader = () => {
   const [isOpen, setOpen] = useState(false)
   const [isSearch, setIsSearch] = useState(false)
+
+  const location = useLocation()
+  const path = location.pathname
+
+  if (path === '/') {
+    return (
+      <header className={styles.header}>
+        <div className={styles.logoContainer}>
+          <img src={logo} alt='mobile logo' />
+        </div>
+      </header>
+    )
+  }
 
   return (
     <>
