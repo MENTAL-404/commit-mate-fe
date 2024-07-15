@@ -1,12 +1,40 @@
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    z-index: 1000;
-    height: 60px;
+  position: fixed;
+  display: flex;
+  gap: 15%;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 3rem 3rem 0 0;
+  border: 1px solid #abb5ba;
+  box-shadow: 0 -2px 0px rgba(136, 136, 136, 0.1);
+
+  padding: 1rem;
+  text-align: center;
+  z-index: 1000;
+  height: 8rem;
+}
+
+.tab {
+  font-size: 1.3rem;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  cursor: pointer;
+  width: 3rem;
+  color: #abb5ba;
+}
+
+.icon {
+  width: 2.5rem;
+}
+
+.clicked {
+  color: #eb763c;
 }
