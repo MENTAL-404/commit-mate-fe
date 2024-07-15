@@ -36,6 +36,7 @@
   width: 100%;
   padding: 1rem;
   gap: 5rem;
+  row-gap: 0.1rem;
 }
 
 .itemContainer {
@@ -43,6 +44,13 @@
   width: 10rem;
   height: 16rem;
   padding: 1.1rem;
+}
+
+@media (max-width: 430px) {
+  .itemContainer {
+    width: 8rem;
+    height: 13rem;
+  }
 }
 
 .nameBox {
