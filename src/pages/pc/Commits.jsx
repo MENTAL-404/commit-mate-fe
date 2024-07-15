@@ -1,8 +1,8 @@
-import Layout from '../components/Layout'
-import SearchCommit from '../components/SearchCommit'
-import styles from '../styles/Commits.module.css'
-import CommitLineChart from '../components/analytics/CommitLineChart'
-import MyWordcloud from '../components/analytics/WordCloud'
+import Layout from '../../components/Layout'
+import SearchCommit from '../../components/SearchCommit'
+import styles from '../../styles/Commits.module.css'
+import CommitLineChart from '../../components/analytics/CommitLineChart'
+import MyWordcloud from '../../components/analytics/WordCloud'
 
 export default function Commits() {
   return (

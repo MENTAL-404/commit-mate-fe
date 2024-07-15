@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    padding-top: 6rem;  /* 헤더 높이와 동일하게 설정 */
+    padding-bottom: 6rem;  /* 푸터 높이와 동일하게 설정 */
+}
+
+.mainContent {
+    flex: 1;
+    width: 100%;
+    overflow-y: auto;
+}

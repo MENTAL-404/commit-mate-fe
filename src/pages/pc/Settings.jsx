@@ -1,8 +1,8 @@
-import Layout from '../components/Layout'
-import styles from '../styles/Settings.module.css'
+import Layout from '../../components/Layout'
+import styles from '../../styles/Settings.module.css'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
-import ToastMessage from '../components/ToastMessage'
+import ToastMessage from '../../components/ToastMessage'
 import 'react-toastify/dist/ReactToastify.css'
 import {
   SERVER_URL,
@@ -10,9 +10,9 @@ import {
   getSelectedRepo,
   getHeader,
   API_URL,
-} from '../utils/static'
-import useFetchData from '../hooks/useFetchData'
-import LoadingLottie from '../components/LoadingLottie'
+} from '../../utils/static'
+import useFetchData from '../../hooks/useFetchData'
+import LoadingLottie from '../../components/LoadingLottie'
 
 export default function Settings() {
   const [selectedRepo, setSelectedRepo] = useState('')

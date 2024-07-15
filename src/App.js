@@ -1,29 +1,38 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { URL } from './utils/static'
-import Login from './pages/Login'
-import Home from './pages/Home'
-import Commits from './pages/Commits'
-import Issues from './pages/Issues'
-import Settings from './pages/Settings'
-import Repos from './pages/Repos'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { URL } from './utils/static';
+import { Login, Home, Commits, Issues, Settings, Repos } from './pages/pc';
+import { LoginMobile, HomeMobile, CommitsMobile, IssuesMobile, SettingsMobile, ReposMobile, MenuMobile } from './pages/mobile';
+import { isMobile } from 'react-device-detect';
 
-import styles from './App.module.css'
+import styles from './App.module.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className={styles.App}>
-        <Routes>
-          <Route path={URL.logIn} element={<div className={styles.PageContainer}><Login /></div>}></Route>
-          <Route path={URL.home} element={<div className={styles.PageContainer}><Home /></div>}></Route>
-          <Route path={URL.commits} element={<div className={styles.PageContainer}><Commits /></div>}></Route>
-          <Route path={URL.issues} element={<div className={styles.PageContainer}><Issues /></div>}></Route>
-          <Route path={URL.settings} element={<div className={styles.PageContainer}><Settings /></div>}></Route>
-          <Route path={URL.repos} element={<div className={styles.PageContainer}><Repos /></div>}></Route>
-        </Routes>
+      <div className={isMobile ? styles.mobileApp : styles.App}>
+        {isMobile ? (
+          <Routes>
+            <Route path={URL.logIn} element={<div><LoginMobile /></div>} />
+            <Route path={URL.home} element={<div><HomeMobile /></div>} />
+            <Route path={URL.commits} element={<div><CommitsMobile /></div>} />
+            <Route path={URL.issues} element={<div><IssuesMobile /></div>} />
+            <Route path={URL.settings} element={<div><SettingsMobile /></div>} />
+            <Route path={URL.repos} element={<div><ReposMobile /></div>} />
+            <Route path={URL.menu} element={<div><MenuMobile /></div>} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path={URL.logIn} element={<div className={styles.PageContainer}><Login /></div>} />
+            <Route path={URL.home} element={<div className={styles.PageContainer}><Home /></div>} />
+            <Route path={URL.commits} element={<div className={styles.PageContainer}><Commits /></div>} />
+            <Route path={URL.issues} element={<div className={styles.PageContainer}><Issues /></div>} />
+            <Route path={URL.settings} element={<div className={styles.PageContainer}><Settings /></div>} />
+            <Route path={URL.repos} element={<div className={styles.PageContainer}><Repos /></div>} />
+          </Routes>
+        )}
       </div>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

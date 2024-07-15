@@ -1,12 +1,12 @@
-import styles from '../styles/Repos.module.css'
+import styles from '../../styles/Repos.module.css'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState, useMemo } from 'react'
 import { toast } from 'react-toastify'
-import ToastMessage from '../components/ToastMessage'
+import ToastMessage from '../../components/ToastMessage'
 import 'react-toastify/dist/ReactToastify.css'
-import { ORGANIZATION, getSelectedRepo, API_URL } from '../utils/static'
-import useFetchData from '../hooks/useFetchData'
-import LoadingLottie from '../components/LoadingLottie'
+import { ORGANIZATION, getSelectedRepo, API_URL } from '../../utils/static'
+import useFetchData from '../../hooks/useFetchData'
+import LoadingLottie from '../../components/LoadingLottie'
 
 export default function Repos() {
   const navigate = useNavigate()

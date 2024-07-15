@@ -11,6 +11,17 @@
   padding: 5rem;
 }
 
+/* 모바일 스타일 정의 */
+.mobileApp {
+  background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 2rem;
+}
+
 @media (max-width: 990px) {
   .App {
     padding: 3rem;

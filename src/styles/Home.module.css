@@ -10,11 +10,6 @@
   display: none;
 }
 
-/*.homeContainer {*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*}*/
-
 .topContainer {
   flex: 1;
   max-width: 67rem;
@@ -359,3 +354,15 @@
     padding: 0.6rem;
   }
 }
+
+
+
+/*mobile style =============>*/
+.mobileContainer {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: red;
+  height: 1500px;
+}
+

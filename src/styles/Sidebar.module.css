@@ -56,12 +56,19 @@
   text-decoration: none;
 }
 
+
+
 .homeIcon,
 .commitIcon,
 .issueIcon,
 .settingIcon,
 .logoutIcon {
   width: 2rem;
+}
+
+.commitIconOrange {
+  width: 2rem;
+  color: #eb763c;
 }
 
 .logoCat {
