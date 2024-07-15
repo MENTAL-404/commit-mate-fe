@@ -1,24 +1,24 @@
 .todoContainer {
-    padding: 2rem;
-    margin: auto;
-    background-color: white;
-    border-radius: 1.5rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 38rem;
-    display: flex;
-    flex-direction: column;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1.5rem;
+  /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
 }
 
 .title {
-    font-size: 2.4rem;
-    font-weight: bold;
+  font-size: 2.4rem;
+  font-weight: bold;
 }
 
 .innerTodoContainer {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 /*.editInput {*/
@@ -26,83 +26,84 @@
 /*}*/
 
 .innerTitle {
-    font-weight: 600;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .todoList {
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: #595959;
-    flex-grow: 1;
-    overflow-y: auto;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #595959;
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 .icon {
-    /*width: 1.7rem;*/
-    height: 1.4rem;
-    margin-right: 0.5rem;
-    /*background-color: #EFEFEF;*/
-    /*padding: 0.1rem 0.2rem;*/
-    /*display: flex;*/
-    color: #595959;
-    cursor: pointer;
-    /*border-radius: 0.3rem;*/
+  /*width: 1.7rem;*/
+  height: 1.8rem;
+  width: 1.8rem;
+  margin-right: 0.5rem;
+  /*background-color: #EFEFEF;*/
+  /*padding: 0.1rem 0.2rem;*/
+  /*display: flex;*/
+  color: #595959;
+  cursor: pointer;
+  /*border-radius: 0.3rem;*/
 }
 
 .todoItem {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
 }
 
 .todoItem:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .inputContainer {
-    width: 80%;
-    font-size: 1.3rem;
+  width: 80%;
+  font-size: 1.4rem;
 }
 
 .complete {
-    text-decoration: line-through;
-    color: #999;
+  text-decoration: line-through;
+  color: #999;
 }
 
 .addTodoContainer {
-    display: flex;
-    justify-content: space-between;
-    height: 3rem;
-    margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
+  margin-bottom: 2rem;
 }
 
 .addTodoBtn {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    /*padding: 1rem 1.5rem;*/
-    cursor: pointer;
-    border-radius: 50%;
-    /*font-weight: b;*/
-    box-shadow: rgba(0, 0, 0, 0.2) 0px -2px 0px inset;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  /*padding: 1rem 1.5rem;*/
+  cursor: pointer;
+  border-radius: 50%;
+  /*font-weight: b;*/
+  box-shadow: rgba(0, 0, 0, 0.2) 0px -2px 0px inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
 }
 
 .addTodoBtn:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 
 .addIcon {
-    width: 2.5rem;
-    height: 2.5rem;
+  width: 4rem;
+  height: 4rem;
 }
 
 /*input[type=text]{*/
@@ -120,40 +121,37 @@
 /*}*/
 
 .inputNew {
-    /*-webkit-border-radius: 20px;*/
-    /*-moz-border-radius: 20px;*/
-    border-radius: 2rem;
-    border: 0.18rem solid #595959;
-    /*width: 250px;*/
-    height: 3.2rem;
-    padding: 0 1.4rem;
-    flex-grow: 1;
-    margin-right: 1.3rem;
+  border-radius: 2rem;
+  border: 0.19rem solid #595959;
+  height: 4rem;
+  padding: 0 1.6rem;
+  flex-grow: 1;
+  margin-right: 1.3rem;
 }
 
 .inputNew:focus {
-    outline: none;
-    color: black;
-    border: 0.18rem solid #45a049;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  outline: none;
+  color: black;
+  border: 0.18rem solid #45a049;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .inputEdit {
-    border: none;
-    padding: 0.8rem;
-    width: 100%;
+  border: none;
+  padding: 0.8rem;
+  width: 100%;
 }
 
 .inputEdit:focus {
-    outline: none;
-    border: 0.18rem solid #d9d9d9;
-    border-radius: 1rem;
+  outline: none;
+  border: 0.18rem solid #d9d9d9;
+  border-radius: 1rem;
 }
 
 .lottie {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

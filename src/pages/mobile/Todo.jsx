@@ -105,57 +105,6 @@ export default function TodoMobile() {
     <MobileLayout>
       <div className={styles.todoContainer}>
         <div className={styles.innerTitle}>✅ Todo</div>
-        <div className={styles.todoList}>
-          {loading ? (
-            <div className={styles.lottie}>
-              <LoadingLottie width={'30px'} />
-            </div>
-          ) : todos.length === 0 ? (
-            'No todos yet'
-          ) : (
-            todos.map((todo) => (
-              <div key={todo.id} className={styles.todoItem}>
-                <div className={styles.inputContainer}>
-                  {editingTodo === todo.id ? (
-                    <input
-                      type='text'
-                      value={editingText}
-                      onChange={(e) => setEditingText(e.target.value)}
-                      onBlur={() => saveEditTodo(todo.id, editingText)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                          saveEditTodo(todo.id, editingText)
-                        }
-                      }}
-                      autoFocus
-                      className={styles.inputEdit}
-                    />
-                  ) : (
-                    <span
-                      className={todo.complete ? styles.complete : ''}
-                      onClick={() => updateTodo(todo.id, todo.complete)}
-                    >
-                      {todo.title}
-                    </span>
-                  )}
-                </div>
-                <div className={styles.actionButtons}>
-                  <FaEdit
-                    className={styles.icon}
-                    onClick={() => {
-                      setEditingTodo(todo.id)
-                      setEditingText(todo.title)
-                    }}
-                  />
-                  <FaTrashAlt
-                    className={styles.icon}
-                    onClick={() => deleteTodo(todo.id)}
-                  />
-                </div>
-              </div>
-            ))
-          )}
-        </div>
         <div className={styles.addTodoContainer}>
           <input
             type='text'
@@ -167,6 +116,61 @@ export default function TodoMobile() {
           <button onClick={addTodo} className={styles.addTodoBtn}>
             <IoIosAdd className={styles.addIcon} />
           </button>
+        </div>
+
+        <div className={styles.todoList}>
+          {loading ? (
+            <div className={styles.lottie}>
+              <LoadingLottie width={'30px'} />
+            </div>
+          ) : todos.length === 0 ? (
+            'No todos yet'
+          ) : (
+            todos
+              .slice()
+              .reverse()
+              .map((todo) => (
+                <div key={todo.id} className={styles.todoItem}>
+                  <div className={styles.inputContainer}>
+                    {editingTodo === todo.id ? (
+                      <input
+                        type='text'
+                        value={editingText}
+                        onChange={(e) => setEditingText(e.target.value)}
+                        onBlur={() => saveEditTodo(todo.id, editingText)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            saveEditTodo(todo.id, editingText)
+                          }
+                        }}
+                        autoFocus
+                        className={styles.inputEdit}
+                      />
+                    ) : (
+                      <span
+                        className={todo.complete ? styles.complete : ''}
+                        onClick={() => updateTodo(todo.id, todo.complete)}
+                      >
+                        {todo.title}
+                      </span>
+                    )}
+                  </div>
+                  <div className={styles.actionButtons}>
+                    <FaEdit
+                      className={styles.icon}
+                      onClick={() => {
+                        setEditingTodo(todo.id)
+                        setEditingText(todo.title)
+                      }}
+                    />
+                    <FaTrashAlt
+                      className={styles.icon}
+                      onClick={() => deleteTodo(todo.id)}
+                    />
+                  </div>
+                </div>
+              ))
+          )}
         </div>
       </div>
     </MobileLayout>
