@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { useMediaQuery } from 'react-responsive'
 import { URL } from './utils/static'
 import { Login, Home, Commits, Issues, Settings, Repos } from './pages/pc'
 import {
@@ -10,15 +11,16 @@ import {
   ReposMobile,
   TodoMobile,
 } from './pages/mobile'
-import { isMobile } from 'react-device-detect'
 
 import styles from './App.module.css'
 
 function App() {
+  const isMobileView = useMediaQuery({ query: '(max-width: 580px)' })
+
   return (
     <BrowserRouter>
-      <div className={isMobile ? styles.mobileApp : styles.App}>
-        {isMobile ? (
+      <div className={isMobileView ? styles.mobileApp : styles.App}>
+        {isMobileView ? (
           <Routes>
             <Route path={URL.logIn} element={<LoginMobile />} />
             <Route path={URL.home} element={<HomeMobile />} />
