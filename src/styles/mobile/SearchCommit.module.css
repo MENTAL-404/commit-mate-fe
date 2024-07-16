@@ -30,8 +30,9 @@
 }
 
 .close {
-  width: 2rem;
-  height: 2rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  cursor: pointer;
 }
 
 .icon {
@@ -96,7 +97,8 @@
 }
 
 .message {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .arrowIcon {
@@ -113,6 +115,7 @@
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
+  color: #717171;
 }
 
 .name,
