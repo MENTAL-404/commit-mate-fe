@@ -1,7 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import { URL } from './utils/static'
-import { Login, Home, Commits, Issues, Settings, Repos } from './pages/pc'
+import {
+  Login,
+  Home,
+  Commits,
+  Issues,
+  Settings,
+  Repos,
+  Organization,
+} from './pages/pc'
 import {
   LoginMobile,
   HomeMobile,
@@ -10,6 +18,7 @@ import {
   SettingsMobile,
   ReposMobile,
   TodoMobile,
+  OrganizationMobile,
 } from './pages/mobile'
 
 import styles from './App.module.css'
@@ -26,7 +35,8 @@ function App() {
             <Route path={URL.home} element={<HomeMobile />} />
             <Route path={URL.commits} element={<CommitsMobile />} />
             <Route path={URL.issues} element={<IssuesMobile />} />
-            <Route path={URL.settings} element={<SettingsMobile />} />
+            <Route path={URL.settings} element={<SettingsMobile />} />{' '}
+            <Route path={URL.orgs} element={<OrganizationMobile />} />
             <Route path={URL.repos} element={<ReposMobile />} />
             <Route path={URL.todo} element={<TodoMobile />} />
           </Routes>
@@ -77,6 +87,14 @@ function App() {
               element={
                 <div className={styles.PageContainer}>
                   <Repos />
+                </div>
+              }
+            />
+            <Route
+              path={URL.orgs}
+              element={
+                <div className={styles.PageContainer}>
+                  <Organization />
                 </div>
               }
             />

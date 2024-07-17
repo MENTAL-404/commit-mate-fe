@@ -25,13 +25,13 @@ export default function Settings() {
     loading: loadingRepos,
     response: reposResponse,
     error: reposError,
-  } = useFetchData(`${SERVER_URL}/organizations/${ORGANIZATION}/repositories`)
+  } = useFetchData(API_URL().repositories)
 
   const {
     loading: loadingBookmarks,
     response: bookmarksResponse,
     error: bookmarksError,
-  } = useFetchData(`${SERVER_URL}/shortcuts/organization/${ORGANIZATION}`)
+  } = useFetchData(API_URL().shortcutOrg)
 
   const repositories = reposResponse ? reposResponse.data.repos : []
 

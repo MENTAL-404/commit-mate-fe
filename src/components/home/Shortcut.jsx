@@ -5,7 +5,7 @@ import useFetchData from '../../hooks/useFetchData'
 import LoadingLottie from '../LoadingLottie'
 
 export default function Shortcut() {
-  const { loading, response, error } = useFetchData(API_URL().shortcut)
+  const { loading, response, error } = useFetchData(API_URL().shortcutOrg)
   const data = response ? response.data : []
 
   if (error) {

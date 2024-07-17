@@ -10,7 +10,6 @@ import useFetchData from '../../hooks/useFetchData'
 export default function Login() {
   const navigate = useNavigate()
   const accessToken = getAccessToken()
-
   useEffect(() => {
     if (accessToken) {
       navigate('/home')
@@ -32,7 +31,7 @@ export default function Login() {
       localStorage.setItem('access_token', accessToken)
 
       // 홈 화면으로 리다이렉트
-      navigate('/repos')
+      navigate('/organizations')
     }
   }, [navigate, response])
 

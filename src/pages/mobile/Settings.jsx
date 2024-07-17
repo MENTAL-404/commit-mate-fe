@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import LoadingLottie from '../../components/LoadingLottie'
 import useFetchData from '../../hooks/useFetchData'
-import { SERVER_URL, ORGANIZATION, getSelectedRepo } from '../../utils/static'
+import { API_URL, getSelectedRepo } from '../../utils/static'
 import ToastMessage from '../../components/ToastMessage'
 
 export default function SettingsMobile() {
@@ -15,7 +15,7 @@ export default function SettingsMobile() {
     loading: loadingRepos,
     response: reposResponse,
     error: reposError,
-  } = useFetchData(`${SERVER_URL}/organizations/${ORGANIZATION}/repositories`)
+  } = useFetchData(API_URL().repositories)
 
   const repositories = reposResponse ? reposResponse.data.repos : []
 

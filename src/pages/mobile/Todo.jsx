@@ -17,7 +17,7 @@ export default function TodoMobile() {
   const fetchTodos = async () => {
     try {
       setLoading(true)
-      const response = await fetch(API_URL().todos, {
+      const response = await fetch(API_URL().todosCR, {
         headers: getHeader(),
         credentials: 'include',
       })
@@ -37,7 +37,7 @@ export default function TodoMobile() {
   // TODO 생성
   const addTodo = async () => {
     try {
-      const response = await fetch(`${API_URL().todos}`, {
+      const response = await fetch(`${API_URL().todosCR}`, {
         method: 'POST',
         headers: getHeader(),
         credentials: 'include',
@@ -55,7 +55,7 @@ export default function TodoMobile() {
   // TODO 해결 체크
   const updateTodo = async (id, complete) => {
     try {
-      const response = await fetch(`${API_URL().todos}/${id}`, {
+      const response = await fetch(`${API_URL().todosUD}/${id}`, {
         method: 'PUT',
         headers: getHeader(),
         credentials: 'include',
@@ -72,7 +72,7 @@ export default function TodoMobile() {
   // TODO 수정
   const saveEditTodo = async (id, title) => {
     try {
-      const response = await fetch(`${API_URL().todos}/${id}`, {
+      const response = await fetch(`${API_URL().todosUD}/${id}`, {
         method: 'PUT',
         headers: getHeader(),
         credentials: 'include',
@@ -91,7 +91,7 @@ export default function TodoMobile() {
   // TODO 삭제
   const deleteTodo = async (id) => {
     try {
-      const response = await fetch(`${API_URL().todos}/${id}`, {
+      const response = await fetch(`${API_URL().todosUD}/${id}`, {
         method: 'DELETE',
         headers: getHeader(),
         credentials: 'include',
