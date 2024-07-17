@@ -9,6 +9,7 @@ import {
   ORGANIZATION,
   AUTH_HEADER,
   getSelectedRepo,
+  getSelectedOrgName,
 } from '../utils/static'
 
 export default function Settings() {
@@ -21,7 +22,7 @@ export default function Settings() {
     const fetchRepositories = async () => {
       try {
         const response = await fetch(
-          `${SERVER_URL}/organizations/${ORGANIZATION}/repositories`,
+          `${SERVER_URL}/organizations/${getSelectedOrgName()}/repositories`,
           {
             headers: AUTH_HEADER,
           }
