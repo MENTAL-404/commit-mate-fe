@@ -10,7 +10,7 @@ export const URL = {
 }
 
 export const GITHUB_LOGIN =
-  'https://github.com/login/oauth/authorize?client_id=Ov23lifYg9wKiqtJvRsK&scope=repo,read:org'
+  'https://github.com/login/oauth/authorize?client_id=Ov23li30j1Gx1R7YUbl5&scope=repo,read:orgs'
 
 export const BACK_TOKEN =
   'https://api.commitmate-dev.kro.kr/api/auth/github/callback'
