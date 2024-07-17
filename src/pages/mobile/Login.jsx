@@ -31,8 +31,7 @@ export default function LoginMobile() {
       // 액세스 토큰을 로컬 스토리지에 저장
       localStorage.setItem('access_token', accessToken)
 
-      // 홈 화면으로 리다이렉트
-      navigate('/repos')
+      navigate('/organizations')
     }
   }, [navigate, response])
 
