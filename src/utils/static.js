@@ -10,15 +10,15 @@ export const URL = {
 }
 
 export const GITHUB_LOGIN =
-  process.env.REACT_PRD_AUTH ||
+  process.env.REACT_APP_PRD_AUTH ||
   'https://github.com/login/oauth/authorize?client_id=Ov23lifYg9wKiqtJvRsK&scope=repo,read:org'
 
 export const BACK_TOKEN =
-  process.env.REACT_PRD_LOGIN ||
+  process.env.REACT_APP_PRD_LOGIN ||
   'https://api.commitmate-dev.kro.kr/api/auth/github/callback'
 
 export const SERVER_URL =
-  process.env.REACT_PRD_BE || 'https://api.commitmate-dev.kro.kr/api'
+  process.env.REACT_APP_PRD_BE || 'https://api.commitmate-dev.kro.kr/api'
 
 export const ORGANIZATION = 'MENTAL-404'
 
