@@ -41,7 +41,7 @@ export default function Shortcut() {
             </div>
           )}
           {data.length < 2 &&
-            Array.from({ length: 2 - data.length }).map((_, index) => (
+            Array.from({ length: 1 - data.length }).map((_, index) => (
               <div
                 key={`placeholder-${index}`}
                 className={`${styles.link} ${styles.noShortcut}`}
