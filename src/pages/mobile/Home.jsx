@@ -14,12 +14,16 @@ export default function HomeMobile() {
     <MobileLayout>
       <div className={styles.mobileContainer}>
         <section className={styles.commemon}>
-          <img src={comemonLogo} className={styles.comemonLogo} />
+          <img
+            src={comemonLogo}
+            className={styles.comemonLogo}
+            alt='comemonLogo'
+          />
           <ComemonGo />
         </section>
         <section className={styles.ActiveChartContainer}>
           <div className={styles.title}>
-            <img src={chart} className={styles.icon} />
+            <img src={chart} className={styles.icon} alt='chart icon' />
             활동차트
           </div>
           <div className={styles.chartContainer}>
@@ -28,16 +32,16 @@ export default function HomeMobile() {
         </section>
         <section className={styles.issueContainer}>
           <div className={styles.title}>
-            <img src={layer} className={styles.icon} />
+            <img src={layer} className={styles.icon} alt='layer icon' />
             오픈된 이슈
           </div>
           <div className={styles.issueContiner}>
-            <IssueList className={styles.issue} type='open' />
+            <IssueList className={styles.issue} type='open' alt='open icon' />
           </div>
         </section>
         <section className={styles.honorContainer}>
           <div className={styles.title}>
-            <img src={layer} className={styles.icon} />
+            <img src={layer} className={styles.icon} alt='layer icon' />
             명예의 전당
           </div>
           <Honor />
