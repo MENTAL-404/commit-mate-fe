@@ -10,7 +10,7 @@ import LoadingLottie from '../../components/LoadingLottie'
 
 export default function Organization() {
   const navigate = useNavigate()
-  const [selectedOrg, setSelectedOrg] = useState('')
+  const [selectedOrg, setSelectedOrg] = useState(null)
 
   const { loading, response, error } = useFetchData(API_URL().organization)
 
@@ -26,7 +26,7 @@ export default function Organization() {
   }, [organizations, selectedOrg])
 
   const handleChangeOrg = (orgId) => {
-    const org = organizations.find((o) => o.id === orgId)
+    const org = organizations.find((o) => o.id === parseInt(orgId))
     setSelectedOrg(org)
   }
 
@@ -59,7 +59,7 @@ export default function Organization() {
                 <>
                   <select
                     className={styles.select}
-                    value={selectedOrg?.id || ''}
+                    value={selectedOrg ? selectedOrg.id : ''}
                     onChange={(e) => handleChangeOrg(e.target.value)}
                   >
                     {organizations.map((org) => (
