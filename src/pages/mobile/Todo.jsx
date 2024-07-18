@@ -26,6 +26,7 @@ export default function TodoMobile() {
       setTodos(result.data || [])
     } catch (error) {
       console.error('Error fetching todos:', error)
+      setError(true)
     } finally {
       setLoading(false)
     }

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import { URL } from './utils/static'
+import React from 'react'
 import {
   Login,
   Home,

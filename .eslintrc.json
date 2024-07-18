@@ -10,6 +10,7 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -22,7 +23,8 @@
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "no-useless-escape": "off"
   },
   "settings": {
     "react": {
