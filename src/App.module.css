@@ -1,5 +1,25 @@
-@import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
+@font-face {
+  font-family: 'WantedSans';
+  src: url('./fonts/WantedSans-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: 'WantedSans';
+  src: url('./fonts/WantedSans-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WantedSans';
+  src: url('./fonts/WantedSans-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply the font-family to your styles */
 .App {
   display: flex;
   justify-content: center;
