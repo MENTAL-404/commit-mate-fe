@@ -45,7 +45,7 @@ export default function SearchCommit({ onClose }) {
     <div className={styles.main}>
       <div className={styles.topContainer}>
         <div className={styles.search}>
-          <img src={search} className={styles.icon} />
+          <img src={search} className={styles.icon} alt='search icon' />
           <input
             type='text'
             className={styles.searchInput}
@@ -55,7 +55,12 @@ export default function SearchCommit({ onClose }) {
             onKeyDown={handleKeyDown}
           />
         </div>
-        <img onClick={onClose} src={close} className={styles.close} />
+        <img
+          onClick={onClose}
+          src={close}
+          className={styles.close}
+          alt='close btn'
+        />
       </div>
       {loading === undefined ? (
         <div className={styles.noResult}>검색어를 입력해주세요.</div>

@@ -14,7 +14,7 @@ export default function IssuesMobile() {
       <div className={styles.mobileContainer}>
         <section className={styles.issueContainer}>
           <div className={styles.title}>
-            <img src={layer} className={styles.icon} />
+            <img src={layer} className={styles.icon} alt='layer icon' />
             이슈 리스트
           </div>
           <div className={styles.issueListContiner}>
@@ -24,7 +24,7 @@ export default function IssuesMobile() {
         </section>
         <section className={styles.issueStatusContainer}>
           <div className={styles.title}>
-            <img src={pie} className={styles.icon} />
+            <img src={pie} className={styles.icon} alt='pie icon' />
             이슈 상태 통계
           </div>
           <div className={styles.pieChartContainer}>
@@ -33,7 +33,7 @@ export default function IssuesMobile() {
         </section>
         <section className={styles.issueStatusContainer}>
           <div className={styles.title}>
-            <img src={chart} className={styles.icon} />
+            <img src={chart} className={styles.icon} alt='chart icon' />
             담당자별 이슈 현황
           </div>
           <IssueAssigneeGraph />

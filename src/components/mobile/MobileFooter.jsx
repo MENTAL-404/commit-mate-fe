@@ -28,6 +28,7 @@ const MobileFooter = () => {
       >
         <img
           src={path.includes('home') ? homeOrange : home}
+          alt='home icon'
           className={styles.icon}
         />
         홈
@@ -39,16 +40,19 @@ const MobileFooter = () => {
         <img
           src={path.includes('commit') ? commitOrange : commit}
           className={styles.icon}
+          alt='commit icon'
         />
         커밋
       </Link>
       <Link
         to={URL.issues}
         className={`${styles.tab} ${path.includes('issue') && styles.clicked}`}
+        alt='issue tab'
       >
         <img
           src={path.includes('issue') ? issueOrange : issue}
           className={styles.icon}
+          alt='issue icon'
         />
         이슈
       </Link>
@@ -59,6 +63,7 @@ const MobileFooter = () => {
         <img
           src={path.includes('setting') ? settingOrange : setting}
           className={styles.icon}
+          alt='setting icon'
         />
         설정
       </Link>

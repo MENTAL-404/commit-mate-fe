@@ -12,7 +12,7 @@ export default function CommitsMobile() {
       <div className={styles.mobileContainer}>
         <section className={styles.wordcloudContainer}>
           <div className={styles.title}>
-            <img src={wordclod} className={styles.icon} />
+            <img src={wordclod} className={styles.icon} alt='wordclod icon' />
             커밋메세지 - 워드클라우드
           </div>
           <div className={styles.wordCloud}>
@@ -21,7 +21,7 @@ export default function CommitsMobile() {
         </section>
         <section className={styles.contributionContainer}>
           <div className={styles.title}>
-            <img src={contribution} className={styles.icon} />
+            <img src={contribution} className={styles.icon} alt='title icon' />
             커밋 기여도
           </div>
           <div className={styles.graph}>
