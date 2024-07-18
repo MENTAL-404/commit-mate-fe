@@ -3,7 +3,7 @@ import SearchCommit from '../components/SearchCommit'
 import styles from '../styles/Commits.module.css'
 import CommitLineChart from '../components/analytics/CommitLineChart'
 import MyWordcloud from '../components/analytics/WordCloud'
-
+import React from 'react'
 
 export default function Commits() {
   return (

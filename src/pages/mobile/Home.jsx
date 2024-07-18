@@ -7,6 +7,7 @@ import ActiveBarChart from '../../components/analytics/ActiveBarChart'
 import layer from '../../assets/images/mobile/layer.png'
 import IssueList from '../../components/issue/IssueList'
 import Honor from '../../components/Honor'
+import React from 'react'
 
 export default function HomeMobile() {
   return (

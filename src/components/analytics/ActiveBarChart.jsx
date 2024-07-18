@@ -1,3 +1,5 @@
+import React from 'react'
+import PropTypes from 'prop-types'
 import { BarChart, Bar, XAxis, ResponsiveContainer, Tooltip } from 'recharts'
 import { API_URL } from '../../utils/static'
 import useFetchData from '../../hooks/useFetchData'
@@ -20,6 +22,12 @@ const CustomTooltip = ({ active, payload, label }) => {
   }
 
   return null
+}
+
+CustomTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+  label: PropTypes.string,
 }
 
 export default function ActiveBarChart() {

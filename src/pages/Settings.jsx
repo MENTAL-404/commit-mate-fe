@@ -11,6 +11,7 @@ import {
   getSelectedRepo,
   getSelectedOrgName,
 } from '../utils/static'
+import React from 'react'
 
 export default function Settings() {
   const [repositories, setRepositories] = useState([])

@@ -10,6 +10,7 @@ import {
   AUTH_HEADER,
   getSelectedRepo,
 } from '../utils/static'
+import React from 'react'
 
 export default function Repos() {
   const navigate = useNavigate()
@@ -18,8 +19,6 @@ export default function Repos() {
 
   useEffect(() => {
     setSelectedRepo(getSelectedRepo())
-
-
 
     const fetchRepositories = async () => {
       try {
@@ -44,8 +43,6 @@ export default function Repos() {
     fetchRepositories()
   }, [])
 
-
-
   const handleChangeRepo = (event) => {
     const newValue = event.target.value
     setSelectedRepo(newValue)
@@ -66,9 +63,7 @@ export default function Repos() {
         <div className={styles.reposContainer}>
           <div className={styles.nameGroup}>
             <label className={styles.inputLabel}>조직명</label>
-            <div className={styles.name}>
-              {ORGANIZATION}
-            </div>
+            <div className={styles.name}>{ORGANIZATION}</div>
           </div>
           <div className={styles.inputGroup}>
             <div className={styles.selectGroup}>

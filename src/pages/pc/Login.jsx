@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from '../../styles/Login.module.css'
-import logo from '../../assets/images/logos/logo.png'
-import logo2 from '../../assets/images/logos/logo2.png'
-import github from '../../assets/images/github.png'
+import logo from '../../assets/images/logos/logo.webp'
+import logo2 from '../../assets/images/logos/logo2.webp'
+import github from '../../assets/images/github.webp'
 import { GITHUB_LOGIN, SERVER_URL, getAccessToken } from '../../utils/static'
 import useFetchData from '../../hooks/useFetchData'
 

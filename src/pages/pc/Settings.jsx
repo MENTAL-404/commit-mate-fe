@@ -5,11 +5,12 @@ import { toast } from 'react-toastify'
 import ToastMessage from '../../components/ToastMessage'
 import 'react-toastify/dist/ReactToastify.css'
 import {
-  SERVER_URL,
-  ORGANIZATION,
   getSelectedRepo,
   getHeader,
   API_URL,
+  // getSelectedOrgName,
+  // getSelectedOrg,
+  getSelectedOrgId,
 } from '../../utils/static'
 import useFetchData from '../../hooks/useFetchData'
 import LoadingLottie from '../../components/LoadingLottie'
@@ -69,28 +70,36 @@ export default function Settings() {
   const handleSaveBookmarks = async () => {
     try {
       for (let bookmark of bookmarks) {
-        if (bookmark.id) {
-          // Update existing bookmarks
-          await fetch(`${API_URL().shortcurId}/${bookmark.id}`, {
-            method: 'PUT',
-            headers: {
-              ...getHeader(),
-              'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-            body: JSON.stringify({ title: bookmark.title, url: bookmark.url }),
-          })
-        } else if (bookmark.title && bookmark.url) {
-          // Create new bookmarks
-          await fetch(`${API_URL().shortcurId}`, {
-            method: 'POST',
-            headers: {
-              ...getHeader(),
-              'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-            body: JSON.stringify({ title: bookmark.title, url: bookmark.url }),
-          })
+        if (bookmark.title && bookmark.url) {
+          if (bookmark.id) {
+            // Update existing bookmarks
+            await fetch(`${API_URL().shortcurId}/${bookmark.id}`, {
+              method: 'PUT',
+              headers: {
+                ...getHeader(),
+                'Content-Type': 'application/json',
+              },
+              credentials: 'include',
+              body: JSON.stringify({
+                title: bookmark.title,
+                url: bookmark.url,
+              }),
+            })
+          } else {
+            // Create new bookmarks
+            await fetch(`${API_URL().shortcurId}/orgs/${getSelectedOrgId()}`, {
+              method: 'POST',
+              headers: {
+                ...getHeader(),
+                'Content-Type': 'application/json',
+              },
+              credentials: 'include',
+              body: JSON.stringify({
+                title: bookmark.title,
+                url: bookmark.url,
+              }),
+            })
+          }
         }
       }
       toast.success('북마크가 저장되었습니다.')
