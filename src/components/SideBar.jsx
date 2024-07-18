@@ -39,6 +39,7 @@ export default function SideBar() {
       }
 
       localStorage.removeItem('access_token')
+      localStorage.removeItem('selected_org')
       localStorage.removeItem('selected_repo')
       localStorage.removeItem('avatar_url')
       toast.success('로그아웃 완료')

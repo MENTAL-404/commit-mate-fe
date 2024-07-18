@@ -25,6 +25,7 @@ const MobileSidebar = ({ isOpen, onClose }) => {
 
       localStorage.removeItem('access_token')
       localStorage.removeItem('selected_repo')
+      localStorage.removeItem('selected_org')
       localStorage.removeItem('avatar_url')
       toast.success('로그아웃 완료')
       setTimeout(() => {
