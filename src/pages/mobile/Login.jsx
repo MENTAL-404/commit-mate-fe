@@ -6,6 +6,7 @@ import useFetchData from '../../hooks/useFetchData'
 import logo2 from '../../assets/images/logos/logo2.png'
 import github from '../../assets/images/github.png'
 import { GITHUB_LOGIN, SERVER_URL, getAccessToken } from '../../utils/static'
+import React from 'react'
 
 export default function LoginMobile() {
   const navigate = useNavigate()

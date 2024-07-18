@@ -1,6 +1,7 @@
 import Layout from '../components/Layout'
 import styles from '../styles/Home.module.css'
 import BottomTag from '../components/home/BottomTag'
+import React from 'react'
 
 import ComemonGo from '../components/analytics/comemon/ComemonGo'
 import IssueList from '../components/issue/IssueList'

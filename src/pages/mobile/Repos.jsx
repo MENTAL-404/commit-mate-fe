@@ -11,6 +11,7 @@ import {
 } from '../../utils/static'
 import useFetchData from '../../hooks/useFetchData'
 import LoadingLottie from '../../components/LoadingLottie'
+import React from 'react'
 
 export default function Repos() {
   const navigate = useNavigate()

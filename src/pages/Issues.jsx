@@ -3,7 +3,7 @@ import styles from '../styles/Issues.module.css'
 import IssueList from '../components/issue/IssueList'
 import IssuePieChart from '../components/analytics/IssuePieChart'
 import IssueAssigneeGraph from '../components/analytics/IssueAssigneeGraph'
-
+import React from 'react'
 
 export default function Issues() {
   return (

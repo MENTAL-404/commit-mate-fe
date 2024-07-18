@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from '../styles/RightSideTopContainer.module.css'
 import drop from '../assets//images/drop.png'
 import Loading from '../components/LoadingLottie'
@@ -6,7 +7,7 @@ import qr from '../assets//images/qr.png'
 import useFetchData from '../hooks/useFetchData'
 import { getSelectedRepo, API_URL } from '../utils/static'
 
-export default function RightSideTopContainer({ customStyle }) {
+function RightSideTopContainer({ customStyle }) {
   const selectedRepo = getSelectedRepo()
   const { loading, response } = useFetchData(API_URL().organization)
 
@@ -37,3 +38,13 @@ export default function RightSideTopContainer({ customStyle }) {
     </div>
   )
 }
+
+RightSideTopContainer.propTypes = {
+  customStyle: PropTypes.string,
+}
+
+RightSideTopContainer.defaultProps = {
+  customStyle: '',
+}
+
+export default RightSideTopContainer

@@ -4,6 +4,7 @@ import wordclod from '../../assets/images/mobile/wordcloud.png'
 import contribution from '../../assets/images/mobile/contribution.png'
 import MyWordcloud from '../../components/analytics/WordCloudMobile'
 import CommitLineChart from '../../components/analytics/CommitLineChart'
+import React from 'react'
 
 export default function CommitsMobile() {
   return (

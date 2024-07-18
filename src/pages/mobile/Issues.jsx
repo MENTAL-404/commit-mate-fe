@@ -6,6 +6,7 @@ import chart from '../../assets/images/mobile/chart.png'
 import IssueList from '../../components/issue/IssueList'
 import IssuePieChart from '../../components/analytics/IssuePieChart'
 import IssueAssigneeGraph from '../../components/analytics/IssueAssigneeGraph'
+import React from 'react'
 
 export default function IssuesMobile() {
   return (

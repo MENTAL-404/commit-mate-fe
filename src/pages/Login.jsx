@@ -5,9 +5,24 @@ import logo from '../images/logo.png'
 import logo2 from '../images/logo2.png'
 import github from '../images/github.png'
 import { GITHUB_LOGIN, SERVER_URL, getAccessToken } from '../utils/static'
+import React from 'react'
 
 export default function Login() {
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
 
   useEffect(() => {
     const accessToken = getAccessToken()
@@ -64,7 +79,8 @@ export default function Login() {
             </div>
           </div>
           <a className={styles.loginBtn} href={GITHUB_LOGIN}>
-            <img src={github} className={styles.githubIcon} alt="Github icon"/> Github
+            <img src={github} className={styles.githubIcon} alt='Github icon' />{' '}
+            Github
           </a>
         </div>
       </div>
