@@ -59,7 +59,7 @@ export default function Organization() {
                 <>
                   <select
                     className={styles.select}
-                    value={selectedOrg.id || ''}
+                    value={selectedOrg?.id || ''}
                     onChange={(e) => handleChangeOrg(e.target.value)}
                   >
                     {organizations.map((org) => (
