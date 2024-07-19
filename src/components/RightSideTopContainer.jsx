@@ -2,14 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from '../styles/RightSideTopContainer.module.css'
 import drop from '../assets//images/drop.png'
-import Loading from '../components/LoadingLottie'
 import qr from '../assets//images/qr.png'
-import useFetchData from '../hooks/useFetchData'
-import { getSelectedRepo, API_URL } from '../utils/static'
+import { getSelectedRepo, getSelectedOrgImg } from '../utils/static'
 
 function RightSideTopContainer({ customStyle }) {
   const selectedRepo = getSelectedRepo()
-  const { loading, response } = useFetchData(API_URL().organization)
+  const organization_image = getSelectedOrgImg()
+  console.log(organization_image)
 
   return (
     <div
@@ -20,17 +19,11 @@ function RightSideTopContainer({ customStyle }) {
       </div>
       <div className={styles.profileContainer}>
         <div className={styles.innerContainer}>
-          {loading ? (
-            <div className={styles.loadingContainer}>
-              <Loading />
-            </div>
-          ) : (
-            <img
-              src={response?.data[0]?.avatar_url}
-              alt='profile'
-              className={styles.profileImage}
-            />
-          )}
+          <img
+            src={organization_image}
+            alt='profile'
+            className={styles.profileImage}
+          />
           <div className={styles.organizationName}>{selectedRepo}</div>
         </div>
         <img src={drop} alt='drop' className={styles.dropImage} />

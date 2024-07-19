@@ -46,7 +46,7 @@ export const getSelectedOrgName = () => {
 
 export const getSelectedOrgImg = () => {
   const selectedOrg = getSelectedOrg()
-  return selectedOrg ? selectedOrg.avartar_url : null
+  return selectedOrg ? selectedOrg.avatar_url : null
 }
 
 export const getAccessToken = () => {
