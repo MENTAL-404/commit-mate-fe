@@ -1,0 +1,133 @@
+.topContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: var(--git0);
+  padding: 1.3rem;
+  border-radius: 6rem;
+  height: 7.5rem;
+  width: 30rem;
+}
+
+.topContainerInHome {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: var(--git0);
+  padding: 1.6rem;
+  border-radius: 6rem;
+  height: 7.5rem;
+  width: 30rem;
+  position: fixed;
+  top: 7rem;
+  right: 7.5rem;
+  z-index: 100;
+}
+
+.qrContainer {
+  /*border-radius: 50%;*/
+  background-color: white;
+  width: 5.5rem;
+  height: t.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.qr {
+  width: 100%;
+}
+
+
+.profileContainer {
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem;
+  box-sizing: border-box;
+  background-color: white;
+  font-size: 1.4rem;
+  width: 23rem;
+}
+
+.innerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.loading {
+  width: 2rem;
+}
+
+.profileImage {
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
+}
+
+.loadingContainer {
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.dropImage {
+  height: 0.8rem;
+  width: 1.4rem;
+  padding: 1rem;
+}
+
+@media (max-width: 1920px) {
+  .topContainerInHome {
+    display: none;
+  }
+
+
+
+  .topContainerInHome {
+    width: 19rem;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .topContainerInHome {
+    top: 4rem;
+  }
+
+  .topContainerInHome {
+    display: flex;
+  }
+
+  .qrContainer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  /*.topContainerInHome {*/
+  /*  display: none;*/
+  /*}*/
+
+  /*.resImgContainer {*/
+  /*  display: block;*/
+  /*}*/
+
+  /*.profileImage {*/
+  /*  position: fixed;*/
+  /*  top: 5.8rem;*/
+  /*  right: 5rem;*/
+  /*  object-fit: cover;*/
+  /*  border: 3px solid white;*/
+  /*  border-radius: 50%;*/
+  /*  box-sizing: border-box;*/
+  /*  box-shadow: 0 0 0 7px var(--git0);*/
+  /*}*/
+}

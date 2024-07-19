@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.linkContainer {
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.linkList {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  color: #636363;
+}
+
+.link {
+  width: 100%;
+  background-color: white;
+  border-radius: 1.8rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  padding: 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.noLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cccccc;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.linkLogo {
+  width: 3rem;
+}
+
+.noShortcut {
+  color: #cccccc;
+  display: flex;
+  justify-content: center;
+}

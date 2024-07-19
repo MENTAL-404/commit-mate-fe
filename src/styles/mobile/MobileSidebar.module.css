@@ -1,0 +1,114 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 75%;
+  /*background-color: white;*/
+  background-color: #e4fbe7;
+  /*box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);*/
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10000;
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebarContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /*height: 100%;*/
+  /*justify-content: space-between;*/
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.profileImage {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.profileName {
+  font-weight: 600;
+  font-size: 1.9rem;
+  margin-top: 1rem;
+}
+
+.profileChange {
+  color: gray;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.linkGroup {
+  margin: 2rem 0;
+}
+
+.logoutButton {
+  height: 3rem;
+  width: 6rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 0.5rem;
+  background: white;
+  cursor: pointer;
+  color: #27a857;
+  font-weight: bold;
+  font-size: 1.4rem;
+  /*margin-left: 10rem;*/
+  box-shadow:
+    rgba(14, 63, 126, 0.04) 0px 0px 0px 1px,
+    rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px,
+    rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px,
+    rgba(42, 51, 70, 0.04) 0px 6px 6px -3px,
+    rgba(14, 63, 126, 0.04) 0px 12px 12px -6px,
+    rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
+}
+
+.logoutButton:hover {
+  background-color: #f4f4f4;
+}
+
+a {
+  text-decoration: none;
+}
+
+.menuItem {
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 0 0 1.2rem 1rem;
+}
+
+.horizontalLine {
+  border: none;
+  border-top: 0.1rem solid #b3b3b3;
+}

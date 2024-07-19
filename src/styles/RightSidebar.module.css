@@ -1,0 +1,136 @@
+.main {
+  width: 45rem;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: var(--bg-color);
+  display: block;
+}
+
+.sideBar {
+  /* 익스플로러 스크롤바 옵션 */
+  -ms-overflow-style: none;
+  /* 파이어폭스 스크롤바 옵션 */
+  scrollbar-width: none;
+  overflow-y: hidden;
+  width: 100%;
+  padding: 2rem;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: var(--git0);
+}
+
+/*top container 컴포넌트화 시키면서 주석화했는데 나중에 필요할지도 몰라서 일단 남겨둔 =======>*/
+
+/*.topContainer {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  gap: 2rem;*/
+/*  background: var(--git0);*/
+/*  padding: 1.3rem;*/
+/*  border-radius: 6rem;*/
+/*}*/
+
+/*.notiContainer {*/
+/*  border-radius: 50%;*/
+/*  background-color: white;*/
+/*  width: 4rem;*/
+/*  height: 4rem;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*}*/
+
+/*.profileContainer {*/
+/*  border-radius: 3rem;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: space-between;*/
+/*  padding: 0.8rem;*/
+/*  box-sizing: border-box;*/
+/*  background-color: white;*/
+/*  font-size: 1.4rem;*/
+/*  width: 24.3rem;*/
+/*}*/
+
+/*.innerContainer {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  gap: 1.5rem;*/
+/*}*/
+
+/*.notiIcon {*/
+/*  width: 1.7rem;*/
+/*}*/
+
+/*.profileImage {*/
+/*  width: 3.8rem;*/
+/*}*/
+
+/*.dropImage {*/
+/*  height: 0.8rem;*/
+/*  width: 1.4rem;*/
+/*  padding: 1rem;*/
+/*}*/
+
+
+
+.title {
+  margin: 1rem;
+  font-size: 1.85rem;
+  font-weight: 600;
+}
+
+.linkContainer {
+  margin: 2rem 0;
+}
+
+.innerTitle {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+
+
+.statusContainer {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.innerStatusContainer {
+  padding: 2.4rem;
+  width: 100%;
+  height: 12rem;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.innerStatusTitle {
+  color: var(--git4);
+  font-weight: 700;
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.book {
+  width: 8rem;
+}
+
+.graph {
+  width: 7rem;
+}
+
+@media screen and (max-width: 990px) {
+  .main {
+    display: none;
+  }
+}

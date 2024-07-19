@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'WavvePADO-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/WavvePADO-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.wordCloud {
+  height: 25rem;
+  /*width: 100%;*/
+}
+
+@media (max-width: 1800px) {
+  .wordCloud {
+    height: 30rem;
+    width: 75rem;
+  }
+}
+
+@media (max-width: 1440px) {
+  .wordCloud {
+    height: 30rem;
+    width: 53rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .wordCloud {
+    height: 30rem;
+    width: 43rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .wordCloud {
+    height: 30rem;
+    width: 30rem;
+  }
+}
+
+@media (max-width: 990px) {
+  .wordCloud {
+    height: 30rem;
+    width: 50rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .wordCloud {
+    height: 30rem;
+    width: 30rem;
+  }
+}

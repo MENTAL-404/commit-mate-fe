@@ -1,0 +1,143 @@
+.main {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: white;
+  z-index: 10001;
+}
+
+.topContainer {
+  padding: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  height: 4rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.search {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #e8e8e8;
+  border-radius: 2rem;
+}
+
+.close {
+  width: 1.7rem;
+  height: 1.7rem;
+  cursor: pointer;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.searchInput {
+  flex: 1;
+  background-color: transparent;
+  border: 0;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.lottieContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 6rem);
+}
+
+.bottomContainer {
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.result {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+  padding: 2rem 2rem;
+  color: black;
+  border-radius: 2rem;
+}
+
+.profileImage {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.line {
+  margin: 1rem 0;
+  border: 0;
+  height: 0.1rem;
+  background-color: #eeeeee;
+}
+
+.line:last-child {
+  display: none;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex: 1;
+}
+
+.message {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.arrowIcon {
+  width: 3rem;
+  height: 3rem;
+}
+
+.commit {
+  width: 100%;
+}
+
+.commiter {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  color: #717171;
+}
+
+.name,
+.date {
+  font-size: 1.2rem;
+}
+
+.result:hover {
+  background-color: rgb(39, 168, 87, 0.5);
+  color: white;
+
+  .name,
+  .date {
+    color: white;
+  }
+}
+
+.noResult {
+  color: #676767;
+  padding: 2rem 3rem;
+  width: 100%;
+  font-weight: 600;
+  margin-top: 2rem;
+  font-size: 1.8rem;
+}
