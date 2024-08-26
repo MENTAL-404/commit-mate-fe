@@ -6,6 +6,11 @@
 <img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white">
 </div>
 
+## 📖 Description
+커밋메이트는 GitHub API를 사용하여 조직의 레포지토리를 모니터링하는 대시보드입니다.<br /><br />
+커밋 / 이슈 데이터를 통해 팀의 개발 활동을 실시간으로 파악할 수 있어요.<br /><br />
+* [프론트엔드 레포지토리 바로가기](https://github.com/MENTAL-404/commit-mate-fe)
+* [백엔드 레포지토리 바로가기](https://github.com/MENTAL-404/commit-mate-be)
 
 
 ## 🕹️ Main Feature
