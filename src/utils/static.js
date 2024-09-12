@@ -10,16 +10,11 @@ export const URL = {
   todo: '/todo',
 }
 
-export const GITHUB_LOGIN =
-  process.env.REACT_APP_PRD_AUTH ||
-  'https://github.com/login/oauth/authorize?client_id=Ov23lifYg9wKiqtJvRsK&scope=repo,read:org'
+export const GITHUB_LOGIN = process.env.REACT_APP_PRD_AUTH 
 
-export const BACK_TOKEN =
-  process.env.REACT_APP_PRD_LOGIN ||
-  'https://api.commitmate-dev.kro.kr/api/auth/github/callback'
+export const BACK_TOKEN = process.env.REACT_APP_PRD_LOGIN 
 
-export const SERVER_URL =
-  process.env.REACT_APP_PRD_BE || 'https://api.commitmate-dev.kro.kr/api'
+export const SERVER_URL = process.env.REACT_APP_PRD_BE 
 
 export const getSelectedOrg = () => {
   const selectedOrg = localStorage.getItem('selected_org')
