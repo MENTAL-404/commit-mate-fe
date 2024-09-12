@@ -59,3 +59,6 @@
 ## 👨‍👩‍👧‍👦 Developer
 *  **김지홍** ([JiHongKim98](https://github.com/JiHongKim98)): DevOps
 *  **정민성** ([BenchPress200](https://github.com/BenchPress200)): BE
+*  **박준서** ([junseoparkk](https://github.com/junseoparkk)): BE
+*  **김수민** ([moolmin](https://github.com/moolmin)): FE
+*  **노현아** ([erica0321](https://github.com/erica0321)): FE
