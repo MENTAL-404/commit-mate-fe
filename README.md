@@ -45,9 +45,9 @@
 ### Installation
 1. Clone the repo
    ```sh
-   git clone https://github.com/moolmin/commit-mate.git
+   git clone https://github.com/MENTAL-404/commit-mate-fe.git
    ```
-2. Install YARM packages
+2. Install YARN packages
    ```sh
    yarn install
    ```
